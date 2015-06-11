@@ -6,7 +6,6 @@
   "keywords": [],
   "activationCommands": {
     "atom-workspace": [
-      "elasticsearch-client:test",
       "elasticsearch-client:cat-aliases",
       "elasticsearch-client:cat-allocation",
       "elasticsearch-client:cat-count",
