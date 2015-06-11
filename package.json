@@ -6,6 +6,7 @@
   "keywords": [],
   "activationCommands": {
     "atom-workspace": [
+      "elasticsearch-client:test",
       "elasticsearch-client:cat-aliases",
       "elasticsearch-client:cat-allocation",
       "elasticsearch-client:cat-count",
@@ -35,7 +36,7 @@
       "elasticsearch-client:indices-delete-index",
       "elasticsearch-client:indices-delete-mapping",
       "elasticsearch-client:indices-get-mapping",
-      "elasticsearch-client:indices-get-settings",
+      "elasticsearch-client:indices-get-index-settings",
       "elasticsearch-client:indices-put-mapping",
       "elasticsearch-client:search-request-body-search",
       "elasticsearch-client:search-search-template",
