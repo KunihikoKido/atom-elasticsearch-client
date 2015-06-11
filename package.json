@@ -1,0 +1,55 @@
+{
+  "name": "elasticsearch-client",
+  "main": "./lib/elasticsearch-client",
+  "version": "0.0.0",
+  "description": "Elasticsearch client for atom",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": [
+      "elasticsearch-client:cat-aliases",
+      "elasticsearch-client:cat-allocation",
+      "elasticsearch-client:cat-count",
+      "elasticsearch-client:cat-fielddata",
+      "elasticsearch-client:cat-health",
+      "elasticsearch-client:cat-indices",
+      "elasticsearch-client:cat-master",
+      "elasticsearch-client:cat-nodes",
+      "elasticsearch-client:cat-pending-tasks",
+      "elasticsearch-client:cat-plugins",
+      "elasticsearch-client:cat-recovery",
+      "elasticsearch-client:cat-segments",
+      "elasticsearch-client:cat-shards",
+      "elasticsearch-client:cat-thread-pool",
+      "elasticsearch-client:docs-index-document",
+      "elasticsearch-client:indices-analyze-cjk",
+      "elasticsearch-client:indices-analyze-default",
+      "elasticsearch-client:indices-analyze-english",
+      "elasticsearch-client:indices-analyze-keyword",
+      "elasticsearch-client:indices-analyze-pattern",
+      "elasticsearch-client:indices-analyze-simple",
+      "elasticsearch-client:indices-analyze-snowball",
+      "elasticsearch-client:indices-analyze-standard",
+      "elasticsearch-client:indices-analyze-stop",
+      "elasticsearch-client:indices-analyze-whitespace",
+      "elasticsearch-client:indices-create-index",
+      "elasticsearch-client:indices-delete-index",
+      "elasticsearch-client:indices-delete-mapping",
+      "elasticsearch-client:indices-get-mapping",
+      "elasticsearch-client:indices-get-settings",
+      "elasticsearch-client:indices-put-mapping",
+      "elasticsearch-client:search-request-body-search",
+      "elasticsearch-client:search-search-template",
+      "elasticsearch-client:search-validate-query",
+      "elasticsearch-client:server-info"
+    ]
+  },
+  "repository": "https://github.com/KunihikoKido/atom-elasticsearch-client",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "dependencies": {
+    "request": "*"
+  }
+}

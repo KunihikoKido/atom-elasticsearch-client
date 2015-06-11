@@ -1,0 +1,37 @@
+".source.json":
+  "Match Query":
+    "prefix": "match_query"
+    "body": """
+    "match": {
+      "${1:message}": "${2:this is a test}"
+    },$3
+    """
+  "Multi Match Query":
+    "prefix": "multi_match_query"
+    "body": """
+    "multi_match": {
+      "query": "${1: this is a test}",
+      "fields": ["${2:subject}", "${3:message}"],
+      "operator": "and"
+    },$4
+    """
+  "Bool Query":
+    "prefix": "bool_query"
+    "body": """
+      "bool": {
+        "must": [{$1}],
+        "must_not": [{$2}],
+        "should": [{$3}],
+        "minimum_should_match": ${4:1},
+        "boost": ${5:1.0}
+      },$6
+    """
+  "Boosting Query":
+    "prefix": "boosting_query"
+    "body": """
+      "boosting": {
+        "positive": {$1},
+        "negative": {$2},
+        "negative_boost": ${3:0.2}
+      },$4
+    """

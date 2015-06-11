@@ -1,0 +1,104 @@
+".source.json":
+  "Query":
+    "prefix": "query"
+    "body": """
+      "query": {$1},$2
+    """
+  "Size":
+    "prefix": "size"
+    "body": """
+      "size": ${1:10},$2
+    """
+  "From":
+    "prefix": "from"
+    "body": """
+      "from": ${1:0},$2
+    """
+  "Sort":
+    "prefix": "sort"
+    "body": """
+      "sort": [
+        {"post_date": {"order": "asc"}},
+        {"user.name": "desc"},
+        "_score"
+      ],$1
+    """
+  "Source filtering":
+    "prefix": "source"
+    "body": """
+      "_source": ["${1:obj1.*}", "${2:obj2.*}"],$3
+    """
+  "Fields":
+    "prefix": "fields"
+    "body": """
+      "fields": ["${1:user}", "${2:postDate}"],$3
+    """
+  "Script Fields":
+    "prefix": "script_fields"
+    "body": """
+      "script_fields": {
+        "test1" : {
+            "script" : "doc['my_field_name'].value * 2"
+        },
+        "test2" : {
+            "script" : "doc['my_field_name'].value * factor",
+            "params" : {
+                "factor"  : 2.0
+            }
+        }
+      },$1
+    """
+  "Field Data Fields":
+    "prefix": "fielddata_fields"
+    "body": """
+      "fielddata_fields" : ["${1:test1}", "${2:test2}"],$3
+    """
+  "Post Filter":
+    "prefix": "post_filter"
+    "body": """
+      "post_filter": {$1},$2
+    """
+  "Highlighting":
+    "prefix": "highlight"
+    "body": """
+      "highlight": {
+        "pre_tags" : ["<em>"],
+        "post_tags" : ["</em>"],
+        "fields": {
+          "content" : {}
+        }
+      },$1
+    """
+  "Rescoring":
+    "prefix": "rescore"
+    "body": """
+      "rescore": {$1},$2
+    """
+  "Explain":
+    "prefix": "explain"
+    "body": """
+      "explain": ${1:true},$2
+    """
+  "Version":
+    "prefix": "version"
+    "body": """
+      "version": ${1:true},$2
+    """
+  "Index Boost":
+    "prefix": "indices_boost"
+    "body": """
+      "indices_boost": {
+        "${1:index1}": ${2:1.4},
+        "${3:index2}": ${4:1.4}
+      },$5
+    """
+  "min_score":
+    "prefix": "min_score"
+    "body": """
+      "min_score": ${1:0.5},$2
+    """
+  "Inner hits":
+    "prefix": "inner_hits"
+    "body": """
+      "inner_hits": {$1},$2
+    """

@@ -1,0 +1,23 @@
+".source.json":
+  "Min Aggregation":
+    "prefix": "min_aggs"
+    "body": """
+      "aggs": {
+        "${1:min_price}": {
+          "min": {
+            "field": "${2:price}"
+          }
+        }
+      },$3
+    """
+  "Max Aggregation":
+    "prefix": "max_aggs"
+    "body": """
+      "aggs": {
+        "${1:max_price}": {
+          "max": {
+            "field": "${2:price}"
+          }
+        }
+      },$3
+    """
