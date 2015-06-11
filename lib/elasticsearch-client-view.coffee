@@ -146,7 +146,6 @@ class ElasticsearchClientView
     @PUT(@makePath(index, '_mapping', docType))
 
   getMapping: (index, docType) ->
-    atom.notifications.addInfo('foo!#{index}')
     @GET(@makePath(index, '_mapping', docType))
 
   deleteMapping: (index, docType) ->
