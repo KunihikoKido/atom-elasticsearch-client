@@ -1,10 +1,9 @@
 {
   "name": "elasticsearch-client",
   "main": "./lib/elasticsearch-client",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Elasticsearch client for atom",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
     "atom-workspace": [
       "elasticsearch-client:cat-aliases",
