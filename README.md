@@ -5,50 +5,50 @@ Elasticsearch Client allows you to build an Rest API request in Atom editor and 
 
 ## Command for Cat APIs
 
-* Elasticsearch Client:cat Aliases
-* Elasticsearch Client:cat Allocation
-* Elasticsearch Client:cat Count
-* Elasticsearch Client:cat Fielddata
-* Elasticsearch Client:cat Health
-* Elasticsearch Client:cat Indices
-* Elasticsearch Client:cat Master
-* Elasticsearch Client:cat Nodes
-* Elasticsearch Client:cat Pending Tasks
-* Elasticsearch Client:cat Plugins
-* Elasticsearch Client:cat Recovery
-* Elasticsearch Client:cat Segments
-* Elasticsearch Client:cat Shards
-* Elasticsearch Client:cat Thread Pool
+* Elasticsearch Client:Cat Aliases
+* Elasticsearch Client:Cat Allocation
+* Elasticsearch Client:Cat Count
+* Elasticsearch Client:Cat Fielddata
+* Elasticsearch Client:Cat Health
+* Elasticsearch Client:Cat Indices
+* Elasticsearch Client:Cat Master
+* Elasticsearch Client:Cat Nodes
+* Elasticsearch Client:Cat Pending Tasks
+* Elasticsearch Client:Cat Plugins
+* Elasticsearch Client:Cat Recovery
+* Elasticsearch Client:Cat Segments
+* Elasticsearch Client:Cat Shards
+* Elasticsearch Client:Cat Thread Pool
 
 ## Command for Document APIs
 
-* Elasticsearch Client:docs Index Document
+* Elasticsearch Client:Docs Index Document
 
 ## Command for Indices APIs
 
-* Elasticsearch Client:indices Analyze Cjk
-* Elasticsearch Client:indices Analyze Default
-* Elasticsearch Client:indices Analyze English
-* Elasticsearch Client:indices Analyze Keyword
-* Elasticsearch Client:indices Analyze Pattern
-* Elasticsearch Client:indices Analyze Simple
-* Elasticsearch Client:indices Analyze Snowball
-* Elasticsearch Client:indices Analyze Standard
-* Elasticsearch Client:indices Analyze Stop
-* Elasticsearch Client:indices Analyze Whitespace
-* Elasticsearch Client:indices Create Index
-* Elasticsearch Client:indices Delete Index
-* Elasticsearch Client:indices Delete Mapping
-* Elasticsearch Client:indices Get Mapping
-* Elasticsearch Client:indices Get Settings
-* Elasticsearch Client:indices Put Mapping
+* Elasticsearch Client:Indices Analyze Cjk
+* Elasticsearch Client:Indices Analyze Default
+* Elasticsearch Client:Indices Analyze English
+* Elasticsearch Client:Indices Analyze Keyword
+* Elasticsearch Client:Indices Analyze Pattern
+* Elasticsearch Client:Indices Analyze Simple
+* Elasticsearch Client:Indices Analyze Snowball
+* Elasticsearch Client:Indices Analyze Standard
+* Elasticsearch Client:Indices Analyze Stop
+* Elasticsearch Client:Indices Analyze Whitespace
+* Elasticsearch Client:Indices Create Index
+* Elasticsearch Client:Indices Delete Index
+* Elasticsearch Client:Indices Delete Mapping
+* Elasticsearch Client:Indices Get Mapping
+* Elasticsearch Client:Indices Get Settings
+* Elasticsearch Client:Indices Put Mapping
 
 ## Command for Search APIs
 
-* Elasticsearch Client:search Request Body Search
-* Elasticsearch Client:search Search Template
-* Elasticsearch Client:search Validate Query
+* Elasticsearch Client:Search Request Body Search
+* Elasticsearch Client:Search Search Template
+* Elasticsearch Client:Search Validate Query
 
 ## Others
 
-* Elasticsearch Client:server Info
+* Elasticsearch Client:Server Info
