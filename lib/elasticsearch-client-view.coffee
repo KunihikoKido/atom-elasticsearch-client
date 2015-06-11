@@ -41,10 +41,11 @@ class ElasticsearchClientView
     atom.commands.add 'atom-workspace', "elasticsearch-client:search-validate-query",       => @validateQuery(index, docType)
     atom.commands.add 'atom-workspace', "elasticsearch-client:server-info",                 => @serverInfo()
 
-
   getText: ->
-    editor = atom.workspace.getActivePaneItem()
-    body = editor.getText()
+    editor = atom.workspace.getActiveTextEditor()
+    return unless editor?
+
+    text = editor.getSelectedText() or editor.getText()
 
   makePath: (parts...) ->
     parts = (part for part in parts when part)
