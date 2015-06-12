@@ -1,5 +1,11 @@
 request = require 'request'
 
+BUTTONS = ["Cancel", "OK"]
+CANCELED = 0
+OK = 1
+
+confirm = (message) ->
+  answer = atom.confirm(message: "Are you sure you want #{message}?", buttons: ["Cancel", "OK"])
 
 module.exports =
 class ElasticsearchClientView
@@ -32,8 +38,8 @@ class ElasticsearchClientView
     atom.commands.add 'atom-workspace', "elasticsearch-client:indices-analyze-stop",        => @analyze(index, 'stop')
     atom.commands.add 'atom-workspace', "elasticsearch-client:indices-analyze-whitespace",  => @analyze(index, 'whitespace')
     atom.commands.add 'atom-workspace', "elasticsearch-client:indices-create-index",        => @createIndex(index)
-    atom.commands.add 'atom-workspace', "elasticsearch-client:indices-delete-index",        => @deleteIndex(index)
-    atom.commands.add 'atom-workspace', "elasticsearch-client:indices-delete-mapping",      => @deleteMapping(index, docType)
+    atom.commands.add 'atom-workspace', "elasticsearch-client:indices-delete-index",        => if confirm("delete index") is OK then @deleteIndex(index)
+    atom.commands.add 'atom-workspace', "elasticsearch-client:indices-delete-mapping",      => if confirm("delete mapping") is OK then @deleteMapping(index, docType)
     atom.commands.add 'atom-workspace', "elasticsearch-client:indices-get-mapping",         => @getMapping(index, docType)
     atom.commands.add 'atom-workspace', "elasticsearch-client:indices-get-index-settings",  => @getIndexSettings(index)
     atom.commands.add 'atom-workspace', "elasticsearch-client:indices-put-mapping",         => @putMapping(index, docType)
@@ -103,18 +109,18 @@ class ElasticsearchClientView
       params: params
     @request(options, callback)
 
-  POST: (path, params={pretty: true}, isResutJson=true) ->
+  POST: (path, body='', params={pretty: true}, isResutJson=true) ->
     callback = if isResutJson then @resultJson else @resultText
     options =
       method: 'POST'
       path: path
       params: params
-      body: @getText()
+      body: body
 
     @request(options, callback)
 
 
-  PUT: (path, params={pretty: true}, isResutJson=true) ->
+  PUT: (path, body='', params={pretty: true}, isResutJson=true) ->
     callback = if isResutJson then @resultJson else @resultText
     options =
       method: 'PUT'
@@ -142,11 +148,11 @@ class ElasticsearchClientView
 
   # Document APIs
   indexDocument: (index, docType)->
-    @POST(@makePath(index, docType))
+    @POST(@makePath(index, docType), body=@getText())
 
   # Indices APIs
   analyze: (index, analyzer) ->
-    @POST(@makePath(index, '_analyze'), params={pretty: true, analyzer: analyzer})
+    @POST(@makePath(index, '_analyze'), body=@getText(), params={pretty: true, analyzer: analyzer})
 
   createIndex: (index) ->
     @PUT(@makePath(index))
@@ -158,7 +164,7 @@ class ElasticsearchClientView
     @DELETE(@makePath(index))
 
   putMapping: (index, docType) ->
-    @PUT(@makePath(index, '_mapping', docType))
+    @PUT(@makePath(index, '_mapping', docType), body=@getText())
 
   getMapping: (index, docType) ->
     @GET(@makePath(index, '_mapping', docType))
@@ -168,10 +174,10 @@ class ElasticsearchClientView
 
   # Search APIs
   requestBodySearch: (index, docType) ->
-    @POST(@makePath(index, docType, '_search'))
+    @POST(@makePath(index, docType, '_search'), body=@getText())
 
   searchTemplate: (index, docType) ->
-    @POST(@makePath(index, docType, '_search', 'template'))
+    @POST(@makePath(index, docType, '_search', 'template'), body=@getText())
 
   validateQuery: (index, docType) ->
-    @POST(@makePath(index, docType, '_validate', 'query'), params={pretty: true, explain: true})
+    @POST(@makePath(index, docType, '_validate', 'query'), body=@getText, params={pretty: true, explain: true})
