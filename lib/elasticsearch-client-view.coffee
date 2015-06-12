@@ -1,5 +1,6 @@
 request = require 'request'
 
+
 module.exports =
 class ElasticsearchClientView
   constructor: ->
@@ -53,7 +54,7 @@ class ElasticsearchClientView
 
   resultJson: (error, response, body) ->
     if error
-      return atom.notifications.addError(error)
+      return atom.notifications.addError("Elasticsearch Server: #{error}")
 
     console.log(body)
 
@@ -68,7 +69,7 @@ class ElasticsearchClientView
 
   resultText: (error, response, body) ->
     if error
-      return atom.notifications.addError(error)
+      return atom.notifications.addError("Elasticsearch Server: #{error}")
 
     console.log(body)
 
