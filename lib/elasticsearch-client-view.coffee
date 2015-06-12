@@ -52,16 +52,30 @@ class ElasticsearchClientView
     parts.join('/')
 
   resultJson: (error, response, body) ->
+    if error
+      return atom.notifications.addError(error)
+
+    console.log(body)
+
+    if typeof body is 'object'
+      body = JSON.stringify(body, null, '\t')
+
     atom.workspace.open("Response", split: 'right').done () ->
       editor = atom.workspace.getActivePaneItem()
       editor.setGrammar(atom.grammars.grammarForScopeName('source.json'))
-      editor.setText(body)
+      editor.setText(body or '')
+
 
   resultText: (error, response, body) ->
+    if error
+      return atom.notifications.addError(error)
+
+    console.log(body)
+
     atom.workspace.open("Response", split: 'right').done () ->
       editor = atom.workspace.getActivePaneItem()
       editor.setGrammar(atom.grammars.grammarForScopeName('text.plain'))
-      editor.setText(body)
+      editor.setText(body or '')
 
   request: (options, callback) ->
     {method, path, body, params} = options
@@ -78,7 +92,6 @@ class ElasticsearchClientView
       headers: headers
 
     console.log(options)
-
     request(options, callback)
 
   GET: (path, params={pretty: true}, isResutJson=true) ->
