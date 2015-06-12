@@ -180,4 +180,4 @@ class ElasticsearchClientView
     @POST(@makePath(index, docType, '_search', 'template'), body=@getText())
 
   validateQuery: (index, docType) ->
-    @POST(@makePath(index, docType, '_validate', 'query'), body=@getText, params={pretty: true, explain: true})
+    @POST(@makePath(index, docType, '_validate', 'query'), body=@getText(), params={pretty: true, explain: true})
