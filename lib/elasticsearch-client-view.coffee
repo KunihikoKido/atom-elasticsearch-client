@@ -126,7 +126,7 @@ class ElasticsearchClientView
       method: 'PUT'
       path: path
       params: params
-      body: @getText()
+      body: body
 
     @request(options, callback)
 
