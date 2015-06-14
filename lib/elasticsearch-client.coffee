@@ -1,7 +1,6 @@
-ElasticsearchClientView = require './elasticsearch-client-view'
+ElasticsearchClientCommand = require './elasticsearch-client-command'
 
 module.exports =
-
   config:
     baseUrl:
       type: 'string'
@@ -12,6 +11,9 @@ module.exports =
     docType:
       type: 'string'
       default: 'posts'
+    servers:
+      type: 'array'
+      default: []
 
   activate: ->
-    elasticsearchClientView = new ElasticsearchClientView()
+    elasticsearchClientCommand = new ElasticsearchClientCommand()
