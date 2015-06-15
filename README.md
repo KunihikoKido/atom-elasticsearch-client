@@ -11,7 +11,6 @@ You can send a body.
     "match_all": {}
   }
 }
-
 ```
 
 Once you have a request ready, use shortcut ``Ctrl + Alt + S`` or open the Command Palette (Shift + Command + P) and enter ``Elasticsearch Request Body Search``.
@@ -39,7 +38,7 @@ Settings (Atom/Open Your Config). edit ``config.cson``
   ]
 ```
 
-You can switch the server, use ``Elasticsearch : Switch Server`` command. 
+You can switch the server, use ``Elasticsearch : Switch Server`` command.
 
 
 ## Command for Cat APIs

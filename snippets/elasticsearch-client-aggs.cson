@@ -8,7 +8,7 @@
             "field": "${2:price}"
           }
         }
-      },$3
+      }$3
     """
   "Max Aggregation":
     "prefix": "max_aggs"
@@ -19,5 +19,5 @@
             "field": "${2:price}"
           }
         }
-      },$3
+      }$3
     """

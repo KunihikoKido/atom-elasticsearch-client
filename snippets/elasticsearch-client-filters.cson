@@ -2,7 +2,7 @@
   "And Filter":
     "prefix": "and_filter"
     "body": """
-      "and": [$1],$2
+      "and": [$1]$2
     """
   "Bool Filter":
     "prefix": "bool_filter"
@@ -11,5 +11,5 @@
         "must": [{$1}],
         "must_not": [{$2}],
         "should": [{$3}]
-      },$4
+      }$4
     """
