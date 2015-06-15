@@ -2,6 +2,8 @@
 
 Elasticsearch Client allows you to build an Rest API request in Atom editor and view the response.
 
+![overview](overview.gif)
+
 ## Using
 You can send a body.
 
@@ -40,8 +42,8 @@ Settings (Atom/Open Your Config). edit ``config.cson``
 
 You can switch the server, use ``Elasticsearch : Switch Server`` command.
 
-
-## Command for Cat APIs
+## Commands
+### Command for Cat APIs
 
 * Elasticsearch:Cat Aliases
 * Elasticsearch:Cat Allocation
@@ -58,11 +60,11 @@ You can switch the server, use ``Elasticsearch : Switch Server`` command.
 * Elasticsearch:Cat Shards
 * Elasticsearch:Cat Thread Pool
 
-## Command for Document APIs
+### Command for Document APIs
 
 * Elasticsearch:Docs Index Document
 
-## Command for Indices APIs
+### Command for Indices APIs
 
 * Elasticsearch:Indices Analyze Cjk
 * Elasticsearch:Indices Analyze Default
@@ -81,17 +83,20 @@ You can switch the server, use ``Elasticsearch : Switch Server`` command.
 * Elasticsearch:Indices Get Settings
 * Elasticsearch:Indices Put Mapping
 
-## Command for Search APIs
+### Command for Search APIs
 
 * Elasticsearch:Search Request Body Search
 * Elasticsearch:Search Search Template
 * Elasticsearch:Search Validate Query
 
-## Command for Node APIs
+### Command for Node APIs
 
 * Elasticsearch:Server Info
 
-## Command for User Settings
+### Command for User Settings
 
 * Elasticsearch :Show Active Server
 * Elasticsearch :Switch Server
+
+## Snippets
+Currently this should work in ``.json`` file
