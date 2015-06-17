@@ -42,6 +42,8 @@
       "elasticsearch:index-document",
       "elasticsearch:request-body-search",
       "elasticsearch:request-body-search-count",
+      "elasticsearch:search-template",
+      "elasticsearch:search-template-count",
       "elasticsearch:validate-query",
 
       "elasticsearch:show-active-server",

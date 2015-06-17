@@ -1,7 +1,7 @@
 {BaseCommand} = require './base'
 
 module.exports =
-class RequestBodySearch extends BaseCommand
+class SearchTemplate extends BaseCommand
 
   run: ({searchType}={}) ->
     options =
@@ -11,4 +11,4 @@ class RequestBodySearch extends BaseCommand
 
     options.searchType = searchType if searchType
 
-    @client.search(options, @showResult)
+    @client.searchTemplate(options, @showResult)
