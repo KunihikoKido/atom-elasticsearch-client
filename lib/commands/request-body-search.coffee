@@ -6,7 +6,7 @@ class RequestBodySearch extends BaseCommand
   run: ({searchType}={}) ->
     options =
       index: @index
-      type: @type
+      type: @docType
       body: @getText()
       searchType: searchType
 

@@ -32,6 +32,7 @@ IndicesGetSettings    = require './commands/indices-get-settings'
 IndicesPutMapping     = require './commands/indices-put-mapping'
 IndicesPutSettings    = require './commands/indices-put-settings'
 
+IndexDocument      = require './commands/index-document'
 RequestBodySearch  = require './commands/request-body-search'
 ValidateQuery      = require './commands/validate-query'
 
@@ -100,6 +101,7 @@ module.exports =
       'elasticsearch:indices-put-mapping':       -> new IndicesPutMapping()
       'elasticsearch:indices-put-settings':      -> new IndicesPutSettings()
 
+      'elasticsearch:index-document':            -> new IndexDocument()
       'elasticsearch:request-body-search':       -> new RequestBodySearch()
       'elasticsearch:request-body-search-count': -> new RequestBodySearch(searchType: 'count')
       'elasticsearch:validate-query':            -> new ValidateQuery()

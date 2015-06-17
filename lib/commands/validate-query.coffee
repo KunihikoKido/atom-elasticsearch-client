@@ -7,7 +7,7 @@ class ValidateQuery extends BaseCommand
     options =
       explain: true
       index: @index
-      type: @type
+      type: @docType
       body: @getText()
 
     @client.indices.validateQuery(options, @showResult)
