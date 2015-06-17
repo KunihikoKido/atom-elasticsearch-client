@@ -20,29 +20,30 @@
       "elasticsearch:cat-segments",
       "elasticsearch:cat-shards",
       "elasticsearch:cat-thread-pool",
-      "elasticsearch:docs-index-document",
-      "elasticsearch:indices-analyze-cjk",
-      "elasticsearch:indices-analyze-default",
-      "elasticsearch:indices-analyze-english",
-      "elasticsearch:indices-analyze-keyword",
-      "elasticsearch:indices-analyze-pattern",
-      "elasticsearch:indices-analyze-simple",
-      "elasticsearch:indices-analyze-snowball",
-      "elasticsearch:indices-analyze-standard",
-      "elasticsearch:indices-analyze-stop",
-      "elasticsearch:indices-analyze-whitespace",
-      "elasticsearch:indices-create-index",
-      "elasticsearch:indices-delete-index",
-      "elasticsearch:indices-delete-mapping",
+
+      "elasticsearch:cluster-get-settings",
+      "elasticsearch:cluster-health",
+      "elasticsearch:cluster-pending-tasks",
+      "elasticsearch:cluster-put-settings",
+      "elasticsearch:cluster-reroute",
+      "elasticsearch:cluster-state",
+      "elasticsearch:cluster-stats",
+
+      "elasticsearch:indices-analyze",
+      "elasticsearch:indices-clear-cache",
+      "elasticsearch:indices-create",
+      "elasticsearch:indices-delete",
       "elasticsearch:indices-get-mapping",
-      "elasticsearch:indices-get-index-settings",
+      "elasticsearch:indices-get-settings",
       "elasticsearch:indices-put-mapping",
-      "elasticsearch:search-request-body-search",
-      "elasticsearch:search-search-template",
-      "elasticsearch:search-validate-query",
-      "elasticsearch:server-info",
-      "elasticsearch:settings-show-active-server",
-      "elasticsearch:settings-switch-server"
+      "elasticsearch:indices-put-settings",
+
+      "elasticsearch:request-body-search",
+      "elasticsearch:request-body-search-count",
+      "elasticsearch:validate-query",
+
+      "elasticsearch:show-active-server",
+      "elasticsearch:switch-server"
     ]
   },
   "repository": "https://github.com/KunihikoKido/atom-elasticsearch-client",
@@ -51,7 +52,9 @@
     "atom": ">=0.174.0 <2.0.0"
   },
   "dependencies": {
-    "request": "2.57.0",
-    "atom-space-pen-views": "2.0.5"
+    "space-pen": "*",
+    "atom-space-pen-views": "2.0.5",
+    "loophole": "*",
+    "elasticsearch": "*"
   }
 }
