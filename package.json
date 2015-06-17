@@ -39,6 +39,7 @@
       "elasticsearch:indices-put-mapping",
       "elasticsearch:indices-put-settings",
 
+      "elasticsearch:info",
       "elasticsearch:index-document",
       "elasticsearch:request-body-search",
       "elasticsearch:request-body-search-count",

@@ -32,6 +32,7 @@ IndicesGetSettings    = require './commands/indices-get-settings'
 IndicesPutMapping     = require './commands/indices-put-mapping'
 IndicesPutSettings    = require './commands/indices-put-settings'
 
+Info               = require './commands/info'
 IndexDocument      = require './commands/index-document'
 RequestBodySearch  = require './commands/request-body-search'
 SearchTemplate     = require './commands/search-template'
@@ -102,6 +103,7 @@ module.exports =
       'elasticsearch:indices-put-mapping':       -> new IndicesPutMapping()
       'elasticsearch:indices-put-settings':      -> new IndicesPutSettings()
 
+      'elasticsearch:info':                      -> new Info()
       'elasticsearch:index-document':            -> new IndexDocument()
       'elasticsearch:request-body-search':       -> new RequestBodySearch()
       'elasticsearch:request-body-search-count': -> new RequestBodySearch(searchType: 'count')
