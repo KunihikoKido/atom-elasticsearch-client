@@ -12,12 +12,9 @@ class SwitchServer extends BaseCommand
       items.push(item)
     items
 
-  onDone: (item) ->
-    new SwitchServer(item)
-
   run: (item) ->
     if not item
-      return new ListView(@items(), @onDone)
+      return new ListView(@items(), (item) -> new SwitchServer(item))
 
     @setActiveServer(item)
     @showActiveServer()
