@@ -85,7 +85,7 @@ class BaseCommand
     if typeof response is 'object'
       response = JSON.stringify(response, null, '\t')
 
-    atom.workspace.open("Response", split: 'right').done () ->
+    atom.workspace.open("RESPONSE.json", split: 'right').done () ->
       editor = atom.workspace.getActivePaneItem()
       editor.setGrammar(atom.grammars.grammarForScopeName('source.json'))
       editor.setText(response or '')
