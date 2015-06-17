@@ -40,6 +40,7 @@
       "elasticsearch:indices-put-settings",
 
       "elasticsearch:info",
+      "elasticsearch:get-document",
       "elasticsearch:index-document",
       "elasticsearch:request-body-search",
       "elasticsearch:request-body-search-count",

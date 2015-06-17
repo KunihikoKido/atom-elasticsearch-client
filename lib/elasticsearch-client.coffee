@@ -34,6 +34,7 @@ IndicesPutSettings    = require './commands/indices-put-settings'
 
 Info               = require './commands/info'
 IndexDocument      = require './commands/index-document'
+GetDocument        = require './commands/get-document'
 RequestBodySearch  = require './commands/request-body-search'
 SearchTemplate     = require './commands/search-template'
 ValidateQuery      = require './commands/validate-query'
@@ -105,6 +106,7 @@ module.exports =
 
       'elasticsearch:info':                      -> new Info()
       'elasticsearch:index-document':            -> new IndexDocument()
+      'elasticsearch:get-document':              -> new GetDocument()
       'elasticsearch:request-body-search':       -> new RequestBodySearch()
       'elasticsearch:request-body-search-count': -> new RequestBodySearch(searchType: 'count')
       'elasticsearch:search-template':           -> new SearchTemplate()
