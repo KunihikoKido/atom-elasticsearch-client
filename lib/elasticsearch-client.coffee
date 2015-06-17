@@ -22,14 +22,15 @@ ClusterReroute        = require './commands/cluster-reroute'
 ClusterState          = require './commands/cluster-state'
 ClusterStats          = require './commands/cluster-stats'
 
-IndicesAnalyze     = require './commands/indices-analyze'
-IndicesClearCache  = require './commands/indices-clear-cache'
-IndicesCreate      = require './commands/indices-create'
-IndicesDelete      = require './commands/indices-delete'
-IndicesGetMapping  = require './commands/indices-get-mapping'
-IndicesGetSettings = require './commands/indices-get-settings'
-IndicesPutMapping  = require './commands/indices-put-mapping'
-IndicesPutSettings = require './commands/indices-put-settings'
+IndicesAnalyze        = require './commands/indices-analyze'
+IndicesClearCache     = require './commands/indices-clear-cache'
+IndicesCreate         = require './commands/indices-create'
+IndicesDeleteMapping  = require './commands/indices-delete-mapping'
+IndicesDelete         = require './commands/indices-delete'
+IndicesGetMapping     = require './commands/indices-get-mapping'
+IndicesGetSettings    = require './commands/indices-get-settings'
+IndicesPutMapping     = require './commands/indices-put-mapping'
+IndicesPutSettings    = require './commands/indices-put-settings'
 
 RequestBodySearch  = require './commands/request-body-search'
 ValidateQuery      = require './commands/validate-query'
@@ -92,6 +93,7 @@ module.exports =
       'elasticsearch:indices-analyze':           -> new IndicesAnalyze()
       'elasticsearch:indices-clear-cache':       -> new IndicesClearCache()
       'elasticsearch:indices-create':            -> new IndicesCreate()
+      'elasticsearch:indices-delete-mapping':    -> new IndicesDeleteMapping()
       'elasticsearch:indices-delete':            -> new IndicesDelete()
       'elasticsearch:indices-get-mapping':       -> new IndicesGetMapping()
       'elasticsearch:indices-get-settings':      -> new IndicesGetSettings()

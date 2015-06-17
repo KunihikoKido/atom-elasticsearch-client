@@ -32,6 +32,7 @@
       "elasticsearch:indices-analyze",
       "elasticsearch:indices-clear-cache",
       "elasticsearch:indices-create",
+      "elasticsearch:indices-delete-mapping",
       "elasticsearch:indices-delete",
       "elasticsearch:indices-get-mapping",
       "elasticsearch:indices-get-settings",
