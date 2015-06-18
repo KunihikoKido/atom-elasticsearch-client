@@ -3,7 +3,7 @@
   "main": "./lib/elasticsearch-client",
   "version": "0.3.0",
   "description": "Elasticsearch client for atom",
-  "keywords": [],
+  "keywords": ["elasticsearch", "rest", "client", "restful","elastic", "search", "index", "mapping", "analyze"],
   "activationCommands": {
     "atom-workspace": [
       "elasticsearch:cat-aliases",
