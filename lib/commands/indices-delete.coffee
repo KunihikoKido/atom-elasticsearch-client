@@ -1,10 +1,13 @@
 {DeleteCommand} = require './base'
+dialog = require '../dialog'
+
 
 module.exports =
 class IndicesDelete extends DeleteCommand
 
   run: ->
-    options =
-      index: @index
+    if dialog.okCancel("Are you sure you want to delete?\nIndex: #{@index}", okTitle: "Delete")
+      options =
+        index: @index
 
-    @client.indices.delete(options, @showResult)
+      @client.indices.delete(options, @showResult)

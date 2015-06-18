@@ -15,7 +15,6 @@ class BaseCommand
   client:     null
   apiVersion: null
 
-  confirm: false
   confirmMessage: "Are you sure?"
 
   constructor: (args...) ->
@@ -28,7 +27,7 @@ class BaseCommand
     @initialize?(args...)
 
   initialize: (args...) ->
-    @runCommand(args...)
+    @run(args...)
 
   getText: ->
     editor = atom.workspace.getActiveTextEditor()
@@ -47,23 +46,6 @@ class BaseCommand
 
     split = if config.getOpenInPane() then config.getSplitPane()
     atom.workspace.open(resultJsonFilePath, split: split, activatePane: true)
-
-  isConfirmed: ->
-    buttons = ["Cancel", "OK"]
-    OK = buttons.indexOf("OK")
-
-    if @confirm is false
-      return true
-
-    answer = atom.confirm(message: @confirmMessage, buttons: buttons)
-
-    if answer is OK
-      return true
-    return false
-
-  runCommand: (args...) ->
-    if @isConfirmed()
-      return @run(args...)
 
   run: (args...) ->
     throw new Error("Subclass must implement a run(args...) method")

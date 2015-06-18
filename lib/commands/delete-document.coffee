@@ -1,5 +1,6 @@
 {DeleteCommand} = require './base'
 InputView = require '../views/input-view'
+dialog = require '../dialog'
 
 
 module.exports =
@@ -11,9 +12,10 @@ class DeleteDocument extends DeleteCommand
         'Required: document id to delete document',
         (value) -> new DeleteDocument(id: value))
 
-    options =
-      index: @index
-      type: @docType
-      id: id
+    if dialog.okCancel("Are you sure you want to delete?\nDocument id: #{id}", okTitle: "Delete")
+      options =
+        index: @index
+        type: @docType
+        id: id
 
-    @client.delete(options, @showResult)
+      @client.delete(options, @showResult)
