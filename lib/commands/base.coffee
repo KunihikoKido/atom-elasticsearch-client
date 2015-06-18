@@ -1,9 +1,11 @@
-{allowUnsafeNewFunction} = require 'loophole'
-elasticsearch = allowUnsafeNewFunction -> require 'elasticsearch'
+Os = require 'os'
+Path = require 'path'
+fs = require 'fs-plus'
+
 notifications = require '../notifications'
-{DEFAULT_ANALYZERS} = require '../settings'
+config = require '../config'
 
-
+resultJsonFilePath = Path.join Os.tmpDir(), "RESPONSE.json"
 
 class BaseCommand
   namespace:  'elasticsearch-client'
@@ -17,60 +19,16 @@ class BaseCommand
   confirmMessage: "Are you sure?"
 
   constructor: (args...) ->
-    @baseUrl = @getBaseUrl()
-    @index = @getIndex()
-    @docType = @getDocType()
-    @apiVersion = @getApiVersion()
-    @client = @getClient(host: @baseUrl, apiVersion: @apiVersion)
-    @analyzers = @getAnalyzers()
+    @baseUrl          = config.getBaseUrl()
+    @index            = config.getIndex()
+    @docType          = config.getDocType()
+    @apiVersion       = config.getApiVersion()
+    @client           = config.getClient()
 
     @initialize?(args...)
 
   initialize: (args...) ->
     @runCommand(args...)
-
-  getBaseUrl: ->
-    atom.config.get("#{@namespace}.baseUrl")
-
-  getIndex: ->
-    atom.config.get("#{@namespace}.index")
-
-  getDocType: ->
-    atom.config.get("#{@namespace}.docType")
-
-  getApiVersion: ->
-    atom.config.get("#{@namespace}.apiVersion")
-
-  getServers: ->
-    atom.config.get("#{@namespace}.servers")
-
-  getAnalyzers: ->
-    analyzers = []
-
-    items = atom.config.get("#{@namespace}.customAnalyzers")
-    for item in items
-      analyzers.push {name: "Custom Analyzer: #{item}", analyzer: item}
-
-    analyzers.push.apply(analyzers, DEFAULT_ANALYZERS)
-
-    return analyzers
-
-  getClient: (options)->
-    client = new elasticsearch.Client(options)
-
-  setActiveServer: ({baseUrl, index, docType, apiVersion}={}) ->
-    atom.config.set("#{@namespace}.baseUrl", baseUrl)
-    atom.config.set("#{@namespace}.index", index)
-    atom.config.set("#{@namespace}.docType", docType)
-    atom.config.set("#{@namespace}.apiVersion", apiVersion)
-
-  showActiveServer: ->
-    notifications.addInfo("""
-      baseUrl   : #{@getBaseUrl()}
-      index     : #{@getIndex()}
-      docType   : #{@getDocType()}
-    """)
-
 
   getText: ->
     editor = atom.workspace.getActiveTextEditor()
@@ -85,10 +43,10 @@ class BaseCommand
     if typeof response is 'object'
       response = JSON.stringify(response, null, '\t')
 
-    atom.workspace.open("RESPONSE.json", split: 'right').done () ->
-      editor = atom.workspace.getActivePaneItem()
-      editor.setGrammar(atom.grammars.grammarForScopeName('source.json'))
-      editor.setText(response or '')
+    fs.writeFileSync(resultJsonFilePath, response, flag: 'w+')
+
+    split = if config.getOpenInPane() then config.getSplitPane()
+    atom.workspace.open(resultJsonFilePath, split: split, activatePane: true)
 
   isConfirmed: ->
     buttons = ["Cancel", "OK"]
