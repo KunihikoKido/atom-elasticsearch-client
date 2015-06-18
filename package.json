@@ -59,10 +59,10 @@
     "atom": ">=0.174.0 <2.0.0"
   },
   "dependencies": {
-    "space-pen": "*",
-    "atom-space-pen-views": "2.0.5",
-    "fs-plus": "*",
-    "loophole": "*",
-    "elasticsearch": "*"
+    "space-pen": "^5.1.1",
+    "atom-space-pen-views": "^2.0.5",
+    "fs-plus": "^2.8.1",
+    "loophole": "^1.0.0",
+    "elasticsearch": "^5.0.0"
   }
 }
