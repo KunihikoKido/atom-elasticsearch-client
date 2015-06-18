@@ -1,9 +1,19 @@
 {
   "name": "elasticsearch-client",
   "main": "./lib/elasticsearch-client",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Elasticsearch client for atom",
-  "keywords": ["elasticsearch", "rest", "client", "restful","elastic", "search", "index", "mapping", "analyze"],
+  "keywords": [
+    "elasticsearch",
+    "rest",
+    "client",
+    "restful",
+    "elastic",
+    "search",
+    "index",
+    "mapping",
+    "analyze"
+  ],
   "activationCommands": {
     "atom-workspace": [
       "elasticsearch:cat-aliases",
@@ -20,7 +30,6 @@
       "elasticsearch:cat-segments",
       "elasticsearch:cat-shards",
       "elasticsearch:cat-thread-pool",
-
       "elasticsearch:cluster-get-settings",
       "elasticsearch:cluster-health",
       "elasticsearch:cluster-pending-tasks",
@@ -28,7 +37,6 @@
       "elasticsearch:cluster-reroute",
       "elasticsearch:cluster-state",
       "elasticsearch:cluster-stats",
-
       "elasticsearch:indices-analyze",
       "elasticsearch:indices-clear-cache",
       "elasticsearch:indices-create",
@@ -38,7 +46,6 @@
       "elasticsearch:indices-get-settings",
       "elasticsearch:indices-put-mapping",
       "elasticsearch:indices-put-settings",
-
       "elasticsearch:delete-document",
       "elasticsearch:get-document",
       "elasticsearch:index-document",
@@ -48,7 +55,6 @@
       "elasticsearch:search-template",
       "elasticsearch:search-template-count",
       "elasticsearch:validate-query",
-
       "elasticsearch:show-active-server",
       "elasticsearch:switch-server"
     ]
