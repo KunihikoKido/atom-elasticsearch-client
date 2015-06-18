@@ -1,18 +1,17 @@
-# ElasticsearchClientCommand = require './elasticsearch-client-command'
-CatAliases        = require './commands/cat-aliases'
-CatAllocation     = require './commands/cat-allocation'
-CatCount          = require './commands/cat-count'
-CatFielddata      = require './commands/cat-fielddata'
-CatHealth         = require './commands/cat-health'
-CatIndices        = require './commands/cat-indices'
-CatMaster         = require './commands/cat-master'
-CatNodes          = require './commands/cat-nodes'
-CatPendingTasks   = require './commands/cat-pending-tasks'
-CatPlugins        = require './commands/cat-plugins'
-CatRecovery       = require './commands/cat-recovery'
-CatSegments       = require './commands/cat-segments'
-CatShards         = require './commands/cat-shards'
-CatThreadPool     = require './commands/cat-thread-pool'
+CatAliases            = require './commands/cat-aliases'
+CatAllocation         = require './commands/cat-allocation'
+CatCount              = require './commands/cat-count'
+CatFielddata          = require './commands/cat-fielddata'
+CatHealth             = require './commands/cat-health'
+CatIndices            = require './commands/cat-indices'
+CatMaster             = require './commands/cat-master'
+CatNodes              = require './commands/cat-nodes'
+CatPendingTasks       = require './commands/cat-pending-tasks'
+CatPlugins            = require './commands/cat-plugins'
+CatRecovery           = require './commands/cat-recovery'
+CatSegments           = require './commands/cat-segments'
+CatShards             = require './commands/cat-shards'
+CatThreadPool         = require './commands/cat-thread-pool'
 
 ClusterGetSettings    = require './commands/cluster-get-settings'
 ClusterHealth         = require './commands/cluster-health'
@@ -25,22 +24,23 @@ ClusterStats          = require './commands/cluster-stats'
 IndicesAnalyze        = require './commands/indices-analyze'
 IndicesClearCache     = require './commands/indices-clear-cache'
 IndicesCreate         = require './commands/indices-create'
-IndicesDeleteMapping  = require './commands/indices-delete-mapping'
 IndicesDelete         = require './commands/indices-delete'
+IndicesDeleteMapping  = require './commands/indices-delete-mapping'
 IndicesGetMapping     = require './commands/indices-get-mapping'
 IndicesGetSettings    = require './commands/indices-get-settings'
 IndicesPutMapping     = require './commands/indices-put-mapping'
 IndicesPutSettings    = require './commands/indices-put-settings'
 
-Info               = require './commands/info'
-IndexDocument      = require './commands/index-document'
-GetDocument        = require './commands/get-document'
-RequestBodySearch  = require './commands/request-body-search'
-SearchTemplate     = require './commands/search-template'
-ValidateQuery      = require './commands/validate-query'
+DeleteDocument        = require './commands/delete-document'
+GetDocument           = require './commands/get-document'
+IndexDocument         = require './commands/index-document'
+Info                  = require './commands/info'
+RequestBodySearch     = require './commands/request-body-search'
+SearchTemplate        = require './commands/search-template'
+ValidateQuery         = require './commands/validate-query'
 
-ShowActiveServer  = require './commands/show-active-server'
-SwitchServer      = require './commands/switch-server'
+ShowActiveServer      = require './commands/show-active-server'
+SwitchServer          = require './commands/switch-server'
 
 
 module.exports =
@@ -66,7 +66,16 @@ module.exports =
     customAnalyzers:
       type: 'array'
       default: []
-      description: 'Enter comma separated custom analyzer names.'
+      description: 'Analyze command to use analyzers'
+    openInPane:
+      type: 'boolean'
+      default: true
+      description: 'Allow commands to open new panes'
+    splitPane:
+      title: 'Split pane direction (up, right, down, or left)'
+      type: 'string'
+      default: 'right'
+      description: 'Where should new panes go? (Defaults to right)'
 
 
   activate: ->
@@ -97,16 +106,17 @@ module.exports =
       'elasticsearch:indices-analyze':           -> new IndicesAnalyze()
       'elasticsearch:indices-clear-cache':       -> new IndicesClearCache()
       'elasticsearch:indices-create':            -> new IndicesCreate()
-      'elasticsearch:indices-delete-mapping':    -> new IndicesDeleteMapping()
       'elasticsearch:indices-delete':            -> new IndicesDelete()
+      'elasticsearch:indices-delete-mapping':    -> new IndicesDeleteMapping()
       'elasticsearch:indices-get-mapping':       -> new IndicesGetMapping()
       'elasticsearch:indices-get-settings':      -> new IndicesGetSettings()
       'elasticsearch:indices-put-mapping':       -> new IndicesPutMapping()
       'elasticsearch:indices-put-settings':      -> new IndicesPutSettings()
 
-      'elasticsearch:info':                      -> new Info()
-      'elasticsearch:index-document':            -> new IndexDocument()
+      'elasticsearch:delete-document':           -> new DeleteDocument()
       'elasticsearch:get-document':              -> new GetDocument()
+      'elasticsearch:index-document':            -> new IndexDocument()
+      'elasticsearch:info':                      -> new Info()
       'elasticsearch:request-body-search':       -> new RequestBodySearch()
       'elasticsearch:request-body-search-count': -> new RequestBodySearch(searchType: 'count')
       'elasticsearch:search-template':           -> new SearchTemplate()

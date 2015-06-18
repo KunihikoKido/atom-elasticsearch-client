@@ -42,7 +42,23 @@ Settings (Atom/Open Your Config). edit ``config.cson``
 
 You can switch the server, use ``Elasticsearch : Switch Server`` command.
 
+## Snippets
+Currently this should work in ``.json`` file
+
 ## Commands
+
+### Command for Basic APIs
+
+* Elasticsearch:Get Document
+* Elasticsearch:Index Document
+* Elasticsearch:Info
+* Elasticsearch:Request Body Search
+* Elasticsearch:Request Body Search Count
+* Elasticsearch:Search Template
+* Elasticsearch:Search Template Count
+* Elasticsearch:Validate Query
+
+
 ### Command for Cat APIs
 
 * Elasticsearch:Cat Aliases
@@ -60,43 +76,29 @@ You can switch the server, use ``Elasticsearch : Switch Server`` command.
 * Elasticsearch:Cat Shards
 * Elasticsearch:Cat Thread Pool
 
-### Command for Document APIs
-
-* Elasticsearch:Docs Index Document
-
 ### Command for Indices APIs
 
-* Elasticsearch:Indices Analyze Cjk
-* Elasticsearch:Indices Analyze Default
-* Elasticsearch:Indices Analyze English
-* Elasticsearch:Indices Analyze Keyword
-* Elasticsearch:Indices Analyze Pattern
-* Elasticsearch:Indices Analyze Simple
-* Elasticsearch:Indices Analyze Snowball
-* Elasticsearch:Indices Analyze Standard
-* Elasticsearch:Indices Analyze Stop
-* Elasticsearch:Indices Analyze Whitespace
-* Elasticsearch:Indices Create Index
-* Elasticsearch:Indices Delete Index
+* Elasticsearch:Indices Analyze
+* Elasticsearch:Indices Clear Cache
+* Elasticsearch:Indices Create
+* Elasticsearch:Indices Delete
 * Elasticsearch:Indices Delete Mapping
 * Elasticsearch:Indices Get Mapping
 * Elasticsearch:Indices Get Settings
 * Elasticsearch:Indices Put Mapping
+* Elasticsearch:Indices Put Settings
 
-### Command for Search APIs
+### Command for Cluster APIs
 
-* Elasticsearch:Search Request Body Search
-* Elasticsearch:Search Search Template
-* Elasticsearch:Search Validate Query
-
-### Command for Node APIs
-
-* Elasticsearch:Server Info
+* Elasticsearch:Cluster Get Settings
+* Elasticsearch:Cluster Health
+* Elasticsearch:Cluster Pending Tasks
+* Elasticsearch:Cluster Put Settings
+* Elasticsearch:Cluster Reroute
+* Elasticsearch:Cluster State
+* Elasticsearch:Cluster Stats
 
 ### Command for User Settings
 
 * Elasticsearch :Show Active Server
 * Elasticsearch :Switch Server
-
-## Snippets
-Currently this should work in ``.json`` file

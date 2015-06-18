@@ -39,9 +39,10 @@
       "elasticsearch:indices-put-mapping",
       "elasticsearch:indices-put-settings",
 
-      "elasticsearch:info",
+      "elasticsearch:delete-document",
       "elasticsearch:get-document",
       "elasticsearch:index-document",
+      "elasticsearch:info",
       "elasticsearch:request-body-search",
       "elasticsearch:request-body-search-count",
       "elasticsearch:search-template",
@@ -60,6 +61,7 @@
   "dependencies": {
     "space-pen": "*",
     "atom-space-pen-views": "2.0.5",
+    "fs-plus": "*",
     "loophole": "*",
     "elasticsearch": "*"
   }

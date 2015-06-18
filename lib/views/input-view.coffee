@@ -7,17 +7,19 @@ class InputView extends View
     @div =>
       @subview 'inputValue', new TextEditorView(mini: true, placeholderText: placeholderText)
 
-  initialize: (placeholderText, callback) ->
+  initialize: (placeholderText, @callback) ->
     @disposables = new CompositeDisposable
     @currentPane = atom.workspace.getActivePane()
     @panel ?= atom.workspace.addModalPanel(item: this)
     @panel.show()
     @inputValue.focus()
     @disposables.add atom.commands.add 'atom-text-editor', 'core:cancel': => @destroy()
-    @disposables.add atom.commands.add 'atom-text-editor', 'core:confirm': =>
-      text = @inputValue.getModel().getText()
-      callback(text)
-      @destroy()
+    @disposables.add atom.commands.add 'atom-text-editor', 'core:confirm': => @confirm()
+
+  confirm: ->
+    text = @inputValue.getModel().getText()
+    @callback?(text)
+    @destroy()
 
   destroy: ->
     @disposables?.dispose()
