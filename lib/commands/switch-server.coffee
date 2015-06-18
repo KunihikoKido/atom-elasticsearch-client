@@ -1,5 +1,6 @@
 {BaseCommand} = require './base'
 ListView = require '../views/list-view'
+config = require '../config'
 
 
 module.exports =
@@ -7,14 +8,14 @@ class SwitchServer extends BaseCommand
 
   items: ->
     items = []
-    for item in @getServers()
+    for item in config.getServers()
       item.name = "#{item.baseUrl}/#{item.index}/#{item.docType}"
       items.push(item)
     items
 
-  run: (item) ->
-    if not item
-      return new ListView(@items(), (item) -> new SwitchServer(item))
+  setActiveServer: (item) ->
+    config.setActiveServer(item)
+    config.showActiveServer()
 
-    @setActiveServer(item)
-    @showActiveServer()
+  run: ->
+    new ListView(@items(), @setActiveServer)
