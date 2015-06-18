@@ -37,7 +37,7 @@ class BaseCommand
 
   showResult: (error, response) ->
     if error
-      return notifications.addError("#{error}", dismissable: true)
+      return notifications.addError("#{error}", stack: error.stack, dismissable: true)
 
     if typeof response is 'object'
       response = JSON.stringify(response, null, '\t')

@@ -8,6 +8,6 @@ module.exports =
     atom.notifications.addSuccess(
       @title, detail: message, dismissable: dismissable)
 
-  addError: (message, {dismissable}={}) ->
+  addError: (message, {stack, dismissable}={}) ->
     atom.notifications.addError(
-      @title, detail: message, dismissable: dismissable)
+      @title, detail: message, stack: stack, dismissable: dismissable)

@@ -26,7 +26,7 @@ class IndicesAnalyze extends BaseCommand
     options =
       analyzer: analyzer
       index: @index
-      text: @getText()
+      body: @getText()
 
     @client.indices.analyze(options, @showResult)
 
