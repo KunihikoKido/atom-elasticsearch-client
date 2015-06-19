@@ -111,7 +111,7 @@ module.exports =
       description: ''
     userAgent:
       type: 'string'
-      default: 'elasticsearch-client for atom'
+      default: 'elasticsearch-client'
 
 
 
