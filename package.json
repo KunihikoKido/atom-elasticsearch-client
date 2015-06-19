@@ -48,6 +48,7 @@
       "elasticsearch:indices-put-settings",
       "elasticsearch:bulk",
       "elasticsearch:clear-scroll",
+      "elasticsearch:count",
       "elasticsearch:delete-document",
       "elasticsearch:get-document",
       "elasticsearch:index-document",
