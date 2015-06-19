@@ -48,12 +48,15 @@ module.exports =
     baseUrl:
       type: 'string'
       default: 'http://localhost:9200'
+      description: 'Elasticsearch server endpoint url'
     index:
       type: 'string'
       default: 'blog'
+      description: 'Elasticsearch index for items'
     docType:
       type: 'string'
       default: 'posts'
+      description: 'Elasticsearch document type for items'
     apiVersion:
       type: 'string'
       default: '1.6'
@@ -76,6 +79,41 @@ module.exports =
       type: 'string'
       default: 'right'
       description: 'Where should new panes go? (Defaults to right)'
+    maxRetries:
+      type: 'integer'
+      default: 3
+      description: 'How many times should the client try to connect to
+      other nodes before returning a ConnectionFault error.'
+    requestTimeout:
+      type: 'integer'
+      default: 30000
+      description: 'Milliseconds before an HTTP request will be aborted
+      and retried. This can also be set per request.'
+    deadTimeout:
+      type: 'integer'
+      default: 30000
+      description: 'Milliseconds that a dead connection will wait
+      before attempting to revive itself.'
+    pingTimeout:
+      type: 'integer'
+      default: 3000
+      description: 'Milliseconds that a ping request can take before
+      timing out.'
+    keepAlive:
+      type: 'boolean'
+      default: true
+      description: 'Should the connections to the node be kept open forever?
+      This behavior is recommended when you are connecting directly
+      to Elasticsearch.'
+    authorizationHeader:
+      type: 'string'
+      default: ''
+      description: ''
+    userAgent:
+      type: 'string'
+      default: 'elasticsearch-client for atom'
+
+
 
 
   activate: ->

@@ -1,3 +1,4 @@
+url = require 'url'
 {allowUnsafeNewFunction} = require 'loophole'
 elasticsearch = allowUnsafeNewFunction -> require 'elasticsearch'
 notifications = require './notifications'
@@ -5,6 +6,7 @@ notifications = require './notifications'
 
 module.exports =
   namespace: "elasticsearch-client"
+  client: null
 
   getBaseUrl: ->
     atom.config.get("#{@namespace}.baseUrl")
@@ -37,19 +39,35 @@ module.exports =
       docType: @getDocType()
       apiVersion: @getApiVersion()
 
-  getClient: ({baseUrl, apiVersion}={}) ->
-    options =
-      host: @getBaseUrl()
-      apiVersion: @getApiVersion()
-      connectionClass: 'http'
-      keepAlive: false
+  initClient: ->
 
-    if baseUrl
-      options.hots = baseUrl
-      options.apiVersion = apiVersion
+    hostOptions = {}
+    host = url.parse(@getBaseUrl())
+    hostOptions.host = host.hostname
+    hostOptions.port = host.port ?= "80"
+    hostOptions.path = host.path
+    hostOptions.headers = {}
+    hostOptions.headers["Authorization"] =
+      atom.config.get("#{@namespace}.authorizationHeader")
+    hostOptions.headers["User-Agent"] =
+      atom.config.get("#{@namespace}".userAgent)
 
-    client = new elasticsearch.Client(options)
+    options = {}
+    options.host = hostOptions
+    options.apiVersion = @getApiVersion()
+    options.connectionClass = 'http'
+    options.maxRetries     = atom.config.get("#{@namespace}.maxRetries")
+    options.requestTimeout = atom.config.get("#{@namespace}.requestTimeout")
+    options.deadTimeout    = atom.config.get("#{@namespace}.deadTimeout")
+    options.pingTimeout    = atom.config.get("#{@namespace}.pingTimeout")
+    options.keepAlive      = atom.config.get("#{@namespace}.keepAlive")
 
+    console.log(hostOptions)
+
+    new elasticsearch.Client(options)
+
+  getClient: ->
+    @client ?= @initClient()
 
   setBaseUrl: (baseUrl) ->
     atom.config.set("#{@namespace}.baseUrl", baseUrl)
@@ -68,6 +86,7 @@ module.exports =
     @setIndex(index)
     @setDocType(docType)
     @setApiVersion(apiVersion)
+    @client = @initClient()
 
   showActiveServer: ->
     notifications.addInfo("""
