@@ -43,9 +43,9 @@ module.exports =
 
     hostOptions = {}
     host = url.parse(@getBaseUrl())
-    hostOptions.host = host.hostname
-    hostOptions.port = host.port ?= "80"
-    hostOptions.path = host.path
+    hostOptions.host    = host.hostname
+    hostOptions.port    = host.port ?= "80"
+    hostOptions.path    = host.path
     hostOptions.headers = {}
     hostOptions.headers["Authorization"] =
       atom.config.get("#{@namespace}.authorizationHeader")
@@ -53,14 +53,14 @@ module.exports =
       atom.config.get("#{@namespace}".userAgent)
 
     options = {}
-    options.host = hostOptions
-    options.apiVersion = @getApiVersion()
+    options.host            = hostOptions
+    options.apiVersion      = @getApiVersion()
     options.connectionClass = 'http'
-    options.maxRetries     = atom.config.get("#{@namespace}.maxRetries")
-    options.requestTimeout = atom.config.get("#{@namespace}.requestTimeout")
-    options.deadTimeout    = atom.config.get("#{@namespace}.deadTimeout")
-    options.pingTimeout    = atom.config.get("#{@namespace}.pingTimeout")
-    options.keepAlive      = atom.config.get("#{@namespace}.keepAlive")
+    options.maxRetries      = atom.config.get("#{@namespace}.maxRetries")
+    options.requestTimeout  = atom.config.get("#{@namespace}.requestTimeout")
+    options.deadTimeout     = atom.config.get("#{@namespace}.deadTimeout")
+    options.pingTimeout     = atom.config.get("#{@namespace}.pingTimeout")
+    options.keepAlive       = atom.config.get("#{@namespace}.keepAlive")
 
     console.log(hostOptions)
 
