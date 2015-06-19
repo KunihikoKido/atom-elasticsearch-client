@@ -31,6 +31,7 @@ IndicesGetSettings    = require './commands/indices-get-settings'
 IndicesPutMapping     = require './commands/indices-put-mapping'
 IndicesPutSettings    = require './commands/indices-put-settings'
 
+Bulk                  = require './commands/bulk'
 DeleteDocument        = require './commands/delete-document'
 GetDocument           = require './commands/get-document'
 IndexDocument         = require './commands/index-document'
@@ -151,6 +152,7 @@ module.exports =
       'elasticsearch:indices-put-mapping':       -> new IndicesPutMapping()
       'elasticsearch:indices-put-settings':      -> new IndicesPutSettings()
 
+      'elasticsearch:bulk':                      -> new Bulk()
       'elasticsearch:delete-document':           -> new DeleteDocument()
       'elasticsearch:get-document':              -> new GetDocument()
       'elasticsearch:index-document':            -> new IndexDocument()

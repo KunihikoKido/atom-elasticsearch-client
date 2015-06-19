@@ -46,6 +46,7 @@
       "elasticsearch:indices-get-settings",
       "elasticsearch:indices-put-mapping",
       "elasticsearch:indices-put-settings",
+      "elasticsearch:bulk",
       "elasticsearch:delete-document",
       "elasticsearch:get-document",
       "elasticsearch:index-document",
