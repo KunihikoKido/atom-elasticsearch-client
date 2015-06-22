@@ -49,6 +49,7 @@
       "elasticsearch:indices-exists-alias",
       "elasticsearch:indices-exists-template",
       "elasticsearch:indices-exists-document-type",
+      "elasticsearch:indices-flush",
       "elasticsearch:indices-get-mapping",
       "elasticsearch:indices-get-settings",
       "elasticsearch:indices-put-mapping",

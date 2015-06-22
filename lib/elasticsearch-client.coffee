@@ -33,6 +33,7 @@ IndicesExists         = require './commands/indices-exists'
 IndicesExistsAlias    = require './commands/indices-exists-alias'
 IndicesExistsTemplate = require './commands/indices-exists-template'
 IndicesExistsDocType  = require './commands/indices-exists-doc-type'
+IndicesFlush          = require './commands/indices-flush'
 IndicesGetMapping     = require './commands/indices-get-mapping'
 IndicesGetSettings    = require './commands/indices-get-settings'
 IndicesPutMapping     = require './commands/indices-put-mapping'
@@ -162,6 +163,7 @@ module.exports =
       'elasticsearch:indices-exists-alias':      -> new IndicesExistsAlias()
       'elasticsearch:indices-exists-template':   -> new IndicesExistsTemplate()
       'elasticsearch:indices-exists-document-type':  -> new IndicesExistsDocType()
+      'elasticsearch:indices-flush':             -> new IndicesFlush()
       'elasticsearch:indices-get-mapping':       -> new IndicesGetMapping()
       'elasticsearch:indices-get-settings':      -> new IndicesGetSettings()
       'elasticsearch:indices-put-mapping':       -> new IndicesPutMapping()
