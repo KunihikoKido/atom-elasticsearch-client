@@ -46,6 +46,7 @@
       "elasticsearch:indices-get-settings",
       "elasticsearch:indices-put-mapping",
       "elasticsearch:indices-put-settings",
+      "elasticsearch:indices-recovery",
       "elasticsearch:bulk",
       "elasticsearch:clear-scroll",
       "elasticsearch:count",
