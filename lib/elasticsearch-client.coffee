@@ -31,6 +31,7 @@ IndicesGetSettings    = require './commands/indices-get-settings'
 IndicesPutMapping     = require './commands/indices-put-mapping'
 IndicesPutSettings    = require './commands/indices-put-settings'
 IndicesRecovery       = require './commands/indices-recovery'
+IndicesStats          = require './commands/indices-stats'
 
 Bulk                  = require './commands/bulk'
 ClearScroll           = require './commands/clear-scroll'
@@ -155,6 +156,7 @@ module.exports =
       'elasticsearch:indices-put-mapping':       -> new IndicesPutMapping()
       'elasticsearch:indices-put-settings':      -> new IndicesPutSettings()
       'elasticsearch:indices-recovery':          -> new IndicesRecovery()
+      'elasticsearch:indices-stats':             -> new IndicesStats()
 
       'elasticsearch:bulk':                      -> new Bulk()
       'elasticsearch:clear-scroll':              -> new ClearScroll()
