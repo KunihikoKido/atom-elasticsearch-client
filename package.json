@@ -55,6 +55,7 @@
       "elasticsearch:indices-get-field-mapping",
       "elasticsearch:indices-get-mapping",
       "elasticsearch:indices-get-settings",
+      "elasticsearch:indices-get-template",
       "elasticsearch:indices-put-mapping",
       "elasticsearch:indices-put-settings",
       "elasticsearch:indices-recovery",
