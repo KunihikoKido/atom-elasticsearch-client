@@ -31,6 +31,7 @@ IndicesDeleteTemplate = require './commands/indices-delete-template'
 IndicesDeleteWarmer   = require './commands/indices-delete-warmer'
 IndicesExists         = require './commands/indices-exists'
 IndicesExistsAlias    = require './commands/indices-exists-alias'
+IndicesExistsTemplate = require './commands/indices-exists-template'
 IndicesGetMapping     = require './commands/indices-get-mapping'
 IndicesGetSettings    = require './commands/indices-get-settings'
 IndicesPutMapping     = require './commands/indices-put-mapping'
@@ -158,6 +159,7 @@ module.exports =
       'elasticsearch:indices-delete-warmer':     -> new IndicesDeleteWarmer()
       'elasticsearch:indices-exists':            -> new IndicesExists()
       'elasticsearch:indices-exists-alias':      -> new IndicesExistsAlias()
+      'elasticsearch:indices-exists-template':   -> new IndicesExistsTemplate()
       'elasticsearch:indices-get-mapping':       -> new IndicesGetMapping()
       'elasticsearch:indices-get-settings':      -> new IndicesGetSettings()
       'elasticsearch:indices-put-mapping':       -> new IndicesPutMapping()
