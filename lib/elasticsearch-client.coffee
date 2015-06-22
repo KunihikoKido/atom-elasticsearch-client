@@ -61,6 +61,7 @@ IndicesValidateQuery  = require './commands/indices-validate-query'
 
 NodesHotThreads       = require './commands/nodes-hot-threads'
 NodesInfo             = require './commands/nodes-info'
+NodesShutdown         = require './commands/nodes-shutdown'
 
 Bulk                  = require './commands/bulk'
 ClearScroll           = require './commands/clear-scroll'
@@ -211,6 +212,9 @@ module.exports =
 
       'elasticsearch:nodes-hot-threads':         -> new NodesHotThreads()
       'elasticsearch:nodes-info':                -> new NodesInfo()
+      'elasticsearch:nodes-shutdown-all':        -> new NodesShutdown(nodeId: "_all")
+      'elasticsearch:nodes-shutdown-local':      -> new NodesShutdown(nodeId: "_local")
+      'elasticsearch:nodes-shutdown-master':     -> new NodesShutdown(nodeId: "_master")
 
       'elasticsearch:bulk':                      -> new Bulk()
       'elasticsearch:clear-scroll':              -> new ClearScroll()
