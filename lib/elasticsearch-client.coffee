@@ -57,6 +57,7 @@ IndicesStats          = require './commands/indices-stats'
 IndicesStatus         = require './commands/indices-status'
 IndicesUpdateAliases  = require './commands/indices-update-aliases'
 IndicesUpgrade        = require './commands/indices-upgrade'
+IndicesValidateQuery  = require './commands/indices-validate-query'
 
 Bulk                  = require './commands/bulk'
 ClearScroll           = require './commands/clear-scroll'
@@ -67,7 +68,6 @@ IndexDocument         = require './commands/index-document'
 Info                  = require './commands/info'
 RequestBodySearch     = require './commands/request-body-search'
 SearchTemplate        = require './commands/search-template'
-ValidateQuery         = require './commands/validate-query'
 
 ShowActiveServer      = require './commands/show-active-server'
 SwitchServer          = require './commands/switch-server'
@@ -204,6 +204,7 @@ module.exports =
       'elasticsearch:indices-status':            -> new IndicesStatus()
       'elasticsearch:indices-update-aliases':    -> new IndicesUpdateAliases()
       'elasticsearch:indices-upgrade':           -> new IndicesUpgrade()
+      'elasticsearch:indices-validate-query':    -> new IndicesValidateQuery()
 
       'elasticsearch:bulk':                      -> new Bulk()
       'elasticsearch:clear-scroll':              -> new ClearScroll()
@@ -216,7 +217,6 @@ module.exports =
       'elasticsearch:request-body-search-count': -> new RequestBodySearch(searchType: 'count')
       'elasticsearch:search-template':           -> new SearchTemplate()
       'elasticsearch:search-template-count':     -> new SearchTemplate(searchType: 'count')
-      'elasticsearch:validate-query':            -> new ValidateQuery()
 
       'elasticsearch:settings-show-active-server':        -> new ShowActiveServer()
       'elasticsearch:settings-switch-server':             -> new SwitchServer()

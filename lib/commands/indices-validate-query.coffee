@@ -1,7 +1,7 @@
 {BaseCommand} = require './base'
 
 module.exports =
-class ValidateQuery extends BaseCommand
+class IndicesValidateQuery extends BaseCommand
 
   run: ->
     options =

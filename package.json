@@ -72,6 +72,7 @@
       "elasticsearch:indices-status",
       "elasticsearch:indices-update-aliases",
       "elasticsearch:indices-upgrade",
+      "elasticsearch:indices-validate-query",
       "elasticsearch:bulk",
       "elasticsearch:clear-scroll",
       "elasticsearch:count",
@@ -83,7 +84,6 @@
       "elasticsearch:request-body-search-count",
       "elasticsearch:search-template",
       "elasticsearch:search-template-count",
-      "elasticsearch:validate-query",
       "elasticsearch:settings-show-active-server",
       "elasticsearch:settings-switch-server"
     ]
