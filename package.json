@@ -63,6 +63,7 @@
       "elasticsearch:indices-put-alias",
       "elasticsearch:indices-put-mapping",
       "elasticsearch:indices-put-settings",
+      "elasticsearch:indices-put-template",
       "elasticsearch:indices-recovery",
       "elasticsearch:indices-stats",
       "elasticsearch:bulk",
