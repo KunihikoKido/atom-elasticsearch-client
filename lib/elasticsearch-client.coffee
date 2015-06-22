@@ -49,6 +49,7 @@ IndicesPutAlias       = require './commands/indices-put-alias'
 IndicesPutMapping     = require './commands/indices-put-mapping'
 IndicesPutSettings    = require './commands/indices-put-settings'
 IndicesPutTemplate    = require './commands/indices-put-template'
+IndicesPutWarmer      = require './commands/indices-put-warmer'
 IndicesRecovery       = require './commands/indices-recovery'
 IndicesStats          = require './commands/indices-stats'
 
@@ -190,6 +191,7 @@ module.exports =
       'elasticsearch:indices-put-mapping':       -> new IndicesPutMapping()
       'elasticsearch:indices-put-settings':      -> new IndicesPutSettings()
       'elasticsearch:indices-put-template':      -> new IndicesPutTemplate()
+      'elasticsearch:indices-put-warmer':      -> new IndicesPutWarmer()
       'elasticsearch:indices-recovery':          -> new IndicesRecovery()
       'elasticsearch:indices-stats':             -> new IndicesStats()
 
