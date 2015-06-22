@@ -74,6 +74,7 @@
       "elasticsearch:indices-upgrade",
       "elasticsearch:indices-validate-query",
       "elasticsearch:nodes-hot-threads",
+      "elasticsearch:nodes-info",
       "elasticsearch:bulk",
       "elasticsearch:clear-scroll",
       "elasticsearch:count",

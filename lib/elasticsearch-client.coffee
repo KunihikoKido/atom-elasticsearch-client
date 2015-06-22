@@ -60,6 +60,7 @@ IndicesUpgrade        = require './commands/indices-upgrade'
 IndicesValidateQuery  = require './commands/indices-validate-query'
 
 NodesHotThreads       = require './commands/nodes-hot-threads'
+NodesInfo             = require './commands/nodes-info'
 
 Bulk                  = require './commands/bulk'
 ClearScroll           = require './commands/clear-scroll'
@@ -209,6 +210,7 @@ module.exports =
       'elasticsearch:indices-validate-query':    -> new IndicesValidateQuery()
 
       'elasticsearch:nodes-hot-threads':         -> new NodesHotThreads()
+      'elasticsearch:nodes-info':                -> new NodesInfo()
 
       'elasticsearch:bulk':                      -> new Bulk()
       'elasticsearch:clear-scroll':              -> new ClearScroll()
