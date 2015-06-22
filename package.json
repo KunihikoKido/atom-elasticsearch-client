@@ -70,6 +70,7 @@
       "elasticsearch:indices-segments",
       "elasticsearch:indices-stats",
       "elasticsearch:indices-status",
+      "elasticsearch:indices-update-aliases",
       "elasticsearch:bulk",
       "elasticsearch:clear-scroll",
       "elasticsearch:count",
