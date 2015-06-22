@@ -63,6 +63,10 @@ NodesHotThreads       = require './commands/nodes-hot-threads'
 NodesInfo             = require './commands/nodes-info'
 NodesShutdown         = require './commands/nodes-shutdown'
 
+SnapshotCreateRepository = require './commands/snapshot-create-repository'
+SnapshotGetRepository    = require './commands/snapshot-get-repository'
+SnapshotDeleteRepository    = require './commands/snapshot-delete-repository'
+
 Bulk                  = require './commands/bulk'
 ClearScroll           = require './commands/clear-scroll'
 Count                 = require './commands/count'
@@ -215,6 +219,10 @@ module.exports =
       'elasticsearch:nodes-shutdown-all':        -> new NodesShutdown(nodeId: "_all")
       'elasticsearch:nodes-shutdown-local':      -> new NodesShutdown(nodeId: "_local")
       'elasticsearch:nodes-shutdown-master':     -> new NodesShutdown(nodeId: "_master")
+
+      'elasticsearch:snapshot-create-repository': -> new SnapshotCreateRepository()
+      'elasticsearch:snapshot-get-repository':    -> new SnapshotGetRepository()
+      'elasticsearch:snapshot-delete-repository': -> new SnapshotDeleteRepository()
 
       'elasticsearch:bulk':                      -> new Bulk()
       'elasticsearch:clear-scroll':              -> new ClearScroll()
