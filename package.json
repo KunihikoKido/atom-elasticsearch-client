@@ -73,6 +73,7 @@
       "elasticsearch:indices-update-aliases",
       "elasticsearch:indices-upgrade",
       "elasticsearch:indices-validate-query",
+      "elasticsearch:nodes-hot-threads",
       "elasticsearch:bulk",
       "elasticsearch:clear-scroll",
       "elasticsearch:count",
