@@ -60,6 +60,7 @@
       "elasticsearch:indices-get-warmer",
       "elasticsearch:indices-open",
       "elasticsearch:indices-optimize",
+      "elasticsearch:indices-put-alias",
       "elasticsearch:indices-put-mapping",
       "elasticsearch:indices-put-settings",
       "elasticsearch:indices-recovery",

@@ -38,6 +38,7 @@ IndicesFlushSynced    = require './commands/indices-flush-synced'
 IndicesGet            = require './commands/indices-get'
 IndicesGetAlias       = require './commands/indices-get-alias'
 IndicesGetFieldMapping = require './commands/indices-get-field-mapping'
+IndicesPutAlias       = require './commands/indices-put-alias'
 IndicesGetMapping     = require './commands/indices-get-mapping'
 IndicesGetSettings    = require './commands/indices-get-settings'
 IndicesGetTemplate    = require './commands/indices-get-template'
@@ -184,6 +185,7 @@ module.exports =
       'elasticsearch:indices-get-warmer':        -> new IndicesGetWarmer()
       'elasticsearch:indices-open':              -> new IndicesOpen()
       'elasticsearch:indices-optimize':          -> new IndicesOptimize()
+      'elasticsearch:indices-put-alias':         -> new IndicesPutAlias()
       'elasticsearch:indices-put-mapping':       -> new IndicesPutMapping()
       'elasticsearch:indices-put-settings':      -> new IndicesPutSettings()
       'elasticsearch:indices-recovery':          -> new IndicesRecovery()
