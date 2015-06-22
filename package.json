@@ -46,6 +46,7 @@
       "elasticsearch:indices-delete-template",
       "elasticsearch:indices-delete-warmer",
       "elasticsearch:indices-exists",
+      "elasticsearch:indices-exists-alias",
       "elasticsearch:indices-get-mapping",
       "elasticsearch:indices-get-settings",
       "elasticsearch:indices-put-mapping",
