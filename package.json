@@ -69,6 +69,7 @@
       "elasticsearch:indices-refresh",
       "elasticsearch:indices-segments",
       "elasticsearch:indices-stats",
+      "elasticsearch:indices-status",
       "elasticsearch:bulk",
       "elasticsearch:clear-scroll",
       "elasticsearch:count",
