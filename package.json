@@ -52,6 +52,7 @@
       "elasticsearch:indices-flush",
       "elasticsearch:indices-get",
       "elasticsearch:indices-get-alias",
+      "elasticsearch:indices-get-field-mapping",
       "elasticsearch:indices-get-mapping",
       "elasticsearch:indices-get-settings",
       "elasticsearch:indices-put-mapping",
