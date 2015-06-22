@@ -56,6 +56,7 @@ IndicesSegments       = require './commands/indices-segments'
 IndicesStats          = require './commands/indices-stats'
 IndicesStatus         = require './commands/indices-status'
 IndicesUpdateAliases  = require './commands/indices-update-aliases'
+IndicesUpgrade        = require './commands/indices-upgrade'
 
 Bulk                  = require './commands/bulk'
 ClearScroll           = require './commands/clear-scroll'
@@ -202,6 +203,7 @@ module.exports =
       'elasticsearch:indices-stats':             -> new IndicesStats()
       'elasticsearch:indices-status':            -> new IndicesStatus()
       'elasticsearch:indices-update-aliases':    -> new IndicesUpdateAliases()
+      'elasticsearch:indices-upgrade':           -> new IndicesUpgrade()
 
       'elasticsearch:bulk':                      -> new Bulk()
       'elasticsearch:clear-scroll':              -> new ClearScroll()
