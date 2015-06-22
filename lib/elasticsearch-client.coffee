@@ -42,6 +42,7 @@ IndicesGetMapping     = require './commands/indices-get-mapping'
 IndicesGetSettings    = require './commands/indices-get-settings'
 IndicesGetTemplate    = require './commands/indices-get-template'
 IndicesGetUpgrade     = require './commands/indices-get-upgrade'
+IndicesGetWarmer      = require './commands/indices-get-warmer'
 IndicesPutMapping     = require './commands/indices-put-mapping'
 IndicesPutSettings    = require './commands/indices-put-settings'
 IndicesRecovery       = require './commands/indices-recovery'
@@ -178,6 +179,7 @@ module.exports =
       'elasticsearch:indices-get-settings':      -> new IndicesGetSettings()
       'elasticsearch:indices-get-template':      -> new IndicesGetTemplate()
       'elasticsearch:indices-get-upgrade':       -> new IndicesGetUpgrade()
+      'elasticsearch:indices-get-warmer':        -> new IndicesGetWarmer()
       'elasticsearch:indices-put-mapping':       -> new IndicesPutMapping()
       'elasticsearch:indices-put-settings':      -> new IndicesPutSettings()
       'elasticsearch:indices-recovery':          -> new IndicesRecovery()

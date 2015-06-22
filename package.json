@@ -57,6 +57,7 @@
       "elasticsearch:indices-get-settings",
       "elasticsearch:indices-get-template",
       "elasticsearch:indices-get-upgrade",
+      "elasticsearch:indices-get-warmer",
       "elasticsearch:indices-put-mapping",
       "elasticsearch:indices-put-settings",
       "elasticsearch:indices-recovery",
