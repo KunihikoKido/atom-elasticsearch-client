@@ -60,8 +60,8 @@
       "elasticsearch:search-template",
       "elasticsearch:search-template-count",
       "elasticsearch:validate-query",
-      "elasticsearch:show-active-server",
-      "elasticsearch:switch-server"
+      "elasticsearch:settings-show-active-server",
+      "elasticsearch:settings-switch-server"
     ]
   },
   "repository": "https://github.com/KunihikoKido/atom-elasticsearch-client",

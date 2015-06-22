@@ -118,9 +118,6 @@ module.exports =
       type: 'string'
       default: 'elasticsearch-client'
 
-
-
-
   activate: ->
     atom.commands.add 'atom-workspace',
       'elasticsearch:cat-aliases':               -> new CatAliases()
@@ -171,5 +168,5 @@ module.exports =
       'elasticsearch:search-template-count':     -> new SearchTemplate(searchType: 'count')
       'elasticsearch:validate-query':            -> new ValidateQuery()
 
-      'elasticsearch:show-active-server':        -> new ShowActiveServer()
-      'elasticsearch:switch-server':             -> new SwitchServer()
+      'elasticsearch:settings-show-active-server':        -> new ShowActiveServer()
+      'elasticsearch:settings-switch-server':             -> new SwitchServer()
