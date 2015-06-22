@@ -67,6 +67,7 @@
       "elasticsearch:indices-put-warmer",
       "elasticsearch:indices-recovery",
       "elasticsearch:indices-refresh",
+      "elasticsearch:indices-segments",
       "elasticsearch:indices-stats",
       "elasticsearch:bulk",
       "elasticsearch:clear-scroll",

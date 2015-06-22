@@ -52,6 +52,7 @@ IndicesPutTemplate    = require './commands/indices-put-template'
 IndicesPutWarmer      = require './commands/indices-put-warmer'
 IndicesRecovery       = require './commands/indices-recovery'
 IndicesRefresh        = require './commands/indices-refresh'
+IndicesSegments       = require './commands/indices-segments'
 IndicesStats          = require './commands/indices-stats'
 
 Bulk                  = require './commands/bulk'
@@ -192,9 +193,10 @@ module.exports =
       'elasticsearch:indices-put-mapping':       -> new IndicesPutMapping()
       'elasticsearch:indices-put-settings':      -> new IndicesPutSettings()
       'elasticsearch:indices-put-template':      -> new IndicesPutTemplate()
-      'elasticsearch:indices-put-warmer':      -> new IndicesPutWarmer()
+      'elasticsearch:indices-put-warmer':        -> new IndicesPutWarmer()
       'elasticsearch:indices-recovery':          -> new IndicesRecovery()
-      'elasticsearch:indices-refresh':          -> new IndicesRefresh()
+      'elasticsearch:indices-refresh':           -> new IndicesRefresh()
+      'elasticsearch:indices-segments':          -> new IndicesSegments()
       'elasticsearch:indices-stats':             -> new IndicesStats()
 
       'elasticsearch:bulk':                      -> new Bulk()
