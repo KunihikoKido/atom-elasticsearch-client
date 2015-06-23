@@ -49,9 +49,30 @@ Currently this should work in ``.json`` file
 
 ### Command for Basic APIs
 
+* Elasticsearch: Bulk
+* Elasticsearch: Clear Scroll
+* Elasticsearch: Count
+* Elasticsearch: Count Percolate
+* Elasticsearch: Create Document
+* Elasticsearch: Delete By Query With Query Dsl
+* Elasticsearch: Delete By Query With Simple Query
+* Elasticsearch: Delete Document
+* Elasticsearch: Delete Script
+* Elasticsearch: Delete Search Template
+* Elasticsearch: Exists Document
+* Elasticsearch: Explain Document
+* Elasticsearch: Field Stats
 * Elasticsearch: Get Document
+* Elasticsearch: Get Document Source
+* Elasticsearch: Get Multiple Documents
+* Elasticsearch: Get Script
+* Elasticsearch: Get Search Template
 * Elasticsearch: Index Document
 * Elasticsearch: Info
+* Elasticsearch: Multiple Percolate
+* Elasticsearch: Multiple Search
+* Elasticsearch: Multiple Termvectors
+* Elasticsearch: Percolate
 * Elasticsearch: Search Request Body
 * Elasticsearch: Search Request Body Count
 * Elasticsearch: Search Template
