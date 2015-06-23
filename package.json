@@ -97,6 +97,7 @@
       "elasticsearch:delete-document",
       "elasticsearch:delete-by-query-with-query-dsl",
       "elasticsearch:delete-by-query-with-simple-query",
+      "elasticsearch:delete-script",
       "elasticsearch:get-document",
       "elasticsearch:index-document",
       "elasticsearch:info",
