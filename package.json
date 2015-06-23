@@ -50,6 +50,7 @@
       "elasticsearch:indices-exists-template",
       "elasticsearch:indices-exists-document-type",
       "elasticsearch:indices-flush",
+      "elasticsearch:indices-flush-synced",
       "elasticsearch:indices-get",
       "elasticsearch:indices-get-alias",
       "elasticsearch:indices-get-field-mapping",

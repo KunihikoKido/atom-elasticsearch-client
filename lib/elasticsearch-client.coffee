@@ -195,7 +195,7 @@ module.exports =
       'elasticsearch:indices-exists-template':   -> new IndicesExistsTemplate()
       'elasticsearch:indices-exists-document-type':  -> new IndicesExistsDocType()
       'elasticsearch:indices-flush':             -> new IndicesFlush()
-      # 'elasticsearch:indices-flush-synced':      -> new IndicesFlushSynced()
+      'elasticsearch:indices-flush-synced':      -> new IndicesFlushSynced()
       'elasticsearch:indices-get':               -> new IndicesGet()
       'elasticsearch:indices-get-alias':         -> new IndicesGetAlias()
       'elasticsearch:indices-get-field-mapping': -> new IndicesGetFieldMapping()
