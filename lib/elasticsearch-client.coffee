@@ -23,6 +23,7 @@ ClusterStats          = require './commands/cluster-stats'
 
 IndicesAnalyze        = require './commands/indices-analyze'
 IndicesClearCache     = require './commands/indices-clear-cache'
+IndicesClose          = require './commands/indices-close'
 IndicesCreate         = require './commands/indices-create'
 IndicesDelete         = require './commands/indices-delete'
 IndicesDeleteAlias    = require './commands/indices-delete-alias'
@@ -185,6 +186,7 @@ module.exports =
 
       'elasticsearch:indices-analyze':           -> new IndicesAnalyze()
       'elasticsearch:indices-clear-cache':       -> new IndicesClearCache()
+      'elasticsearch:indices-close':             -> new IndicesClose()
       'elasticsearch:indices-create':            -> new IndicesCreate()
       'elasticsearch:indices-delete':            -> new IndicesDelete()
       'elasticsearch:indices-delete-alias':      -> new IndicesDeleteAlias()
