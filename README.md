@@ -56,49 +56,95 @@ Currently this should work in ``.json`` file
 * Elasticsearch:Request Body Search Count
 * Elasticsearch:Search Template
 * Elasticsearch:Search Template Count
-* Elasticsearch:Validate Query
-
 
 ### Command for Cat APIs
 
-* Elasticsearch:Cat Aliases
-* Elasticsearch:Cat Allocation
-* Elasticsearch:Cat Count
-* Elasticsearch:Cat Fielddata
-* Elasticsearch:Cat Health
-* Elasticsearch:Cat Indices
-* Elasticsearch:Cat Master
-* Elasticsearch:Cat Nodes
-* Elasticsearch:Cat Pending Tasks
-* Elasticsearch:Cat Plugins
-* Elasticsearch:Cat Recovery
-* Elasticsearch:Cat Segments
-* Elasticsearch:Cat Shards
-* Elasticsearch:Cat Thread Pool
-
-### Command for Indices APIs
-
-* Elasticsearch:Indices Analyze
-* Elasticsearch:Indices Clear Cache
-* Elasticsearch:Indices Create
-* Elasticsearch:Indices Delete
-* Elasticsearch:Indices Delete Mapping
-* Elasticsearch:Indices Get Mapping
-* Elasticsearch:Indices Get Settings
-* Elasticsearch:Indices Put Mapping
-* Elasticsearch:Indices Put Settings
+* Elasticsearch: Cat Aliases
+* Elasticsearch: Cat Allocation
+* Elasticsearch: Cat Count
+* Elasticsearch: Cat Fielddata
+* Elasticsearch: Cat Health
+* Elasticsearch: Cat Indices
+* Elasticsearch: Cat Master
+* Elasticsearch: Cat Nodes
+* Elasticsearch: Cat Pending Tasks
+* Elasticsearch: Cat Plugins
+* Elasticsearch: Cat Recovery
+* Elasticsearch: Cat Segments
+* Elasticsearch: Cat Shards
+* Elasticsearch: Cat Thread Pool
 
 ### Command for Cluster APIs
 
-* Elasticsearch:Cluster Get Settings
-* Elasticsearch:Cluster Health
-* Elasticsearch:Cluster Pending Tasks
-* Elasticsearch:Cluster Put Settings
-* Elasticsearch:Cluster Reroute
-* Elasticsearch:Cluster State
-* Elasticsearch:Cluster Stats
+* Elasticsearch: Cluster Get Settings
+* Elasticsearch: Cluster Health
+* Elasticsearch: Cluster Pending Tasks
+* Elasticsearch: Cluster Put Settings
+* Elasticsearch: Cluster Reroute
+* Elasticsearch: Cluster State
+* Elasticsearch: Cluster Stats
+
+### Command for Indices APIs
+
+* Elasticsearch: Indices Analyze
+* Elasticsearch: Indices Clear Cache
+* Elasticsearch: Indices Create
+* Elasticsearch: Indices Delete
+* Elasticsearch: Indices Delete Alias
+* Elasticsearch: Indices Delete Mapping
+* Elasticsearch: Indices Delete Template
+* Elasticsearch: Indices Delete Warmer
+* Elasticsearch: Indices Exists
+* Elasticsearch: Indices Exists Alias
+* Elasticsearch: Indices Exists Document Type
+* Elasticsearch: Indices Exists Template
+* Elasticsearch: Indices Flush
+* Elasticsearch: Indices Flush Synced
+* Elasticsearch: Indices Get
+* Elasticsearch: Indices Get Alias
+* Elasticsearch: Indices Get Field Mapping
+* Elasticsearch: Indices Get Mapping
+* Elasticsearch: Indices Get Settings
+* Elasticsearch: Indices Get Template
+* Elasticsearch: Indices Get Upgrade
+* Elasticsearch: Indices Get Warmer
+* Elasticsearch: Indices Open
+* Elasticsearch: Indices Optimize
+* Elasticsearch: Indices Put Alias
+* Elasticsearch: Indices Put Mapping
+* Elasticsearch: Indices Put Settings
+* Elasticsearch: Indices Put Template
+* Elasticsearch: Indices Put Warmer
+* Elasticsearch: Indices Recovery
+* Elasticsearch: Indices Refresh
+* Elasticsearch: Indices Segments
+* Elasticsearch: Indices Stats
+* Elasticsearch: Indices Status
+* Elasticsearch: Indices Update Aliases
+* Elasticsearch: Indices Upgrade
+* Elasticsearch: Indices Validate Query
+
+### Command for Nodes APIs
+
+* Elasticsearch: Nodes Hot Threads
+* Elasticsearch: Nodes Info
+* Elasticsearch: Nodes Shutdown All
+* Elasticsearch: Nodes Shutdown Local
+* Elasticsearch: Nodes Shutdown Master
+
+### Command for Snapshot APIs
+
+* Elasticsearch: Snapshot Create
+* Elasticsearch: Snapshot Create Repository
+* Elasticsearch: Snapshot Delete
+* Elasticsearch: Snapshot Delete Repository
+* Elasticsearch: Snapshot Get
+* Elasticsearch: Snapshot Get Repository
+* Elasticsearch: Snapshot Restore
+* Elasticsearch: Snapshot Status
+* Elasticsearch: Snapshot Verify Repository
 
 ### Command for User Settings
 
-* Elasticsearch :Show Active Server
-* Elasticsearch :Switch Server
+* Elasticsearch: Settings Show Active Server
+* Elasticsearch: Settings Switch Server
