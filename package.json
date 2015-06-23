@@ -99,6 +99,7 @@
       "elasticsearch:delete-by-query-with-simple-query",
       "elasticsearch:delete-script",
       "elasticsearch:delete-search-template",
+      "elasticsearch:exists-document",
       "elasticsearch:get-document",
       "elasticsearch:index-document",
       "elasticsearch:info",
