@@ -112,6 +112,7 @@
       "elasticsearch:multiple-termvectors",
       "elasticsearch:index-document",
       "elasticsearch:info",
+      "elasticsearch:percolate",
       "elasticsearch:search-request-body",
       "elasticsearch:search-request-body-count",
       "elasticsearch:search-template",
