@@ -108,6 +108,7 @@
       "elasticsearch:get-search-template",
       "elasticsearch:get-multiple-documents",
       "elasticsearch:multiple-percolate",
+      "elasticsearch:multiple-search",
       "elasticsearch:index-document",
       "elasticsearch:info",
       "elasticsearch:search-request-body",

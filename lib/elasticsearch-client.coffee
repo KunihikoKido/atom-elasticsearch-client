@@ -93,6 +93,7 @@ GetDocumentSource     = require './commands/get-document-source'
 GetSearchTemplate     = require './commands/get-search-template'
 GetMultipleDocuments  = require './commands/get-multiple-documents'
 MultiplePercolate     = require './commands/multiple-percolate'
+MultipleSearch        = require './commands/multiple-search'
 IndexDocument         = require './commands/index-document'
 Info                  = require './commands/info'
 SearchRequestBody     = require './commands/search-request-body'
@@ -273,6 +274,7 @@ module.exports =
       'elasticsearch:get-search-template':       -> new GetSearchTemplate()
       'elasticsearch:get-multiple-documents':    -> new GetMultipleDocuments()
       'elasticsearch:multiple-percolate':        -> new MultiplePercolate()
+      'elasticsearch:multiple-search':           -> new MultipleSearch()
       'elasticsearch:index-document':            -> new IndexDocument()
       'elasticsearch:info':                      -> new Info()
       'elasticsearch:search-request-body':       -> new SearchRequestBody()
