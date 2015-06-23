@@ -39,6 +39,7 @@
       "elasticsearch:cluster-stats",
       "elasticsearch:indices-analyze",
       "elasticsearch:indices-clear-cache",
+      "elasticsearch:indices-close",
       "elasticsearch:indices-create",
       "elasticsearch:indices-delete",
       "elasticsearch:indices-delete-alias",
