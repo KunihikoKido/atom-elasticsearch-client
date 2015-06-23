@@ -105,6 +105,7 @@
       "elasticsearch:get-document",
       "elasticsearch:get-document-source",
       "elasticsearch:get-script",
+      "elasticsearch:get-search-template",
       "elasticsearch:index-document",
       "elasticsearch:info",
       "elasticsearch:search-request-body",
