@@ -9,7 +9,7 @@ class DeleteScript extends DeleteCommand
   run: ({lang, id}={}) ->
     if not lang or not id
       return new ScriptInputView((items) ->
-        new DeleteScript(item)
+        new DeleteScript(items)
       )
 
     if dialog.okCancel("Are you sure you want to delete?\nScript: #{lang}/#{id}", okTitle: "Delete")
