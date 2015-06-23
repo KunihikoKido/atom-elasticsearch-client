@@ -103,6 +103,7 @@
       "elasticsearch:explain-document",
       "elasticsearch:field-stats",
       "elasticsearch:get-document",
+      "elasticsearch:get-document-source",
       "elasticsearch:get-script",
       "elasticsearch:index-document",
       "elasticsearch:info",

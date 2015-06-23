@@ -89,6 +89,7 @@ ExplainDocument       = require './commands/explain-document'
 FieldStats            = require './commands/field-stats'
 GetDocument           = require './commands/get-document'
 GetScript             = require './commands/get-script'
+GetDocumentSource     = require './commands/get-document-source'
 IndexDocument         = require './commands/index-document'
 Info                  = require './commands/info'
 SearchRequestBody     = require './commands/search-request-body'
@@ -264,6 +265,7 @@ module.exports =
       'elasticsearch:explain-document':          -> new ExplainDocument()
       'elasticsearch:field-stats':               -> new FieldStats()
       'elasticsearch:get-document':              -> new GetDocument()
+      'elasticsearch:get-document-source':       -> new GetDocumentSource()
       'elasticsearch:get-script':                -> new GetScript()
       'elasticsearch:index-document':            -> new IndexDocument()
       'elasticsearch:info':                      -> new Info()
