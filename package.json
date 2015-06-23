@@ -109,6 +109,7 @@
       "elasticsearch:get-multiple-documents",
       "elasticsearch:multiple-percolate",
       "elasticsearch:multiple-search",
+      "elasticsearch:multiple-termvectors",
       "elasticsearch:index-document",
       "elasticsearch:info",
       "elasticsearch:search-request-body",
