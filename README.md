@@ -49,13 +49,14 @@ Currently this should work in ``.json`` file
 
 ### Command for Basic APIs
 
-* Elasticsearch:Get Document
-* Elasticsearch:Index Document
-* Elasticsearch:Info
-* Elasticsearch:Request Body Search
-* Elasticsearch:Request Body Search Count
-* Elasticsearch:Search Template
-* Elasticsearch:Search Template Count
+* Elasticsearch: Get Document
+* Elasticsearch: Index Document
+* Elasticsearch: Info
+* Elasticsearch: Search Request Body
+* Elasticsearch: Search Request Body Count
+* Elasticsearch: Search Template
+* Elasticsearch: Search Template Count
+* Elasticsearch: Search Uri
 
 ### Command for Cat APIs
 
@@ -88,6 +89,7 @@ Currently this should work in ``.json`` file
 
 * Elasticsearch: Indices Analyze
 * Elasticsearch: Indices Clear Cache
+* Elasticsearch: Indices Close
 * Elasticsearch: Indices Create
 * Elasticsearch: Indices Delete
 * Elasticsearch: Indices Delete Alias
