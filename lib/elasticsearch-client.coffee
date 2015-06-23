@@ -85,6 +85,7 @@ DeleteByQueryWithSimpleQuery  = require './commands/delete-by-query-with-simple-
 DeleteScript          = require './commands/delete-script'
 DeleteSearchTemplate  = require './commands/delete-search-template'
 ExistsDocument        = require './commands/exists-document'
+ExplainDocument       = require './commands/explain-document'
 GetDocument           = require './commands/get-document'
 IndexDocument         = require './commands/index-document'
 Info                  = require './commands/info'
@@ -258,6 +259,7 @@ module.exports =
       'elasticsearch:delete-script':             -> new DeleteScript()
       'elasticsearch:delete-search-template':    -> new DeleteSearchTemplate()
       'elasticsearch:exists-document':           -> new ExistsDocument()
+      'elasticsearch:explain-document':          -> new ExplainDocument()
       'elasticsearch:get-document':              -> new GetDocument()
       'elasticsearch:index-document':            -> new IndexDocument()
       'elasticsearch:info':                      -> new Info()
