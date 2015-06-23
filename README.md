@@ -15,7 +15,7 @@ You can send a body.
 }
 ```
 
-Once you have a request ready, use shortcut ``Ctrl + Alt + S`` or open the Command Palette (Shift + Command + P) and enter ``Elasticsearch Request Body Search``.
+Once you have a request ready, use shortcut ``Ctrl + Alt + S`` or open the Command Palette (Shift + Command + P) and enter ``Elasticsearch Search Request Body``.
 
 ## Settings
 Settings (Atom/Open Your Config). edit ``config.cson``
