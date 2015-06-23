@@ -14,8 +14,6 @@ class DeleteScript extends DeleteCommand
 
     if dialog.okCancel("Are you sure you want to delete?\nScript: #{lang}/#{id}", okTitle: "Delete")
       options =
-        index: @index
-        type: @docType
         lang: lang
         id: id
 
