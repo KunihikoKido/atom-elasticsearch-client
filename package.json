@@ -101,6 +101,7 @@
       "elasticsearch:delete-search-template",
       "elasticsearch:exists-document",
       "elasticsearch:explain-document",
+      "elasticsearch:field-stats",
       "elasticsearch:get-document",
       "elasticsearch:index-document",
       "elasticsearch:info",
