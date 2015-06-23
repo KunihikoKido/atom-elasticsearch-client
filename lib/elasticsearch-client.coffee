@@ -77,6 +77,7 @@ SnapshotVerifyRepository = require './commands/snapshot-verify-repository'
 Bulk                  = require './commands/bulk'
 ClearScroll           = require './commands/clear-scroll'
 Count                 = require './commands/count'
+CountPercolate        = require './commands/count-percolate'
 DeleteDocument        = require './commands/delete-document'
 GetDocument           = require './commands/get-document'
 IndexDocument         = require './commands/index-document'
@@ -242,6 +243,7 @@ module.exports =
       'elasticsearch:bulk':                      -> new Bulk()
       'elasticsearch:clear-scroll':              -> new ClearScroll()
       'elasticsearch:count':                     -> new Count()
+      'elasticsearch:count-percolate':           -> new CountPercolate()
       'elasticsearch:delete-document':           -> new DeleteDocument()
       'elasticsearch:get-document':              -> new GetDocument()
       'elasticsearch:index-document':            -> new IndexDocument()

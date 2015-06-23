@@ -92,6 +92,7 @@
       "elasticsearch:bulk",
       "elasticsearch:clear-scroll",
       "elasticsearch:count",
+      "elasticsearch:count-percolate",
       "elasticsearch:delete-document",
       "elasticsearch:get-document",
       "elasticsearch:index-document",
