@@ -1,7 +1,7 @@
 {
   "name": "elasticsearch-client",
   "main": "./lib/elasticsearch-client",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "Elasticsearch client for atom",
   "keywords": [
     "elasticsearch",
