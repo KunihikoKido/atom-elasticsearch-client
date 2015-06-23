@@ -91,6 +91,7 @@ GetDocument           = require './commands/get-document'
 GetScript             = require './commands/get-script'
 GetDocumentSource     = require './commands/get-document-source'
 GetSearchTemplate     = require './commands/get-search-template'
+GetMultipleDocuments  = require './commands/get-multiple-documents'
 IndexDocument         = require './commands/index-document'
 Info                  = require './commands/info'
 SearchRequestBody     = require './commands/search-request-body'
@@ -269,6 +270,7 @@ module.exports =
       'elasticsearch:get-document-source':       -> new GetDocumentSource()
       'elasticsearch:get-script':                -> new GetScript()
       'elasticsearch:get-search-template':       -> new GetSearchTemplate()
+      'elasticsearch:get-multiple-documents':    -> new GetMultipleDocuments()
       'elasticsearch:index-document':            -> new IndexDocument()
       'elasticsearch:info':                      -> new Info()
       'elasticsearch:search-request-body':       -> new SearchRequestBody()
