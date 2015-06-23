@@ -63,9 +63,15 @@ NodesHotThreads       = require './commands/nodes-hot-threads'
 NodesInfo             = require './commands/nodes-info'
 NodesShutdown         = require './commands/nodes-shutdown'
 
+SnapshotCreate           = require './commands/snapshot-create'
 SnapshotCreateRepository = require './commands/snapshot-create-repository'
+SnapshotDelete           = require './commands/snapshot-delete'
+SnapshotDeleteRepository = require './commands/snapshot-delete-repository'
+SnapshotGet              = require './commands/snapshot-get'
 SnapshotGetRepository    = require './commands/snapshot-get-repository'
-SnapshotDeleteRepository    = require './commands/snapshot-delete-repository'
+SnapshotRestore          = require './commands/snapshot-restore'
+SnapshotStatus           = require './commands/snapshot-status'
+SnapshotVerifyRepository = require './commands/snapshot-verify-repository'
 
 Bulk                  = require './commands/bulk'
 ClearScroll           = require './commands/clear-scroll'
@@ -220,9 +226,15 @@ module.exports =
       'elasticsearch:nodes-shutdown-local':      -> new NodesShutdown(nodeId: "_local")
       'elasticsearch:nodes-shutdown-master':     -> new NodesShutdown(nodeId: "_master")
 
+      'elasticsearch:snapshot-create':            -> new SnapshotCreate()
       'elasticsearch:snapshot-create-repository': -> new SnapshotCreateRepository()
-      'elasticsearch:snapshot-get-repository':    -> new SnapshotGetRepository()
+      'elasticsearch:snapshot-delete':            -> new SnapshotDelete()
       'elasticsearch:snapshot-delete-repository': -> new SnapshotDeleteRepository()
+      'elasticsearch:snapshot-get':               -> new SnapshotGet()
+      'elasticsearch:snapshot-get-repository':    -> new SnapshotGetRepository()
+      'elasticsearch:snapshot-restore':           -> new SnapshotRestore()
+      'elasticsearch:snapshot-status':            -> new SnapshotStatus()
+      'elasticsearch:snapshot-verify-repository': -> new SnapshotVerifyRepository()
 
       'elasticsearch:bulk':                      -> new Bulk()
       'elasticsearch:clear-scroll':              -> new ClearScroll()
