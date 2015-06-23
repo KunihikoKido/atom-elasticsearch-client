@@ -95,10 +95,11 @@
       "elasticsearch:get-document",
       "elasticsearch:index-document",
       "elasticsearch:info",
-      "elasticsearch:request-body-search",
-      "elasticsearch:request-body-search-count",
+      "elasticsearch:search-request-body",
+      "elasticsearch:search-request-body-count",
       "elasticsearch:search-template",
       "elasticsearch:search-template-count",
+      "elasticsearch:search-uri",
       "elasticsearch:settings-show-active-server",
       "elasticsearch:settings-switch-server"
     ]

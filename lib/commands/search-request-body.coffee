@@ -1,7 +1,7 @@
 {BaseCommand} = require './base'
 
 module.exports =
-class RequestBodySearch extends BaseCommand
+class SearchRequestBody extends BaseCommand
 
   run: ({searchType}={}) ->
     options =

@@ -80,8 +80,9 @@ DeleteDocument        = require './commands/delete-document'
 GetDocument           = require './commands/get-document'
 IndexDocument         = require './commands/index-document'
 Info                  = require './commands/info'
-RequestBodySearch     = require './commands/request-body-search'
+SearchRequestBody     = require './commands/search-request-body'
 SearchTemplate        = require './commands/search-template'
+SearchUri             = require './commands/search-uri'
 
 ShowActiveServer      = require './commands/show-active-server'
 SwitchServer          = require './commands/switch-server'
@@ -243,10 +244,11 @@ module.exports =
       'elasticsearch:get-document':              -> new GetDocument()
       'elasticsearch:index-document':            -> new IndexDocument()
       'elasticsearch:info':                      -> new Info()
-      'elasticsearch:request-body-search':       -> new RequestBodySearch()
-      'elasticsearch:request-body-search-count': -> new RequestBodySearch(searchType: 'count')
+      'elasticsearch:search-request-body':       -> new SearchRequestBody()
+      'elasticsearch:search-request-body-count': -> new SearchRequestBody(searchType: 'count')
       'elasticsearch:search-template':           -> new SearchTemplate()
       'elasticsearch:search-template-count':     -> new SearchTemplate(searchType: 'count')
+      'elasticsearch:search-uri':                -> new SearchUri()
 
       'elasticsearch:settings-show-active-server':        -> new ShowActiveServer()
       'elasticsearch:settings-switch-server':             -> new SwitchServer()
