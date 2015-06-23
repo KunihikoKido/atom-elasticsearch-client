@@ -78,13 +78,17 @@ Bulk                  = require './commands/bulk'
 ClearScroll           = require './commands/clear-scroll'
 Count                 = require './commands/count'
 CountPercolate        = require './commands/count-percolate'
+CreateDocument        = require './commands/create-document'
 DeleteDocument        = require './commands/delete-document'
+DeleteByQueryWithQueryDsl     = require './commands/delete-by-query-with-query-dsl'
+DeleteByQueryWithSimpleQuery  = require './commands/delete-by-query-with-simple-query'
 GetDocument           = require './commands/get-document'
 IndexDocument         = require './commands/index-document'
 Info                  = require './commands/info'
 SearchRequestBody     = require './commands/search-request-body'
 SearchTemplate        = require './commands/search-template'
 SearchUri             = require './commands/search-uri'
+
 
 ShowActiveServer      = require './commands/show-active-server'
 SwitchServer          = require './commands/switch-server'
@@ -244,6 +248,9 @@ module.exports =
       'elasticsearch:clear-scroll':              -> new ClearScroll()
       'elasticsearch:count':                     -> new Count()
       'elasticsearch:count-percolate':           -> new CountPercolate()
+      'elasticsearch:create-document':           -> new CreateDocument()
+      'elasticsearch:delete-by-query-with-query-dsl':     -> new DeleteByQueryWithQueryDsl()
+      'elasticsearch:delete-by-query-with-simple-query':  -> new DeleteByQueryWithSimpleQuery()
       'elasticsearch:delete-document':           -> new DeleteDocument()
       'elasticsearch:get-document':              -> new GetDocument()
       'elasticsearch:index-document':            -> new IndexDocument()
