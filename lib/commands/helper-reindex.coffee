@@ -1,4 +1,4 @@
-{CreateCommand} = require './base'
+dialog = require '../dialog'
 notifications = require '../notifications'
 config = require '../config'
 
@@ -20,12 +20,14 @@ helperReindex = () ->
 
   success = 0
 
+  if not dialog.okCancel("Are you sure you want to reindex?\nIndex: #{index}", okTitle: "Reindex")
+    return # canceled
+
   client.search(index: index, searchType: "scan", scroll: scroll).
   then((response) ->
     return response._scroll_id
   ).
   catch((error) ->
-    console.log(error)
     throw error
   ).
   then((scrollId) ->
@@ -33,7 +35,6 @@ helperReindex = () ->
     return client.scroll(scrollId: scrollId, scroll: scroll)
   ).
   catch((error) ->
-    console.log(error)
     throw error
   ).
   then(scanAndBulkIndex = (response) ->
@@ -58,21 +59,21 @@ helperReindex = () ->
       client.scroll(scrollId: scrollId, scroll: scroll).
       then(scanAndBulkIndex).
       catch((error) ->
-        console.log(error)
         throw error
       )
     ).
     catch((error) ->
-      console.log(error)
       throw error
     )
   ).
   then(() ->
     console.log("finished reindex! #{success}")
-    notifications.addSuccess("Finished Reindex! #{index}: #{success} documents")
+    notifications.addSuccess("""
+      Finished Reindex! #{index}: #{success} documents
+      """,
+      dismissable: true)
   ).
   catch((error) ->
-    console.log(error)
     notifications.addError("Reindex Error: #{error}")
   )
 
