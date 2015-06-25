@@ -115,6 +115,7 @@
       "elasticsearch:percolate",
       "elasticsearch:ping",
       "elasticsearch:put-script",
+      "elasticsearch:put-search-template",
       "elasticsearch:search-request-body",
       "elasticsearch:search-request-body-count",
       "elasticsearch:search-template",
