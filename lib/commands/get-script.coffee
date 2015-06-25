@@ -17,4 +17,4 @@ class GetScript extends BaseCommand
       lang: lang
       id: id
 
-    @client.deleteScript(options, @showResult)
+    @client.getScript(options, @showResult)
