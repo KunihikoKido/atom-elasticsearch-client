@@ -167,6 +167,10 @@ Currently this should work in ``.json`` file
 * Elasticsearch: Snapshot Status
 * Elasticsearch: Snapshot Verify Repository
 
+### Helper Commands
+
+* Elasticsearch: Helper Reindex
+
 ### Command for User Settings
 
 * Elasticsearch: Settings Show Active Server
