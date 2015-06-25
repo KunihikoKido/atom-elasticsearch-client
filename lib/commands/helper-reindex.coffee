@@ -70,11 +70,10 @@ helperReindex = () ->
     console.log("finished reindex! #{success}")
     notifications.addSuccess("""
       Finished Reindex! #{index}: #{success} documents
-      """,
-      dismissable: true)
+      """)
   ).
   catch((error) ->
-    notifications.addError("Reindex Error: #{error}")
+    notifications.addError("Reindex Error: #{error}", dismissable: true)
   )
 
 module.exports = helperReindex
