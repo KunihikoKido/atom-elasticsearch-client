@@ -116,6 +116,7 @@
       "elasticsearch:ping",
       "elasticsearch:put-script",
       "elasticsearch:put-search-template",
+      "elasticsearch:scroll",
       "elasticsearch:search-request-body",
       "elasticsearch:search-request-body-count",
       "elasticsearch:search-template",

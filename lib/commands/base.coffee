@@ -14,6 +14,7 @@ class BaseCommand
   docType:    null
   client:     null
   apiVersion: null
+  scroll: null
 
   confirmMessage: "Are you sure?"
 
@@ -23,6 +24,7 @@ class BaseCommand
     @docType          = config.getDocType()
     @apiVersion       = config.getApiVersion()
     @client           = config.getClient()
+    @scroll           = config.getScroll()
 
     @initialize?(args...)
 

@@ -101,6 +101,7 @@ Percolate             = require './commands/percolate'
 Ping                  = require './commands/ping'
 PutScript             = require './commands/put-script'
 PutSearchTemplate     = require './commands/put-search-template'
+Scroll                = require './commands/scroll'
 SearchRequestBody     = require './commands/search-request-body'
 SearchTemplate        = require './commands/search-template'
 SearchUri             = require './commands/search-uri'
@@ -180,6 +181,11 @@ module.exports =
     userAgent:
       type: 'string'
       default: 'elasticsearch-client'
+    scroll:
+      type: 'string'
+      default: '5m'
+      description: 'Specify how long a consistent view of the index should
+      be maintained for scrolled search'
 
   activate: ->
     atom.commands.add 'atom-workspace',
@@ -288,6 +294,7 @@ module.exports =
       'elasticsearch:ping':                      -> new Ping()
       'elasticsearch:put-script':                -> new PutScript()
       'elasticsearch:put-search-template':       -> new PutSearchTemplate()
+      'elasticsearch:scroll':                    -> new Scroll()
       'elasticsearch:search-request-body':       -> new SearchRequestBody()
       'elasticsearch:search-request-body-count': -> new SearchRequestBody(searchType: 'count')
       'elasticsearch:search-template':           -> new SearchTemplate()
