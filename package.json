@@ -113,6 +113,7 @@
       "elasticsearch:index-document",
       "elasticsearch:info",
       "elasticsearch:percolate",
+      "elasticsearch:ping",
       "elasticsearch:search-request-body",
       "elasticsearch:search-request-body-count",
       "elasticsearch:search-template",

@@ -98,6 +98,7 @@ MultipleTermvectors   = require './commands/multiple-termvectors'
 IndexDocument         = require './commands/index-document'
 Info                  = require './commands/info'
 Percolate             = require './commands/percolate'
+Ping                  = require './commands/ping'
 SearchRequestBody     = require './commands/search-request-body'
 SearchTemplate        = require './commands/search-template'
 SearchUri             = require './commands/search-uri'
@@ -282,6 +283,7 @@ module.exports =
       'elasticsearch:index-document':            -> new IndexDocument()
       'elasticsearch:info':                      -> new Info()
       'elasticsearch:percolate':                 -> new Percolate()
+      'elasticsearch:ping':                      -> new Ping()
       'elasticsearch:search-request-body':       -> new SearchRequestBody()
       'elasticsearch:search-request-body-count': -> new SearchRequestBody(searchType: 'count')
       'elasticsearch:search-template':           -> new SearchTemplate()
