@@ -16,7 +16,7 @@ expandAction = (doc) ->
 helperReindex = () ->
   client = config.getClient()
   index = config.getIndex()
-  scroll = "5m"
+  scroll = config.getScroll()
 
   success = 0
 

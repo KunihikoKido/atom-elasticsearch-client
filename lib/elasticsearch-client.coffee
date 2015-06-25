@@ -183,7 +183,7 @@ module.exports =
       default: 'elasticsearch-client'
     scroll:
       type: 'string'
-      default: '5m'
+      default: '1m'
       description: 'Specify how long a consistent view of the index should
       be maintained for scrolled search'
 
