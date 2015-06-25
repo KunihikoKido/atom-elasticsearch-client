@@ -118,6 +118,7 @@
       "elasticsearch:search-template",
       "elasticsearch:search-template-count",
       "elasticsearch:search-uri",
+      "elasticsearch:helper-reindex",
       "elasticsearch:settings-show-active-server",
       "elasticsearch:settings-switch-server"
     ]
