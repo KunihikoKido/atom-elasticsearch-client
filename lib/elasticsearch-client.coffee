@@ -108,6 +108,7 @@ SearchShards          = require './commands/search-shards'
 SearchTemplate        = require './commands/search-template'
 SearchUri             = require './commands/search-uri'
 Suggest               = require './commands/suggest'
+Termvector            = require './commands/termvector'
 
 ShowActiveServer      = require './commands/show-active-server'
 SwitchServer          = require './commands/switch-server'
@@ -305,6 +306,8 @@ module.exports =
       'elasticsearch:search-template-count':     -> new SearchTemplate(searchType: 'count')
       'elasticsearch:search-uri':                -> new SearchUri()
       'elasticsearch:suggest':                   -> new Suggest()
+      'elasticsearch:termvector':                -> new Termvector()
+
 
       'elasticsearch:settings-show-active-server':        -> new ShowActiveServer()
       'elasticsearch:settings-switch-server':             -> new SwitchServer()
