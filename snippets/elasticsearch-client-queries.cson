@@ -115,11 +115,6 @@
   "Fuzzy Query":
     "prefix": "fuzzy_query"
     "body": """
-      "fuzzy": {"${1:user}": "${2:ki}"}
-    """
-  "Advanced Fuzzy Query":
-    "prefix": "fuzzy_query"
-    "body": """
       "fuzzy": {
         "value": "${1:ki}",
         "boost": ${2:1.0},
@@ -127,4 +122,112 @@
         "prefix_length": ${4:0},
         "max_expansions": ${5:100}
       }$6
+    """
+  "Geo Shape Query":
+    "prefix": "geo_shape_query"
+    "body": """
+      "geo_shape": {
+        "location": {
+          "shape": {
+            "type": "envelope",
+            "coordinates": [[${1:13, 53}],[${2:14, 52}]]
+          }
+        }
+      }$2
+    """
+  "Has Child Query":
+    "prefix": "has_child_query"
+    "body": """
+      "has_child": {
+        "type": "${1:blog_tag}",
+        "query": {
+          "term": {
+            "${2:tag}": "${3:something}"
+          }
+        }
+      }$4
+    """
+  "Has Parent Query":
+    "prefix": "has_parent_query"
+    "body": """
+      "has_parent": {
+        "type": "${1:blog}",
+        "query": {
+          "term": {
+            "${2:tag}": "${3:something}"
+          }
+        }
+      }$4
+    """
+  "Ids Query":
+    "prefix": "ids_query"
+    "body": """
+      "ids": {
+        "type": "${1:my_type}",
+        "values": [${2:"1", "4", "100"}]
+      }$3
+    """
+  "Indices Query":
+    "prefix": "indices_query"
+    "body": """
+      "indices": {
+        "indices": [${1:"index1", "index2"}],
+        "query": {
+          ${2:"term": \{"tag": "wow"\}}
+        },
+        "no_match_query": {
+          ${3:"term": \{"tag": "kow"\}}
+        }
+      }$4
+    """
+  "Match All Query":
+    "prefix": "match_all_query"
+    "body": """
+      "match_all": {${1:"boost": 1.2}}$2
+    """
+  "More Like This Query":
+    "prefix": "more_like_this_query"
+    "body": """
+      "more_like_this": {
+        "fields": [${1:"title", "description"}],
+        "like_text": "${2:Once upon a time}",
+        "min_term_freq": ${3:1},
+        "max_query_terms": ${4:12}
+      }$5
+    """
+  "Nested Query":
+    "prefix": "nested_query"
+    "body": """
+      "nested": {
+        "path": "${1:obj1}",
+        "score_mode": "${2:avg}",
+        "query": {
+          $3
+        }
+      }$4
+    """
+  "Prefix Query":
+    "prefix": "prefix_query"
+    "body": """
+      "prefix": {
+        "${1:user}": "${2:ki}"
+      }$3
+    """
+  "Query String Query":
+    "prefix": "query_string_query"
+    "body": """
+      "query_string": {
+        "fields": [${1:"content", "name^5"}],
+        "query": "${2:this AND that}",
+        "default_operator": "${3:AND}"
+      }$4
+    """
+  "Simple Query String Query":
+    "prefix": "simple_query_string_query"
+    "body": """
+      "simple_query_string": {
+        "query": "${1:\"fried eggs\" +(eggplant | potato) -frittata}",
+        "fields": [${2:"body^5","_all"}],
+        "default_operator": "${3:and}"
+      }$4
     """
