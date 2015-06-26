@@ -107,6 +107,7 @@ SearchRequestBody     = require './commands/search-request-body'
 SearchShards          = require './commands/search-shards'
 SearchTemplate        = require './commands/search-template'
 SearchUri             = require './commands/search-uri'
+Suggest               = require './commands/suggest'
 
 ShowActiveServer      = require './commands/show-active-server'
 SwitchServer          = require './commands/switch-server'
@@ -303,6 +304,7 @@ module.exports =
       'elasticsearch:search-template':           -> new SearchTemplate()
       'elasticsearch:search-template-count':     -> new SearchTemplate(searchType: 'count')
       'elasticsearch:search-uri':                -> new SearchUri()
+      'elasticsearch:suggest':                   -> new Suggest()
 
       'elasticsearch:settings-show-active-server':        -> new ShowActiveServer()
       'elasticsearch:settings-switch-server':             -> new SwitchServer()
