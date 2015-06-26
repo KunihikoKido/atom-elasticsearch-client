@@ -114,6 +114,7 @@ UpdateDocument        = require './commands/update-document'
 ShowActiveServer      = require './commands/show-active-server'
 SwitchServer          = require './commands/switch-server'
 
+helperCloseOpenIndex  = require './commands/helper-close-open-index'
 helperReindex         = require './commands/helper-reindex'
 
 module.exports =
@@ -316,4 +317,5 @@ module.exports =
       'elasticsearch:settings-show-active-server':        -> new ShowActiveServer()
       'elasticsearch:settings-switch-server':             -> new SwitchServer()
 
+      'elasticsearch:helper-close-open-index':   -> helperCloseOpenIndex()
       'elasticsearch:helper-reindex':            -> helperReindex()

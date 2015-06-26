@@ -129,6 +129,7 @@
       "elasticsearch:suggest",
       "elasticsearch:termvector",
       "elasticsearch:update-document",
+      "elasticsearch:helper-close-open-index",
       "elasticsearch:helper-reindex",
       "elasticsearch:settings-show-active-server",
       "elasticsearch:settings-switch-server"
