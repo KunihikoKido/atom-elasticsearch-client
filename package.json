@@ -120,6 +120,7 @@
       "elasticsearch:search-exists",
       "elasticsearch:search-request-body",
       "elasticsearch:search-request-body-count",
+      "elasticsearch:search-shards",
       "elasticsearch:search-template",
       "elasticsearch:search-template-count",
       "elasticsearch:search-uri",

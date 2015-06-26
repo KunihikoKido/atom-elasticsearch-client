@@ -104,6 +104,7 @@ PutSearchTemplate     = require './commands/put-search-template'
 Scroll                = require './commands/scroll'
 SearchExists          = require './commands/search-exists'
 SearchRequestBody     = require './commands/search-request-body'
+SearchShards          = require './commands/search-shards'
 SearchTemplate        = require './commands/search-template'
 SearchUri             = require './commands/search-uri'
 
@@ -298,6 +299,7 @@ module.exports =
       'elasticsearch:search-exists':             -> new SearchExists()
       'elasticsearch:search-request-body':       -> new SearchRequestBody()
       'elasticsearch:search-request-body-count': -> new SearchRequestBody(searchType: 'count')
+      'elasticsearch:search-shards':             -> new SearchShards()
       'elasticsearch:search-template':           -> new SearchTemplate()
       'elasticsearch:search-template-count':     -> new SearchTemplate(searchType: 'count')
       'elasticsearch:search-uri':                -> new SearchUri()
