@@ -10,5 +10,6 @@ class SearchTemplate extends BaseCommand
       body: @getText()
 
     options.searchType = searchType if searchType
+    options.scroll = @scroll if searchType is "scan"
 
     @client.searchTemplate(options, @showResult)

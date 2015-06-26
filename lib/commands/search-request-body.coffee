@@ -10,5 +10,6 @@ class SearchRequestBody extends BaseCommand
       body: @getText()
 
     options.searchType = searchType if searchType
+    options.scroll = @scroll if searchType is "scan"
 
     @client.search(options, @showResult)
