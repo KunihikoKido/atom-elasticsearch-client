@@ -80,9 +80,11 @@ Currently this should work in ``.json`` file
 * Elasticsearch: Search Exists
 * Elasticsearch: Search Request Body
 * Elasticsearch: Search Request Body Count
+* Elasticsearch: Search Request Body Scan
 * Elasticsearch: Search Shards
 * Elasticsearch: Search Template
 * Elasticsearch: Search Template Count
+* Elasticsearch: Search Template Scan
 * Elasticsearch: Search Uri
 * Elasticsearch: Suggest
 * Elasticsearch: Termvector
