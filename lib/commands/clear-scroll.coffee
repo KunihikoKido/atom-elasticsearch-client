@@ -7,7 +7,7 @@ class ClearScroll extends CreateCommand
   run: ({scrollId}={}) ->
     if not scrollId
       return new InputView(
-        'Option: document id to index document',
+        'Required: scroll id to clear',
         (value) -> new ClearScroll(scrollId: value))
 
     options =
