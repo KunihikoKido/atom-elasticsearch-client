@@ -109,6 +109,7 @@ SearchTemplate        = require './commands/search-template'
 SearchUri             = require './commands/search-uri'
 Suggest               = require './commands/suggest'
 Termvector            = require './commands/termvector'
+UpdateDocument        = require './commands/update-document'
 
 ShowActiveServer      = require './commands/show-active-server'
 SwitchServer          = require './commands/switch-server'
@@ -307,6 +308,7 @@ module.exports =
       'elasticsearch:search-uri':                -> new SearchUri()
       'elasticsearch:suggest':                   -> new Suggest()
       'elasticsearch:termvector':                -> new Termvector()
+      'elasticsearch:update-document':           -> new UpdateDocument()
 
 
       'elasticsearch:settings-show-active-server':        -> new ShowActiveServer()
