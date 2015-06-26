@@ -79,33 +79,33 @@ ClearScroll           = require './commands/clear-scroll'
 Count                 = require './commands/count'
 CountPercolate        = require './commands/count-percolate'
 CreateDocument        = require './commands/create-document'
-DeleteDocument        = require './commands/delete-document'
 DeleteByQueryWithQueryDsl     = require './commands/delete-by-query-with-query-dsl'
 DeleteByQueryWithSimpleQuery  = require './commands/delete-by-query-with-simple-query'
+DeleteDocument        = require './commands/delete-document'
 DeleteScript          = require './commands/delete-script'
 DeleteSearchTemplate  = require './commands/delete-search-template'
 ExistsDocument        = require './commands/exists-document'
 ExplainDocument       = require './commands/explain-document'
 FieldStats            = require './commands/field-stats'
 GetDocument           = require './commands/get-document'
-GetScript             = require './commands/get-script'
 GetDocumentSource     = require './commands/get-document-source'
-GetSearchTemplate     = require './commands/get-search-template'
 GetMultipleDocuments  = require './commands/get-multiple-documents'
+GetScript             = require './commands/get-script'
+GetSearchTemplate     = require './commands/get-search-template'
+IndexDocument         = require './commands/index-document'
+Info                  = require './commands/info'
 MultiplePercolate     = require './commands/multiple-percolate'
 MultipleSearch        = require './commands/multiple-search'
 MultipleTermvectors   = require './commands/multiple-termvectors'
-IndexDocument         = require './commands/index-document'
-Info                  = require './commands/info'
 Percolate             = require './commands/percolate'
 Ping                  = require './commands/ping'
 PutScript             = require './commands/put-script'
 PutSearchTemplate     = require './commands/put-search-template'
 Scroll                = require './commands/scroll'
+SearchExists          = require './commands/search-exists'
 SearchRequestBody     = require './commands/search-request-body'
 SearchTemplate        = require './commands/search-template'
 SearchUri             = require './commands/search-uri'
-
 
 ShowActiveServer      = require './commands/show-active-server'
 SwitchServer          = require './commands/switch-server'
@@ -295,6 +295,7 @@ module.exports =
       'elasticsearch:put-script':                -> new PutScript()
       'elasticsearch:put-search-template':       -> new PutSearchTemplate()
       'elasticsearch:scroll':                    -> new Scroll()
+      'elasticsearch:search-exists':             -> new SearchExists()
       'elasticsearch:search-request-body':       -> new SearchRequestBody()
       'elasticsearch:search-request-body-count': -> new SearchRequestBody(searchType: 'count')
       'elasticsearch:search-template':           -> new SearchTemplate()
