@@ -8,21 +8,16 @@ config = require '../config'
 resultJsonFilePath = Path.join Os.tmpDir(), "RESPONSE.json"
 
 class BaseCommand
-  namespace:  'elasticsearch-client'
-  baseUrl:    null
   index:      null
   docType:    null
   client:     null
-  apiVersion: null
   scroll: null
 
   confirmMessage: "Are you sure?"
 
   constructor: (args...) ->
-    @baseUrl          = config.getBaseUrl()
     @index            = config.getIndex()
     @docType          = config.getDocType()
-    @apiVersion       = config.getApiVersion()
     @client           = config.getClient()
     @scroll           = config.getScrollSize()
 
