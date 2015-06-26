@@ -73,11 +73,20 @@ Currently this should work in ``.json`` file
 * Elasticsearch: Multiple Search
 * Elasticsearch: Multiple Termvectors
 * Elasticsearch: Percolate
+* Elasticsearch: Ping
+* Elasticsearch: Put Script
+* Elasticsearch: Put Search Template
+* Elasticsearch: Scroll
+* Elasticsearch: Search Exists
 * Elasticsearch: Search Request Body
 * Elasticsearch: Search Request Body Count
+* Elasticsearch: Search Shards
 * Elasticsearch: Search Template
 * Elasticsearch: Search Template Count
 * Elasticsearch: Search Uri
+* Elasticsearch: Suggest
+* Elasticsearch: Termvector
+* Elasticsearch: Update Document
 
 ### Command for Cat APIs
 
