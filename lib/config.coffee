@@ -17,8 +17,8 @@ module.exports =
   getDocType: ->
     atom.config.get("#{@namespace}.docType")
 
-  getScroll: ->
-    atom.config.get("#{@namespace}.scroll")
+  getScrollSize: ->
+    atom.config.get("#{@namespace}.scrollSize")
 
   getApiVersion: ->
     atom.config.get("#{@namespace}.apiVersion")

@@ -24,7 +24,7 @@ class BaseCommand
     @docType          = config.getDocType()
     @apiVersion       = config.getApiVersion()
     @client           = config.getClient()
-    @scroll           = config.getScroll()
+    @scroll           = config.getScrollSize()
 
     @initialize?(args...)
 

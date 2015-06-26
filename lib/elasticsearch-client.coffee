@@ -186,7 +186,7 @@ module.exports =
     userAgent:
       type: 'string'
       default: 'elasticsearch-client'
-    scroll:
+    scrollSize:
       type: 'string'
       default: '1m'
       description: 'Specify how long a consistent view of the index should
