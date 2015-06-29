@@ -21,3 +21,121 @@
         }
       }$3
     """
+  "Sum Aggregation":
+    "prefix": "sum_aggs"
+    "body": """
+      "aggs": {
+        "${1:sum_price}": {
+          "sum": {
+            "field": "${2:price}"
+          }
+        }
+      }$3
+    """
+  "Avg Aggregation":
+    "prefix": "avg_aggs"
+    "body": """
+      "aggs": {
+        "${1:avg_price}": {
+          "avg": {
+            "field": "${2:price}"
+          }
+        }
+      }$3
+    """
+  "Stats Aggregation":
+    "prefix": "stats_aggs"
+    "body": """
+      "aggs": {
+        "${1:stats_price}": {
+          "stats": {
+            "field": "${2:price}"
+          }
+        }
+      }$3
+    """
+  "Extend Stats Aggregation":
+    "prefix": "extend_stats_aggs"
+    "body": """
+      "aggs": {
+        "${1:extend_price}": {
+          "extend_stats": {
+            "field": "${2:price}"
+          }
+        }
+      }$3
+    """
+  "Value Count Aggregation":
+    "prefix": "value_count_aggs"
+    "body": """
+      "aggs": {
+        "${1:grades_count}": {
+          "value_count": {
+            "field": "${2:grade}"
+          }
+        }
+      }$3
+    """
+  "Percentiles Aggregation":
+    "prefix": "percentiles_aggs"
+    "body": """
+      "aggs": {
+        "${1:load_time_outlier}": {
+          "percentiles": {
+            "field": "${2:load_time}"
+          }
+        }
+      }$3
+    """
+  "Percentile Ranks Aggregation":
+    "prefix": "percentile_ranks_aggs"
+    "body": """
+      "aggs": {
+        "${1:load_time_outlier}": {
+          "percentile_ranks": {
+            "field": "${2:load_time}",
+            "values": [${3:15, 30}]
+          }
+        }
+      }$4
+    """
+  "Cardinality Aggregation":
+    "prefix": "cardinality_aggs"
+    "body": """
+      "aggs": {
+        "${1:author_count}": {
+          "cardinality": {
+            "field": "${2:author}"
+          }
+        }
+      }$3
+    """
+  "Geo Bounds Aggregation":
+    "prefix": "geo_bounds_aggs"
+    "body": """
+      "aggs": {
+        "${1:viewport}": {
+          "geo_bounds": {
+            "field": "${2:location}",
+            "wrap_longitude": ${3:true}
+          }
+        }
+      }$4
+    """
+  "Top hits Aggregation":
+    "prefix": "top_hits_aggs"
+    "body": """
+      "aggs": {
+        "${1:top_tag_hits}": {
+          "top_hits": {
+            "sort": [
+              ${2:"_score"}
+            ],
+            "_source": {
+              "include": [${3:"title"}]
+            },
+            "size": ${4:3}
+          }
+        }
+      }$5
+    """
