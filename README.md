@@ -85,7 +85,7 @@ Currently this should work in ``.json`` file
 * Elasticsearch: Search Template
 * Elasticsearch: Search Template Count
 * Elasticsearch: Search Template Scan
-* Elasticsearch: Search Uri
+* Elasticsearch: Search Simple Query
 * Elasticsearch: Suggest
 * Elasticsearch: Termvector
 * Elasticsearch: Update Document

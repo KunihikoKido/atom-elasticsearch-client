@@ -125,7 +125,7 @@
       "elasticsearch:search-template",
       "elasticsearch:search-template-count",
       "elasticsearch:search-template-scan",
-      "elasticsearch:search-uri",
+      "elasticsearch:search-simple-query",
       "elasticsearch:suggest",
       "elasticsearch:termvector",
       "elasticsearch:update-document",
