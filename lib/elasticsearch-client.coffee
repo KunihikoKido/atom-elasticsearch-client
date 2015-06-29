@@ -321,4 +321,4 @@ module.exports =
 
       'elasticsearch:helper-close-open-index':         -> helperCloseOpenIndex()
       'elasticsearch:helper-reindex':                  -> helperReindex()
-      'elasticsearch:helper-convert-csv-bulk-index':   -> new HelperConvertCsvBulkIndex()
+      'elasticsearch:helper-convert-csv-to-bulk-index-format':   -> new HelperConvertCsvBulkIndex()

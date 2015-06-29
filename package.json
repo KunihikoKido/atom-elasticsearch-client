@@ -131,7 +131,7 @@
       "elasticsearch:update-document",
       "elasticsearch:helper-close-open-index",
       "elasticsearch:helper-reindex",
-      "elasticsearch:helper-convert-csv-bulk-index",
+      "elasticsearch:helper-convert-csv-to-bulk-index-format",
       "elasticsearch:settings-show-active-server",
       "elasticsearch:settings-switch-server"
     ]
