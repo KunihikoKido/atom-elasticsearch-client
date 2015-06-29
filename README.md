@@ -181,6 +181,7 @@ Currently this should work in ``.json`` file
 ### Helper Commands
 
 * Elasticsearch: Helper Close Open Index
+* Elasticsearch: Helper Convert Csv Bulk Index
 * Elasticsearch: Helper Reindex
 
 ### Command for User Settings

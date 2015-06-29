@@ -131,6 +131,7 @@
       "elasticsearch:update-document",
       "elasticsearch:helper-close-open-index",
       "elasticsearch:helper-reindex",
+      "elasticsearch:helper-convert-csv-bulk-index",
       "elasticsearch:settings-show-active-server",
       "elasticsearch:settings-switch-server"
     ]
@@ -145,6 +146,7 @@
     "atom-space-pen-views": "^2.0.5",
     "fs-plus": "^2.8.1",
     "loophole": "^1.0.0",
-    "elasticsearch": "^5.0.0"
+    "elasticsearch": "^5.0.0",
+    "comma-separated-values": "^3.6.2"
   }
 }
