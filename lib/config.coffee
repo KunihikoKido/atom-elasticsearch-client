@@ -73,16 +73,20 @@ module.exports =
     @client ?= @initClient()
 
   setBaseUrl: (baseUrl) ->
-    atom.config.set("#{@namespace}.baseUrl", baseUrl)
+    if baseUrl
+      atom.config.set("#{@namespace}.baseUrl", baseUrl)
 
   setIndex: (index) ->
-    atom.config.set("#{@namespace}.index", index)
+    if index
+      atom.config.set("#{@namespace}.index", index)
 
   setDocType: (docType) ->
-    atom.config.set("#{@namespace}.docType", docType)
+    if docType
+      atom.config.set("#{@namespace}.docType", docType)
 
   setApiVersion: (apiVersion) ->
-    atom.config.set("#{@namespace}.apiVersion", apiVersion)
+    if apiVersion
+      atom.config.set("#{@namespace}.apiVersion", apiVersion)
 
   setActiveServer: ({baseUrl, index, docType, apiVersion}={}) ->
     @setBaseUrl(baseUrl)
