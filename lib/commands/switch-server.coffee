@@ -1,5 +1,5 @@
 {BaseCommand} = require './base'
-ListView = require '../views/list-view'
+ListView = require '../views/switch-server-list-view'
 config = require '../config'
 
 
