@@ -73,26 +73,72 @@ module.exports =
     @client ?= @initClient()
 
   setBaseUrl: (baseUrl) ->
-    if baseUrl
+    if baseUrl isnt undefined
       atom.config.set("#{@namespace}.baseUrl", baseUrl)
 
   setIndex: (index) ->
-    if index
+    if index isnt undefined
       atom.config.set("#{@namespace}.index", index)
 
   setDocType: (docType) ->
-    if docType
+    if docType isnt undefined
       atom.config.set("#{@namespace}.docType", docType)
 
   setApiVersion: (apiVersion) ->
-    if apiVersion
+    if apiVersion isnt undefined
       atom.config.set("#{@namespace}.apiVersion", apiVersion)
 
-  setActiveServer: ({baseUrl, index, docType, apiVersion}={}) ->
-    @setBaseUrl(baseUrl)
-    @setIndex(index)
-    @setDocType(docType)
-    @setApiVersion(apiVersion)
+  setCustomAnalyzers: (customAnalyzers) ->
+    if customAnalyzers isnt undefined
+      atom.config.set("#{@namespace}.customAnalyzers", customAnalyzers)
+
+  setMaxRetries: (maxRetries) ->
+    if maxRetries isnt undefined
+      atom.config.set("#{@namespace}.maxRetries", maxRetries)
+
+  setRequestTimeout: (requestTimeout) ->
+    if requestTimeout isnt undefined
+      atom.config.set("#{@namespace}.requestTimeout", requestTimeout)
+
+  setDeadTimeout: (deadTimeout) ->
+    if deadTimeout isnt undefined
+      atom.config.set("#{@namespace}.deadTimeout", deadTimeout)
+
+  setPingTimeout: (pingTimeout) ->
+    if pingTimeout isnt undefined
+      atom.config.set("#{@namespace}.pingTimeout", pingTimeout)
+
+  setKeepAlive: (keepAlive) ->
+    if keepAlive isnt undefined
+      atom.config.set("#{@namespace}.keepAlive", keepAlive)
+
+  setAuthorizationHeader: (authorizationHeader) ->
+    if authorizationHeader isnt undefined
+      atom.config.set("#{@namespace}.authorizationHeader", authorizationHeader)
+
+  setUserAgent: (userAgent) ->
+    if userAgent isnt undefined
+      atom.config.set("#{@namespace}.userAgent", userAgent)
+
+  setScrollSize: (scrollSize) ->
+    if scrollSize isnt undefined
+      atom.config.set("#{@namespace}.scrollSize", scrollSize)
+
+  setActiveServer: (settings) ->
+    @setBaseUrl(settings.baseUrl)
+    @setIndex(settings.index)
+    @setDocType(settings.docType)
+    @setApiVersion(settings.apiVersion)
+    @setCustomAnalyzers(settings.customAnalyzers)
+    @setMaxRetries(settings.maxRetries)
+    @setRequestTimeout(settings.requestTimeout)
+    @setDeadTimeout(settings.deadTimeout)
+    @setPingTimeout(settings.pingTimeout)
+    @setKeepAlive(settings.keepAlive)
+    @setAuthorizationHeader(settings.authorizationHeader)
+    @setUserAgent(settings.userAgent)
+    @setScrollSize(settings.scrollSize)
+
     @client = @initClient()
 
   showActiveServer: ->
