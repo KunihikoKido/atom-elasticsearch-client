@@ -231,3 +231,168 @@
         "default_operator": "${3:and}"
       }$4
     """
+  "Range Query":
+    "prefix": "range_query"
+    "body": """
+      "range": {
+        "${1:age}": {
+          "${2:gte}": ${3:10},
+          "${4:lte}": ${5:20},
+          "boost": ${6:2.0}
+        }
+      }$7
+    """
+  "Date Range Query":
+    "prefix": "date_range_query"
+    "body": """
+      "range": {
+        "${1:born}": {
+          "${2:gte}": ${3:2012-01-01},
+          "${4:lte}": ${5:now},
+          "time_zone": "${6:+9:00}"
+        }
+      }$7
+    """
+  "Regexp Query":
+    "prefix": "regexp_query"
+    "body": """
+      "regexp": {
+        "${1:name.first}": {
+          "value": "${2:s.*y}",
+          "boost": ${3:1.2},
+          "flags" : "${4:INTERSECTION|COMPLEMENT|EMPTY}"
+        }
+      }$5
+    """
+  "Span First Query":
+    "prefix": "span_first_query"
+    "body": """
+      "span_first": {
+        "match": {
+          "span_term": {"user": "kimchy"}
+        },
+        "end": 3
+      }$1
+    """
+  "Span Multi Term Query":
+    "prefix": "span_multi_query"
+    "body": """
+      "span_multi": {
+        "match": {
+          "prefix": {
+            "user": {
+              "value": "ki",
+              "boost": 1.08
+            }
+          }
+        }
+      }$1
+    """
+  "Span Near Query":
+    "prefix": "span_near_query"
+    "body": """
+      "span_near": {
+        "clauses": [
+          {"span_term": { "field": "value1"}},
+          {"span_term": {"field": "value2"}},
+          {"span_term": {"field": "value3"}}
+        ],
+        "slop": 12,
+        "in_order": false,
+        "collect_payloads": false
+      }$1
+    """
+  "Span Not Query":
+    "prefix": "span_not_query"
+    "body": """
+      "span_not": {
+        "include": {
+          "span_term": {"field1": "hoya"}
+        },
+        "exclude": {
+          "span_near": {
+            "clauses": [
+              {"span_term": {"field1": "la"}},
+              {"span_term": {"field1": "hoya"}}
+            ],
+            "in_order": true,
+            "slop": 0
+          }
+        }
+      }$1
+    """
+  "Span Or Query":
+    "prefix": "span_or_query"
+    "body": """
+      "span_or": {
+          "clauses": [
+              {
+                  "span_term": {
+                      "field": "value1"
+                  }
+              },
+              {
+                  "span_term": {
+                      "field": "value2"
+                  }
+              },
+              {
+                  "span_term": {
+                      "field": "value3"
+                  }
+              }
+          ]
+      }$1
+    """
+  "Span Term Query":
+    "prefix": "span_term_query"
+    "body": """
+      "span_term": {
+          "${1:user}": {
+              "boost": ${2:2.0},
+              "value": "${3:kimchy}"
+          }
+      }$4
+    """
+  "Term Query":
+    "prefix": "term_query"
+    "body": """
+      "term": {
+        "${1:user}": {
+          "value": "${2:kimchy}",
+          "boost": ${3:2.0}
+        }
+      }$4
+    """
+  "Terms Query":
+    "prefix": "terms_query"
+    "body": """
+      "terms": {
+        "${1:tags}": [${2:"blue", "pill"}],
+        "minimum_should_match": 1
+      }$3
+    """
+  "Wildcard Query":
+    "prefix": "wildcard_query"
+    "body": """
+      "wildcard": {
+        "${1:user}": {
+          "value": "${2:ki*y}",
+          "boost": ${3:2.0}
+        }
+      }$4
+    """
+  "Template Query":
+    "prefix": "template_query"
+    "body": """
+      "template": {
+        "query": {
+          "match": {
+            "text": "{{query_string}}"
+          }
+        },
+        "params": {
+          "query_string": "all about search"
+        }
+      }$1
+    """
