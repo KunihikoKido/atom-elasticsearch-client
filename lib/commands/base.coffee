@@ -39,7 +39,7 @@ class BaseCommand
     if typeof response is 'object'
       response = JSON.stringify(response, null, '\t')
 
-    fs.writeFile(resultJsonFilePath, response, flag: 'w+')
+    fs.writeFileSync(resultJsonFilePath, response, flag: 'w+')
 
     split = if config.getOpenInPane() then config.getSplitPane()
     atom.workspace.open(resultJsonFilePath, split: split, activatePane: true)
