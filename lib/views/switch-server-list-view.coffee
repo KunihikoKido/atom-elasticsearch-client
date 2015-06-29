@@ -14,7 +14,7 @@ class ListView extends SelectListView
   viewForItem: (item) ->
     $$ ->
       @li =>
-        @div class: 'primary-line icon icon icon-database', "#{item.index}/#{item.docType}"
+        @div class: 'primary-line icon icon-database', "#{item.index}/#{item.docType}"
         @div class: 'secondary-line no-icon text-subtle', item.baseUrl
 
   hide: -> @panel?.hide()
