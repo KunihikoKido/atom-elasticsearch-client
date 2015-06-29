@@ -325,23 +325,23 @@
     "prefix": "span_or_query"
     "body": """
       "span_or": {
-          "clauses": [
-              {
-                  "span_term": {
-                      "field": "value1"
-                  }
-              },
-              {
-                  "span_term": {
-                      "field": "value2"
-                  }
-              },
-              {
-                  "span_term": {
-                      "field": "value3"
-                  }
-              }
-          ]
+        "clauses": [
+          {
+            "span_term": {
+              "field": "value1"
+            }
+          },
+          {
+            "span_term": {
+              "field": "value2"
+            }
+          },
+          {
+            "span_term": {
+              "field": "value3"
+            }
+          }
+        ]
       }$1
     """
   "Span Term Query":
