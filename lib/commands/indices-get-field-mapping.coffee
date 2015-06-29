@@ -9,9 +9,22 @@ class IndicesGetFieldMapping extends BaseCommand
 
   run: ({field}={}) ->
     if not field
-      return new InputView(
-        'Required: field name to get mapping',
-        (value) -> new IndicesGetFieldMapping(field: value))
+      index = @index
+      docType = @docType
+      @client.indices.getFieldMapping(index: index, type: docType, field: "*").
+      then((response) ->
+        fields = Object.keys(response[index]["mappings"][docType])
+        fields.sort()
+        items = []
+        for field in fields
+          items.push {name: "#{field}", field: field}
+        return items
+      ).
+      then((items) ->
+        new ListView(items,
+          ({field}={}) -> new IndicesGetFieldMapping(field: field))
+      )
+      return
 
     options =
       index: @index
