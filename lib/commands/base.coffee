@@ -31,6 +31,11 @@ class BaseCommand
     return unless editor?
 
     text = editor.getSelectedText() or editor.getText()
+    try
+      text = JSON.stringify(JSON.parse(text), null, 4)
+    catch error
+      if !(error instanceof SyntaxError)
+        throw error
 
   showResult: (error, response) ->
     if error
