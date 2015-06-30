@@ -1,7 +1,7 @@
 dialog = require '../dialog'
 notifications = require '../notifications'
 config = require '../config'
-
+LoadingView = require '../views/loading-view'
 
 expandAction = (doc) ->
   action = {index: {}}
@@ -22,6 +22,8 @@ helperReindex = () ->
 
   if not dialog.okCancel("Are you sure you want to reindex?\nIndex: #{index}", okTitle: "Reindex")
     return # canceled
+
+  lodingView = new LoadingView()
 
   client.search(index: index, searchType: "scan", scroll: scroll).
   then((response) ->
@@ -54,6 +56,7 @@ helperReindex = () ->
     then((response) ->
       success += response.items.length
       console.log(success)
+      lodingView.updateMessage("Reindexing #{index} ... #{success}")
 
       # re-scroll
       client.scroll(scrollId: scrollId, scroll: scroll).
@@ -66,14 +69,13 @@ helperReindex = () ->
       throw error
     )
   ).
-  then(() ->
-    console.log("finished reindex! #{success}")
-    notifications.addSuccess("""
-      Finished Reindex! #{index}: #{success} documents
-      """)
-  ).
   catch((error) ->
     notifications.addError("Reindex Error: #{error}", dismissable: true)
+  ).
+  then(()->
+    console.log("finished reindex! #{success}")
+    lodingView.updateMessage("Finished #{index}: #{success}")
+    lodingView.finish()
   )
 
 module.exports = helperReindex
