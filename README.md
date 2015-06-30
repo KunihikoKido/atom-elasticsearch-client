@@ -2,14 +2,7 @@
 
 Elasticsearch Client allows you to build an Rest API request in Atom editor and view the response.
 
-### Search Request Body Command
-![search](screenshots/search.gif)
-
-### Cat Api Command
-![cat](screenshots/cat.gif)
-
-## Helper Reindex Command
-![reindex](screenshots/reindex.gif)
+![overview](https://raw.githubusercontent.com/KunihikoKido/atom-elasticsearch-client/master/screenshots/search.gif)
 
 
 ## Using
@@ -196,3 +189,14 @@ Currently this should work in ``.json`` file
 
 * Elasticsearch: Settings Show Active Server
 * Elasticsearch: Settings Switch Server
+
+## Screenshots
+
+### Search Request Body Command
+![search](https://raw.githubusercontent.com/KunihikoKido/atom-elasticsearch-client/master/screenshots/search.gif)
+
+### Cat Api Command
+![cat](https://raw.githubusercontent.com/KunihikoKido/atom-elasticsearch-client/master/screenshots/cat.gif)
+
+## Helper Reindex Command
+![reindex](https://raw.githubusercontent.com/KunihikoKido/atom-elasticsearch-client/master/screenshots/reindex.gif)
