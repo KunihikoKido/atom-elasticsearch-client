@@ -4,7 +4,12 @@ module.exports =
 class CatPlugins extends CatBaseCommand
 
   run: ->
-    options =
-      v: true
+    responseView = @getResponseView(title: "Plugins")
 
-    @client.cat.plugins(options, @showResult)
+    @client.cat.plugins(v: true).
+    then((response) ->
+      responseView.updateMessage(response)
+    ).
+    catch((error) ->
+      responseView.updateMessage(error)
+    )

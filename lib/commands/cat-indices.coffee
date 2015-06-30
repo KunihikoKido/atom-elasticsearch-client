@@ -4,7 +4,12 @@ module.exports =
 class CatIndices extends CatBaseCommand
 
   run: ->
-    options =
-      v: true
+    responseView = @getResponseView(title: "Indices")
 
-    @client.cat.indices(options, @showResult)
+    @client.cat.indices(v: true).
+    then((response) ->
+      responseView.updateMessage(response)
+    ).
+    catch((error) ->
+      responseView.updateMessage(error)
+    )

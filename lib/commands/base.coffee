@@ -4,6 +4,7 @@ fs = require 'fs-plus'
 
 notifications = require '../notifications'
 config = require '../config'
+CatView = require '../views/cat-view'
 
 resultJsonFilePath = Path.join Os.tmpDir(), "RESPONSE.json"
 
@@ -50,11 +51,9 @@ class BaseCommand
 
 class CatBaseCommand extends BaseCommand
 
-  showResult: (error, response) ->
-    if error
-      return notifications.addError("#{error}", dismissable: true)
+  getResponseView: ({title}={}) ->
+    return new CatView(title: title)
 
-    notifications.addInfo("#{response}", dismissable: true)
 
 class CreateCommand extends BaseCommand
 

@@ -4,7 +4,12 @@ module.exports =
 class CatFielddata extends CatBaseCommand
 
   run: ->
-    options =
-      v: true
+    responseView = @getResponseView(title: "Fielddata")
 
-    @client.cat.fielddata(options, @showResult)
+    @client.cat.fielddata(v: true).
+    then((response) ->
+      responseView.updateMessage(response)
+    ).
+    catch((error) ->
+      responseView.updateMessage(error)
+    )

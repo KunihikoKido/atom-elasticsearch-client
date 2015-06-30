@@ -4,7 +4,12 @@ module.exports =
 class CatMaster extends CatBaseCommand
 
   run: ->
-    options =
-      v: true
+    responseView = @getResponseView(title: "Master")
 
-    @client.cat.master(options, @showResult)
+    @client.cat.master(v: true).
+    then((response) ->
+      responseView.updateMessage(response)
+    ).
+    catch((error) ->
+      responseView.updateMessage(error)
+    )

@@ -4,7 +4,12 @@ module.exports =
 class CatNodes extends CatBaseCommand
 
   run: ->
-    options =
-      v: true
+    responseView = @getResponseView(title: "Nodes")
 
-    @client.cat.nodes(options, @showResult)
+    @client.cat.nodes(v: true).
+    then((response) ->
+      responseView.updateMessage(response)
+    ).
+    catch((error) ->
+      responseView.updateMessage(error)
+    )

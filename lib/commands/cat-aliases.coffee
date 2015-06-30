@@ -1,10 +1,15 @@
 {CatBaseCommand} = require './base'
 
+
 module.exports =
 class CatAliases extends CatBaseCommand
-
   run: ->
-    options =
-      v: true
+    responseView = @getResponseView(title: "Aliases")
 
-    @client.cat.aliases(options, @showResult)
+    @client.cat.aliases(v: true).
+    then((response) ->
+      responseView.updateMessage(response)
+    ).
+    catch((error) ->
+      responseView.updateMessage(error)
+    )

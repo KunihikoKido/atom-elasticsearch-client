@@ -1,10 +1,16 @@
 {CatBaseCommand} = require './base'
 
+
 module.exports =
 class CatAllocation extends CatBaseCommand
 
   run: ->
-    options =
-      v: true
+    responseView = @getResponseView(title: "Allocation")
 
-    @client.cat.allocation(options, @showResult)
+    @client.cat.allocation(v: true).
+    then((response) ->
+      responseView.updateMessage(response)
+    ).
+    catch((error) ->
+      responseView.updateMessage(error)
+    )

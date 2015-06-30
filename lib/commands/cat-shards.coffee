@@ -1,10 +1,16 @@
 {CatBaseCommand} = require './base'
 
+
 module.exports =
 class CatShards extends CatBaseCommand
 
   run: ->
-    options =
-      v: true
+    responseView = @getResponseView(title: "Shards")
 
-    @client.cat.shards(options, @showResult)
+    @client.cat.shards(v: true).
+    then((response) ->
+      responseView.updateMessage(response)
+    ).
+    catch((error) ->
+      responseView.updateMessage(error)
+    )

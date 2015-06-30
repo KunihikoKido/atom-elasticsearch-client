@@ -4,7 +4,12 @@ module.exports =
 class CatRecovery extends CatBaseCommand
 
   run: ->
-    options =
-      v: true
+    responseView = @getResponseView(title: "Recovery")
 
-    @client.cat.recovery(options, @showResult)
+    @client.cat.recovery(v: true).
+    then((response) ->
+      responseView.updateMessage(response)
+    ).
+    catch((error) ->
+      responseView.updateMessage(error)
+    )

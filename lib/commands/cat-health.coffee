@@ -4,7 +4,12 @@ module.exports =
 class CatHealth extends CatBaseCommand
 
   run: ->
-    options =
-      v: true
+    responseView = @getResponseView(title: "Health")
 
-    @client.cat.health(options, @showResult)
+    @client.cat.health(v: true).
+    then((response) ->
+      responseView.updateMessage(response)
+    ).
+    catch((error) ->
+      responseView.updateMessage(error)
+    )
