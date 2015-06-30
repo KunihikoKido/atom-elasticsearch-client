@@ -56,7 +56,7 @@ helperReindex = () ->
     then((response) ->
       success += response.items.length
       console.log(success)
-      lodingView.updateMessage("Reindexing #{index} ... #{success}")
+      lodingView.updateMessage("Reindexing #{index} ... #{success} docs.")
 
       # re-scroll
       client.scroll(scrollId: scrollId, scroll: scroll).
@@ -73,8 +73,8 @@ helperReindex = () ->
     notifications.addError("Reindex Error: #{error}", dismissable: true)
   ).
   then(()->
-    console.log("finished reindex! #{success}")
-    lodingView.updateMessage("Finished #{index}: #{success}")
+    console.log("Finished #{index} reindex: #{success}")
+    lodingView.updateMessage("Finished reindexing for #{index}: #{success} docs.")
     lodingView.finish()
   )
 
