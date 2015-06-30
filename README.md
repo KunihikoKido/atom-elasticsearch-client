@@ -2,7 +2,15 @@
 
 Elasticsearch Client allows you to build an Rest API request in Atom editor and view the response.
 
-![overview](https://raw.githubusercontent.com/KunihikoKido/atom-elasticsearch-client/master/overview.gif)
+### Search Request Body Command
+![search](screenshots/search.gif)
+
+### Cat Api Command
+![cat](screenshots/cat.gif)
+
+## Helper Reindex Command
+![reindex](screenshots/reindex.gif)
+
 
 ## Using
 You can send a body.
