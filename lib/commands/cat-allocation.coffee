@@ -1,13 +1,18 @@
 {CatBaseCommand} = require './base'
-
+{showNodesListView} = require '../views/nodes-list-view'
 
 module.exports =
 class CatAllocation extends CatBaseCommand
 
-  run: ->
-    responseView = @getResponseView(title: "Allocation")
+  run: ({nodeId}={})->
+    if nodeId is undefined
+      return showNodesListView((item) ->
+        new CatAllocation(nodeId: item.name)
+      )
 
-    @client.cat.allocation(v: true).
+    responseView = @getResponseView(title: "Allocation: #{nodeId}")
+
+    @client.cat.allocation(v: true, nodeId: nodeId).
     then((response) ->
       responseView.updateMessage(response)
     ).

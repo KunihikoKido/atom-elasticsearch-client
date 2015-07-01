@@ -1,13 +1,19 @@
 {CatBaseCommand} = require './base'
+{showIndicesListView} = require '../views/indices-list-view'
 
 
 module.exports =
 class CatShards extends CatBaseCommand
 
-  run: ->
-    responseView = @getResponseView(title: "Shards")
+  run: ({index}={}) ->
+    if index is undefined
+      return showIndicesListView((item) ->
+        new CatShards(index: item.name)
+      )
 
-    @client.cat.shards(v: true).
+    responseView = @getResponseView(title: "Shards: #{index}")
+
+    @client.cat.shards(v: true, index: index).
     then((response) ->
       responseView.updateMessage(response)
     ).

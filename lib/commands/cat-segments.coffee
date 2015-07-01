@@ -1,12 +1,18 @@
 {CatBaseCommand} = require './base'
+{showIndicesListView} = require '../views/indices-list-view'
 
 module.exports =
 class CatSegments extends CatBaseCommand
 
-  run: ->
-    responseView = @getResponseView(title: "Segments")
+  run: ({index}={}) ->
+    if index is undefined
+      return showIndicesListView((item) ->
+        new CatSegments(index: item.name)
+      )
 
-    @client.cat.segments(v: true).
+    responseView = @getResponseView(title: "Segments: #{index}")
+
+    @client.cat.segments(v: true, index: index).
     then((response) ->
       responseView.updateMessage(response)
     ).
