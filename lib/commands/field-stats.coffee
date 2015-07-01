@@ -6,9 +6,9 @@ module.exports =
 class FieldStats extends BaseCommand
 
   run: ({fields}={}) ->
-    if not fields
+    if fields is undefined
       return new InputView(
-        'Required: a comma-separated list of fields for to get field statistics for (min value, max value, and more)',
+        'Option: a comma-separated list of fields for to get field statistics for (min value, max value, and more)',
         (value) -> new FieldStats(fields: value))
 
     options =
