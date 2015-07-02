@@ -139,6 +139,128 @@
         }
       }$5
     """
+  "Global Aggregation":
+    "prefix": "global_aggs"
+    "body": """
+      "aggs": {
+        "${1:all_products}": {
+          "global": {},
+          "aggs": {
+            "${2:avg_price}": {
+              "avg": {
+                "field": "price"
+              }
+            }
+          }
+        }
+      }$3
+    """
+  "Filter Aggregation":
+    "prefix": "filter_aggs"
+    "body": """
+      "aggs": {
+        "${1:red_products}": {
+          "filter": {
+            "term": {
+              "color": "red"
+            }
+          },
+          "aggs": {
+            "${2:avg_price}": {
+              "avg": {
+                "field": "price"
+              }
+            }
+          }
+        }
+      }$3
+    """
+  "Filters Aggregation":
+    "prefix": "filters_aggs"
+    "body": """
+      "aggs": {
+        "${1:messages}": {
+          "filters": {
+            "filters": {
+              "${2:errors}": {"term": {"body": "error"}},
+              "${3:warnings}": {"term": {"body": "warning"}}
+            }
+          },
+          "aggs": {
+            "${4:monthly}": {
+              "histogram": {
+                "field": "timestamp",
+                "interval": "1M"
+              }
+            }
+          }
+        }
+      }$5
+    """
+  "Missing Aggregation":
+    "prefix": "missing_aggs"
+    "body": """
+      "aggs": {
+        "${1:products_without_a_price}": {
+          "missing": {
+            "field": "${2:price}"
+          }
+        }
+      }$3
+    """
+  "Nested Aggregation":
+    "prefix": "nested_aggs"
+    "body": """
+      "aggs": {
+        "${1:resellers}": {
+          "nested": {
+            "path": "${2:resellers}"
+          },
+          "aggs": {
+            "min_price": {
+              "min": {
+                "field": "resellers.price"
+              }
+            }
+          }
+        }
+      }$3
+    """
+  "Reverse Nested Aggregation":
+    "prefix": "reverse_nested_aggs"
+    "body": """
+      "aggs": {
+        "${1:comment_to_issue}": {
+          "reverse_nested": {},
+          "aggs": {
+            "${2:top_tags_per_comment}": {
+              "terms": {
+                "field": "tags"
+              }
+            }
+          }
+        }
+      }$3
+    """
+  "Children Aggregation":
+    "prefix": "chldren_aggs"
+    "body": """
+      "aggs": {
+        "${1:to-answers}": {
+          "children": {
+            "type": "${2:answer}"
+          },
+          "aggs": {
+            "top-names": {
+              "terms": {
+                "field": "owner.display_name",
+                "size": 10
+              }
+            }
+          }
+        }
+      }$3
+    """
   "Terms Aggregation":
     "prefix": "terms_aggs"
     "body": """
@@ -146,6 +268,64 @@
         "${1:genders}": {
           "terms": {
             "field": "${2:gender}"
+          }
+        }
+      }$3
+    """
+  "Significant Terms Aggregation":
+    "prefix": "significant_terms_aggs"
+    "body": """
+      "aggs": {
+        "${1:significantCrimeTypes}": {
+          "significant_terms": {
+            "field": "${2:crime_type}"
+          }
+        }
+      }$3
+    """
+  "Range Aggregation":
+    "prefix": "range_aggs"
+    "body": """
+      "aggs": {
+        "${1:price_ranges}": {
+          "range": {
+            "field": "${2:price}",
+            "ranges": [
+              {"to": 50},
+              {"from": 50, "to": 100},
+              {"from": 100}
+            ]
+          }
+        }
+      }$3
+    """
+  "Date Range Aggregation":
+    "prefix": "date_range_aggs"
+    "body": """
+      "aggs": {
+        "range": {
+          "${1:date_range}": {
+            "field": "${2:date}",
+            "format": "MM-yyy",
+            "ranges": [
+              {"to": "now-10M/M"},
+              {"from": "now-10M/M"}
+            ]
+          }
+        }
+      }$3
+    """
+  "IPv4 Range Aggregation":
+    "prefix": "ipv4_range_aggs"
+    "body": """
+      "aggs": {
+        "${1:ip_ranges}": {
+          "ip_range": {
+            "field": "${2:ip}",
+            "ranges": [
+              {"to": "10.0.0.5"},
+              {"from": "10.0.0.5"}
+            ]
           }
         }
       }$3
