@@ -142,10 +142,6 @@ module.exports =
     servers:
       type: 'array'
       default: []
-    customAnalyzers:
-      type: 'array'
-      default: []
-      description: 'Analyze command to use analyzers'
     openInPane:
       type: 'boolean'
       default: true

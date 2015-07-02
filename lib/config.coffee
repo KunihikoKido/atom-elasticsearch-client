@@ -26,9 +26,6 @@ module.exports =
   getServers: ->
     atom.config.get("#{@namespace}.servers")
 
-  getCustomAnalyzers: ->
-    atom.config.get("#{@namespace}.customAnalyzers")
-
   getOpenInPane: ->
     atom.config.get("#{@namespace}.openInPane")
 
@@ -88,10 +85,6 @@ module.exports =
     if apiVersion isnt undefined
       atom.config.set("#{@namespace}.apiVersion", apiVersion)
 
-  setCustomAnalyzers: (customAnalyzers) ->
-    if customAnalyzers isnt undefined
-      atom.config.set("#{@namespace}.customAnalyzers", customAnalyzers)
-
   setMaxRetries: (maxRetries) ->
     if maxRetries isnt undefined
       atom.config.set("#{@namespace}.maxRetries", maxRetries)
@@ -129,7 +122,6 @@ module.exports =
     @setIndex(settings.index)
     @setDocType(settings.docType)
     @setApiVersion(settings.apiVersion)
-    @setCustomAnalyzers(settings.customAnalyzers)
     @setMaxRetries(settings.maxRetries)
     @setRequestTimeout(settings.requestTimeout)
     @setDeadTimeout(settings.deadTimeout)
