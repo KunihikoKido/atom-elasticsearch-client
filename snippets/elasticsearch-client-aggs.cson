@@ -139,3 +139,14 @@
         }
       }$5
     """
+  "Terms Aggregation":
+    "prefix": "terms_aggs"
+    "body": """
+      "aggs": {
+        "${1:genders}": {
+          "terms": {
+            "field": "${2:gender}"
+          }
+        }
+      }$3
+    """
