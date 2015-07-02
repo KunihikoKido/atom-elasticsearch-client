@@ -1,6 +1,8 @@
 {$$} = require 'atom-space-pen-views'
 ListView = require './list-view'
 config = require '../config'
+notifications = require '../notifications'
+
 
 class AnalyzerListView extends ListView
 
@@ -16,13 +18,11 @@ showAnalyzerListView = (client, {index}={}, callback) ->
 
   client.indices.getSettings(options).
   then((response) ->
-    console.log(response)
     if response[index].settings.index.analysis
       analyzers = Object.keys(response[index].settings.index.analysis.analyzer)
       analyzers.sort()
     else
       analyzers = []
-    console.log(analyzers)
 
     items = []
     for name in analyzers
@@ -30,7 +30,11 @@ showAnalyzerListView = (client, {index}={}, callback) ->
 
     items.push.apply(items, DEFAULT_ANALYZERS)
     return new AnalyzerListView(items, callback)
+  ).
+  catch((error) ->
+    notifications.addError(error)
   )
+
 
 DEFAULT_ANALYZERS = [
   {name: 'Standard Analyzer: standard', analyzer: 'standard'},
