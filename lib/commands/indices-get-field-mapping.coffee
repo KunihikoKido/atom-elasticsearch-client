@@ -8,11 +8,9 @@ class IndicesGetFieldMapping extends BaseCommand
   run: ({field}={}) ->
     if not field
       options =
-        client: @client
         index: @index
         docType: @docType
-
-      return showFieldsListView(options, (item) ->
+      return showFieldsListView(@client, options, (item) ->
         new IndicesGetFieldMapping(field: item.name)
       )
 

@@ -18,8 +18,7 @@ class NodesListView extends ListView
             @div "version: #{item.version}"
 
 
-showNodesListView = (callback) ->
-  client = config.getClient()
+showNodesListView = (client, callback) ->
   client.nodes.info().
   then((response) ->
     items = [{name: ""}]

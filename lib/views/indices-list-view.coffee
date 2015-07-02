@@ -15,8 +15,7 @@ class IndicesListView extends ListView
           @div class: 'primary-line icon icon-database', "#{item.name}"
 
 
-showIndicesListView = (callback) ->
-  client = config.getClient()
+showIndicesListView = (client, callback) ->
   client.indices.stats().
   then((response) ->
     items = [{name: ""}]

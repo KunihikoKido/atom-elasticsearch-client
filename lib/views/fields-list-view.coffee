@@ -13,7 +13,7 @@ class FieldsListView extends ListView
 
 
 
-showFieldsListView = ({client, index, docType}={}, callback) ->
+showFieldsListView = (client, {index, docType}={}, callback) ->
   options =
     index: index
     type: docType
