@@ -8,7 +8,7 @@ class CatShards extends CatBaseCommand
   run: ({index}={}) ->
     if index is undefined
       return showIndicesListView(@client, (item) ->
-        new CatShards(index: item.name)
+        new CatShards(index: item.index)
       )
 
     responseView = @getResponseView(title: "Shards: #{index}")

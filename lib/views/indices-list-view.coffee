@@ -20,7 +20,7 @@ showIndicesListView = (client, callback) ->
   then((response) ->
     items = [{name: ""}]
     for name of response.indices
-      items.push({name: name})
+      items.push({name: name, index: name})
     return new IndicesListView(items, callback)
   )
 

@@ -7,7 +7,7 @@ class CatSegments extends CatBaseCommand
   run: ({index}={}) ->
     if index is undefined
       return showIndicesListView(@client, (item) ->
-        new CatSegments(index: item.name)
+        new CatSegments(index: item.index)
       )
 
     responseView = @getResponseView(title: "Segments: #{index}")

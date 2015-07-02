@@ -7,7 +7,7 @@ class CatIndices extends CatBaseCommand
   run: ({index}={}) ->
     if index is undefined
       return showIndicesListView(@client, (item) ->
-        new CatIndices(index: item.name)
+        new CatIndices(index: item.index)
       )
 
     responseView = @getResponseView(title: "Indices: #{index}")

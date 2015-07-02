@@ -9,7 +9,7 @@ class IndicesDelete extends DeleteCommand
   run: ({index}={})->
     if not index
       return showIndicesListView(@client, (item) ->
-        new IndicesDelete(index: item.name)
+        new IndicesDelete(index: item.index)
       )
 
     if dialog.okCancel("Are you sure you want to delete?\nIndex: #{@index}", okTitle: "Delete")
