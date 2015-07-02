@@ -13,6 +13,6 @@ class IndicesGetMapping extends BaseCommand
 
     options =
       index: @index
-      type: @docType
+      type: docType
 
     @client.indices.getMapping(options, @showResult)

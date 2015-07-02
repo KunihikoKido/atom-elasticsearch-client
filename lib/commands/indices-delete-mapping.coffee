@@ -14,6 +14,6 @@ class IndicesDeleteMapping extends DeleteCommand
     if dialog.okCancel("Are you sure you want to delete?\nMapping: #{@index}/#{@docType}", okTitle: "Delete")
       options =
         index: @index
-        type: @docType
+        type: docType
 
       @client.indices.deleteMapping(options, @showResult)
