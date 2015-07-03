@@ -7,7 +7,7 @@ class CatAllocation extends CatBaseCommand
   run: ({nodeId}={})->
     if nodeId is undefined
       return showNodesListView(@client, (item) ->
-        new CatAllocation(nodeId: item.name)
+        new CatAllocation(nodeId: item.nodeId)
       )
 
     responseView = @getResponseView(title: "Allocation: #{nodeId}")
