@@ -32,6 +32,8 @@ showDocTypeListView = (client, {index}={}, callback) ->
     return new DocTypeListView(items, callback)
   ).
   catch((error) ->
+    if error.status is 404
+      return new DocTypeListView([])
     notifications.addError(error)
   )
 

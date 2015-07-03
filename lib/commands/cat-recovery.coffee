@@ -6,7 +6,7 @@ class CatRecovery extends CatBaseCommand
 
   run: ({index}={}) ->
     if index is undefined
-      return showIndicesListView(@client, (item) ->
+      return showIndicesListView(@client, all: true, (item) ->
         new CatRecovery(index: item.index)
       )
 

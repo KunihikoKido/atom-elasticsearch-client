@@ -7,10 +7,11 @@ class IndicesGetSettings extends BaseCommand
 
   run: ({index}={})->
     if not index
-      return showIndicesListView(@client, (item) ->
+      return showIndicesListView(@client, all: false, (item) ->
         new IndicesGetSettings(index: item.index)
       )
 
+    console.log(index)
     options =
       index: index
 

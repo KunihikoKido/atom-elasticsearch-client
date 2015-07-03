@@ -29,6 +29,8 @@ showFieldsListView = (client, {index, docType}={}, callback) ->
     return new FieldsListView(items, callback)
   ).
   catch((error) ->
+    if error.status is 404
+      return new FieldsListView([])
     notifications.addError(error)
   )
 

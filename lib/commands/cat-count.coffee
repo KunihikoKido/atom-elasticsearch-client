@@ -7,7 +7,7 @@ class CatCount extends CatBaseCommand
 
   run: ({index}={})->
     if index is undefined
-      return showIndicesListView(@client, (item) ->
+      return showIndicesListView(@client, all: true, (item) ->
         new CatCount(index: item.index)
       )
 

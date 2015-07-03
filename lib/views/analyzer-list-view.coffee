@@ -32,6 +32,8 @@ showAnalyzerListView = (client, {index}={}, callback) ->
     return new AnalyzerListView(items, callback)
   ).
   catch((error) ->
+    if error.status is 404
+      return new AnalyzerListView([])
     notifications.addError(error)
   )
 
