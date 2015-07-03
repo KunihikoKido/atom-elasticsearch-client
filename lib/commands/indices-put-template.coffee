@@ -5,15 +5,14 @@ InputView = require '../views/input-view'
 module.exports =
 class IndicesPutTemplate extends CreateCommand
 
-  run: ({name}={}) ->
+  run: ({template}={}) ->
     if not name
       return new InputView(
         'Required: template name to create',
-        (value) -> new IndicesPutTemplate(name: value))
+        (value) -> new IndicesPutTemplate(template: value))
 
     options =
-      index: @index
-      name: name
+      name: template
       body: @getText()
 
     @client.indices.putTemplate(options, @showResult)

@@ -1,19 +1,16 @@
 {DeleteCommand} = require './base'
-InputView = require '../views/input-view'
+{showIndicesTemplateListView} = require '../views/indices-template-list-view'
 dialog = require '../dialog'
 
 
 module.exports =
 class IndicesDeleteTemplate extends DeleteCommand
 
-  run: ({name}={}) ->
-    if not name
-      return new InputView(
-        'Required: template name to delete',
-        (value) -> new IndicesDeleteTemplate(name: value))
+  run: ({template}={}) ->
+    if not template
+      return showIndicesTemplateListView(@client, (item) ->
+        new IndicesDeleteTemplate(template: item.template)
+      )
 
     if dialog.okCancel("Are you sure you want to delete?\nTemplate : #{name}", okTitle: "Delete")
-      options =
-        name: name
-
-      @client.indices.deleteTemplate(options, @showResult)
+      @client.indices.deleteTemplate(name: template, @showResult)

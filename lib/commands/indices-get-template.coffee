@@ -1,18 +1,14 @@
 {BaseCommand} = require './base'
-InputView = require '../views/input-view'
-dialog = require '../dialog'
+{showIndicesTemplateListView} = require '../views/indices-template-list-view'
 
 
 module.exports =
 class IndicesGetTemplate extends BaseCommand
 
-  run: ({name}={}) ->
-    if not name
-      return new InputView(
-        'Required: template name to get',
-        (value) -> new IndicesGetTemplate(name: value))
+  run: ({template}={}) ->
+    if not template
+      return showIndicesTemplateListView(@client, (item) ->
+        new IndicesGetTemplate(template: item.template)
+      )
 
-    options =
-      name: name
-
-    @client.indices.getTemplate(options, @showResult)
+    @client.indices.getTemplate(name: template, @showResult)
