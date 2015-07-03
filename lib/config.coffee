@@ -62,7 +62,11 @@ module.exports =
     options.pingTimeout     = atom.config.get("#{@namespace}.pingTimeout")
     options.keepAlive       = atom.config.get("#{@namespace}.keepAlive")
 
-    console.log(hostOptions)
+    if atom.config.get("#{@namespace}.traceLog")
+      options.log =
+        type: "file"
+        level: "trace"
+        path: atom.config.get("#{@namespace}.traceLogPath")
 
     new elasticsearch.Client(options)
 

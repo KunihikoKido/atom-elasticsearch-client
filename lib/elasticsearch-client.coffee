@@ -1,3 +1,5 @@
+path = require 'path'
+
 CatAliases            = require './commands/cat-aliases'
 CatAllocation         = require './commands/cat-allocation'
 CatCount              = require './commands/cat-count'
@@ -150,6 +152,7 @@ module.exports =
       title: 'Split pane direction (up, right, down, or left)'
       type: 'string'
       default: 'right'
+      enum: ['up','right','down', 'left']
       description: 'Where should new panes go? (Defaults to right)'
     maxRetries:
       type: 'integer'
@@ -189,6 +192,16 @@ module.exports =
       default: '1m'
       description: 'Specify how long a consistent view of the index should
       be maintained for scrolled search'
+    traceLog:
+      type: 'boolean'
+      default: false
+      description: 'Enabled trace log for elasticsearch client.'
+    traceLogPath:
+      type: 'string'
+      default: path.join __dirname, '..', 'elasticsearch.log'
+      description: 'Location of the file to write log messages to.
+      It is created if it does not exists. '
+
 
   activate: ->
     atom.commands.add 'atom-workspace',
