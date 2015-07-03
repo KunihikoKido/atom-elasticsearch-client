@@ -7,23 +7,19 @@ notifications = require '../notifications'
 class IndicesListView extends ListView
 
   viewForItem: (item) ->
-    if item.name is ""
-      $$ ->
-        @li =>
-          @div class: 'primary-line icon icon-database', "*"
-    else
-      $$ ->
-        @li =>
-          @div class: 'primary-line icon icon-database', "#{item.name}"
+    $$ ->
+      @li =>
+        @div class: 'primary-line icon icon-database', "#{item.name}"
 
 
 showIndicesListView = (client, {all}={}, callback) ->
 
-  client.indices.stats().
+  client.cluster.state().
   then((response) ->
+
     items = []
-    for name of response.indices
-      items.push({name: name, index: name})
+    for name, info of response.metadata.indices
+      items.push({name: "#{name} (#{info.state})", index: name})
 
     if items.length is 0
       return new IndicesListView([])

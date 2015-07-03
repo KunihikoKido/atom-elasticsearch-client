@@ -1,10 +1,14 @@
 {CreateCommand} = require './base'
+{showIndicesListView} = require '../views/indices-list-view'
+
 
 module.exports =
 class IndicesFlushSynced extends CreateCommand
 
-  run: ->
-    options =
-      index: @index
+  run: ({index}={})->
+    if not index
+      return showIndicesListView(@client, all: false, (item) ->
+        new IndicesFlushSynced(index: item.index)
+      )
 
-    @client.indices.flushSynced(options, @showResult)
+    @client.indices.flushSynced(index: index, @showResult)

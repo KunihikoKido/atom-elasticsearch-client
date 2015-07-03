@@ -1,10 +1,14 @@
 {CreateCommand} = require './base'
+{showIndicesListView} = require '../views/indices-list-view'
+
 
 module.exports =
 class IndicesClose extends CreateCommand
 
-  run: ->
-    options =
-      index: @index
+  run: ({index}={})->
+    if not index
+      return showIndicesListView(@client, all: false, (item) ->
+        new IndicesClose(index: item.index)
+      )
 
-    @client.indices.close(options, @showResult)
+    @client.indices.close(index: index, @showResult)
