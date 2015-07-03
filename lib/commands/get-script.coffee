@@ -7,13 +7,11 @@ class GetScript extends BaseCommand
 
   run: ({lang, id}={}) ->
     if not lang or not id
-      return new ScriptInputView((items) ->
-        new GetScript(items)
+      return new ScriptInputView((item) ->
+        new GetScript(lang: item.lang, id: item.id)
       )
 
     options =
-      index: @index
-      type: @docType
       lang: lang
       id: id
 

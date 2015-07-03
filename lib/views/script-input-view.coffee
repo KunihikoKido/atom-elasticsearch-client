@@ -20,7 +20,7 @@ class ScriptInputView extends View
   confirm: ->
     lang = @inputLang.getModel().getText()
     id   = @inputId.getModel().getText()
-    @callback?(lang: lang, snapshot: id)
+    @callback?(lang: lang, id: id)
     @destroy()
 
   destroy: ->
