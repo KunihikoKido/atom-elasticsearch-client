@@ -1,5 +1,5 @@
 {DeleteCommand} = require './base'
-ScriptInputView = require '../views/script-input-view'
+{showScriptsListView} = require '../views/scripts-list-view'
 dialog = require '../dialog'
 
 
@@ -8,7 +8,7 @@ class DeleteScript extends DeleteCommand
 
   run: ({lang, id}={}) ->
     if not lang or not id
-      return new ScriptInputView((item) ->
+      return showScriptsListView(@client, (item) ->
         new DeleteScript(lang: item.lang, id: item.id)
       )
 
