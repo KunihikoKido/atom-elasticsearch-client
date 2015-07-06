@@ -8,7 +8,7 @@ class GetSearchTemplate extends BaseCommand
   run: ({id}={}) ->
     if not id
       return showSearchTemplateListView(@client, (item) ->
-        new GetSearchTemplate(id: item.template)
+        new GetSearchTemplate(id: item.id)
       )
 
     options =

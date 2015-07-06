@@ -27,7 +27,7 @@ showSearchTemplateListView = (client, callback) ->
     items = []
 
     for doc in response.hits.hits
-      items.push({name: "#{doc._id}", template: doc._id})
+      items.push({name: "#{doc._id}", id: doc._id})
 
     items.sort()
 

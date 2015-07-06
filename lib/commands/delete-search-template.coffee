@@ -9,7 +9,7 @@ class DeleteSearchTemplate extends DeleteCommand
   run: ({id}={}) ->
     if not id
       return showSearchTemplateListView(@client, (item) ->
-        new GetSearchTemplate(id: item.template)
+        new DeleteSearchTemplate(id: item.id)
       )
 
     if dialog.okCancel("Are you sure you want to delete?\nTemplate id: #{id}", okTitle: "Delete")
