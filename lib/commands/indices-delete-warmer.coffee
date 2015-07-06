@@ -1,5 +1,5 @@
 {DeleteCommand} = require './base'
-InputView = require '../views/input-view'
+{showWarmersListView} = require '../views/warmers-list-view'
 dialog = require '../dialog'
 
 
@@ -8,9 +8,9 @@ class IndicesDeleteWarmer extends DeleteCommand
 
   run: ({name}={}) ->
     if not name
-      return new InputView(
-        'Required: warmer name to delete. (supports wildcards)',
-        (value) -> new IndicesDeleteWarmer(name: value))
+      return showWarmersListView(@client, index: @index, (item) ->
+        new IndicesDeleteWarmer(name: item.id)
+      )
 
     if dialog.okCancel("Are you sure you want to delete?\nWarmer : #{name}", okTitle: "Delete")
       options =
