@@ -92,9 +92,11 @@ FieldStats            = require './commands/field-stats'
 GetDocument           = require './commands/get-document'
 GetDocumentSource     = require './commands/get-document-source'
 GetMultipleDocuments  = require './commands/get-multiple-documents'
+GetPercolatorQuery    = require './commands/get-percolator-query'
 GetScript             = require './commands/get-script'
 GetSearchTemplate     = require './commands/get-search-template'
 IndexDocument         = require './commands/index-document'
+IndexPercolatorQuery  = require './commands/index-percolator-query'
 Info                  = require './commands/info'
 MultiplePercolate     = require './commands/multiple-percolate'
 MultipleSearch        = require './commands/multiple-search'
@@ -109,6 +111,7 @@ SearchRequestBody     = require './commands/search-request-body'
 SearchShards          = require './commands/search-shards'
 SearchTemplate        = require './commands/search-template'
 SearchUri             = require './commands/search-uri'
+SearchPercolatorQuery = require './commands/search-percolator-query'
 Suggest               = require './commands/suggest'
 Termvector            = require './commands/termvector'
 UpdateDocument        = require './commands/update-document'
@@ -301,10 +304,12 @@ module.exports =
       'elasticsearch:get-script':                -> new GetScript()
       'elasticsearch:get-search-template':       -> new GetSearchTemplate()
       'elasticsearch:get-multiple-documents':    -> new GetMultipleDocuments()
+      'elasticsearch:get-percolator-query':      -> new GetPercolatorQuery()
       'elasticsearch:multiple-percolate':        -> new MultiplePercolate()
       'elasticsearch:multiple-search':           -> new MultipleSearch()
       'elasticsearch:multiple-termvectors':      -> new MultipleTermvectors()
       'elasticsearch:index-document':            -> new IndexDocument()
+      'elasticsearch:index-percolator-query':    -> new IndexPercolatorQuery()
       'elasticsearch:info':                      -> new Info()
       'elasticsearch:percolate':                 -> new Percolate()
       'elasticsearch:ping':                      -> new Ping()
@@ -320,6 +325,7 @@ module.exports =
       'elasticsearch:search-template-count':     -> new SearchTemplate(searchType: 'count')
       'elasticsearch:search-template-scan':      -> new SearchTemplate(searchType: 'scan')
       'elasticsearch:search-simple-query':       -> new SearchUri()
+      'elasticsearch:search-percolator-query':   -> new SearchPercolatorQuery()
       'elasticsearch:suggest':                   -> new Suggest()
       'elasticsearch:termvector':                -> new Termvector()
       'elasticsearch:update-document':           -> new UpdateDocument()
