@@ -150,6 +150,8 @@
     "fs-plus": "^2.8.1",
     "loophole": "^1.0.0",
     "elasticsearch": "^5.0.0",
-    "comma-separated-values": "^3.6.2"
+    "comma-separated-values": "^3.6.2",
+    "node-uuid": "^1.4.3",
+    "analytics-node": "^1.2.2"
   }
 }

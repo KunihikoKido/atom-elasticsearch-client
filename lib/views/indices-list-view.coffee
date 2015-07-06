@@ -27,7 +27,7 @@ showIndicesListView = (client, {all}={}, callback) ->
     items.sort()
 
     if all
-      items.unshift({name: "*", index: null})
+      items.unshift({name: "*", index: ""})
     return new IndicesListView(items, callback)
   ).
   catch((error) ->

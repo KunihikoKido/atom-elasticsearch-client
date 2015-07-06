@@ -14,8 +14,6 @@ class BaseCommand
   client:     null
   scroll: null
 
-  confirmMessage: "Are you sure?"
-
   constructor: (args...) ->
     @index            = config.getIndex()
     @docType          = config.getDocType()
