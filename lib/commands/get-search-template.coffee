@@ -1,5 +1,5 @@
 {BaseCommand} = require './base'
-InputView = require '../views/input-view'
+{showSearchTemplateListView} = require '../views/search-template-list-view'
 
 
 module.exports =
@@ -7,9 +7,9 @@ class GetSearchTemplate extends BaseCommand
 
   run: ({id}={}) ->
     if not id
-      return new InputView(
-        'Required: template id to get search template',
-        (value) -> new GetSearchTemplate(id: value))
+      return showSearchTemplateListView(@client, (item) ->
+        new GetSearchTemplate(id: item.template)
+      )
 
     options =
       id: id
