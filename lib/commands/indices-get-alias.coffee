@@ -1,19 +1,19 @@
 {BaseCommand} = require './base'
-InputView = require '../views/input-view'
+{showAliasListView} = require '../views/alias-list-view'
 dialog = require '../dialog'
 
 
 module.exports =
 class IndicesGetAlias extends BaseCommand
 
-  run: ({name}={}) ->
-    if not name
-      return new InputView(
-        'Required: alias name to get infomation',
-        (value) -> new IndicesGetAlias(name: value))
+  run: ({index, name}={}) ->
+    if not index or not name
+      return showAliasListView(@client, index: @index, (item) ->
+        new IndicesGetAlias(index: item.index, name: item.alias)
+      )
 
     options =
-      index: @index
+      index: index
       name: name
 
     @client.indices.getAlias(options, @showResult)

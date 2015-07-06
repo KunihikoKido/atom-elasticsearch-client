@@ -1,20 +1,20 @@
 {DeleteCommand} = require './base'
-InputView = require '../views/input-view'
+{showAliasListView} = require '../views/alias-list-view'
 dialog = require '../dialog'
 
 
 module.exports =
 class IndicesDeleteAlias extends DeleteCommand
 
-  run: ({name}={}) ->
-    if not name
-      return new InputView(
-        'Required: alias name to delete',
-        (value) -> new IndicesDeleteAlias(name: value))
+  run: ({index, name}={}) ->
+    if not index or not name
+      return showAliasListView(@client, index: @index, (item) ->
+        new IndicesDeleteAlias(index: item.index, name: item.alias)
+      )
 
-    if dialog.okCancel("Are you sure you want to delete?\nAlias : #{name}", okTitle: "Delete")
+    if dialog.okCancel("Are you sure you want to delete?\nAlias :#{name} (#{index})", okTitle: "Delete")
       options =
-        index: @index
+        index: index
         name: name
 
       @client.indices.deleteAlias(options, @showResult)
