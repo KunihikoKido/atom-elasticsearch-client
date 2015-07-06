@@ -66,9 +66,11 @@ Currently this should work in ``.json`` file
 * Elasticsearch: Get Document
 * Elasticsearch: Get Document Source
 * Elasticsearch: Get Multiple Documents
+* Elasticsearch: Get Percolator Query
 * Elasticsearch: Get Script
 * Elasticsearch: Get Search Template
 * Elasticsearch: Index Document
+* Elasticsearch: Index Percolator Query
 * Elasticsearch: Info
 * Elasticsearch: Multiple Percolate
 * Elasticsearch: Multiple Search
@@ -79,17 +81,19 @@ Currently this should work in ``.json`` file
 * Elasticsearch: Put Search Template
 * Elasticsearch: Scroll
 * Elasticsearch: Search Exists
+* Elasticsearch: Search Percolator Query
 * Elasticsearch: Search Request Body
 * Elasticsearch: Search Request Body Count
 * Elasticsearch: Search Request Body Scan
 * Elasticsearch: Search Shards
+* Elasticsearch: Search Simple Query
 * Elasticsearch: Search Template
 * Elasticsearch: Search Template Count
 * Elasticsearch: Search Template Scan
-* Elasticsearch: Search Simple Query
 * Elasticsearch: Suggest
 * Elasticsearch: Termvector
 * Elasticsearch: Update Document
+
 
 ### Command for Cat APIs
 
