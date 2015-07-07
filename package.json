@@ -136,6 +136,8 @@
       "elasticsearch:helper-reindex",
       "elasticsearch:helper-convert-csv-to-bulk-index-format",
       "elasticsearch:settings-show-active-server",
+      "elasticsearch:settings-select-index",
+      "elasticsearch:settings-select-doc-type",
       "elasticsearch:settings-switch-server"
     ]
   },

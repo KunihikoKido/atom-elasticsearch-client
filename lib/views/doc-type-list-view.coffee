@@ -27,7 +27,7 @@ showDocTypeListView = (client, {index}={}, callback) ->
     items = []
     for name in docTypes
       if name isnt "_default_"
-        items.push({name: "#{name}", docType: name})
+        items.push({name: "#{name}", index: index, docType: name})
 
     return new DocTypeListView(items, callback)
   ).

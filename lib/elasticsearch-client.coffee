@@ -118,6 +118,8 @@ UpdateDocument        = require './commands/update-document'
 
 ShowActiveServer      = require './commands/show-active-server'
 SwitchServer          = require './commands/switch-server'
+SelectIndex           = require './commands/select-index'
+SelectDocType         = require './commands/select-doc-type'
 
 helperCloseOpenIndex       = require './commands/helper-close-open-index'
 helperReindex              = require './commands/helper-reindex'
@@ -345,6 +347,8 @@ module.exports =
 
     @activateCommand("elasticsearch:settings-show-active-server", -> new ShowActiveServer())
     @activateCommand("elasticsearch:settings-switch-server", -> new SwitchServer())
+    @activateCommand("elasticsearch:settings-select-index", -> new SelectIndex())
+    @activateCommand("elasticsearch:settings-select-doc-type", -> new SelectDocType())
 
     @activateCommand("elasticsearch:helper-close-open-index", -> helperCloseOpenIndex())
     @activateCommand("elasticsearch:helper-reindex", -> helperReindex())

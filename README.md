@@ -191,6 +191,8 @@ Currently this should work in ``.json`` file
 
 ### Command for User Settings
 
+* Elasticsearch: Settings Select Doc Type
+* Elasticsearch: Settings Select Index
 * Elasticsearch: Settings Show Active Server
 * Elasticsearch: Settings Switch Server
 
