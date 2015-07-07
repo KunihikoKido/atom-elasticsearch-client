@@ -36,20 +36,16 @@ module.exports =
     analytics = @getAnalytics()
     userId = @getUserId()
 
-    analytics.identify({
-      userId: userId,
-      traits: {
-        atomVersion: @atomVersion,
-        pkgVersion: @pkgVersion,
-        devMode: @devMode
-      }
-    })
+    analytics.identify({userId: userId})
 
     analytics.track({
       userId: userId,
       event: 'Run Command',
       properties: {
         category: @pkgVersion,
-        label: commandName
+        label: commandName,
+        atomVersion: @atomVersion,
+        pkgVersion: @pkgVersion,
+        devMode: @devMode
       }
     })
