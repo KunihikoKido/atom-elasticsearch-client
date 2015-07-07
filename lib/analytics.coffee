@@ -1,7 +1,7 @@
 uuid = require 'node-uuid'
 pkg = require '../package.json'
 Analytics = require 'analytics-node'
-
+config = require './config'
 
 module.exports =
   namespace: pkg.name
@@ -46,6 +46,7 @@ module.exports =
         label: commandName,
         atomVersion: @atomVersion,
         pkgVersion: @pkgVersion,
-        devMode: @devMode
+        devMode: @devMode,
+        apiVersion: config.getApiVersion()
       }
     })
