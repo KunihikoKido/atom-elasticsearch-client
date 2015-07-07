@@ -2,10 +2,10 @@ url = require 'url'
 {allowUnsafeNewFunction} = require 'loophole'
 elasticsearch = allowUnsafeNewFunction -> require 'elasticsearch'
 notifications = require './notifications'
-
+pkg = require '../package'
 
 module.exports =
-  namespace: "elasticsearch-client"
+  namespace: pkg.name
   client: null
 
   getBaseUrl: ->
@@ -40,6 +40,7 @@ module.exports =
       apiVersion: @getApiVersion()
 
   initClient: ->
+    @client = null
 
     hostOptions = {}
     host = url.parse(@getBaseUrl())
@@ -68,72 +69,83 @@ module.exports =
         level: "trace"
         path: atom.config.get("#{@namespace}.traceLogPath")
 
-    new elasticsearch.Client(options)
+    @client = new elasticsearch.Client(options)
+    return @client
 
   getClient: ->
     @client ?= @initClient()
 
-  setBaseUrl: (baseUrl) ->
+  setBaseUrl: ({baseUrl}={}) ->
     if baseUrl isnt undefined
       atom.config.set("#{@namespace}.baseUrl", baseUrl)
 
-  setIndex: (index) ->
+  setIndex: ({index}={}) ->
     if index isnt undefined
       atom.config.set("#{@namespace}.index", index)
 
-  setDocType: (docType) ->
+  setDocType: ({docType}={}) ->
     if docType isnt undefined
       atom.config.set("#{@namespace}.docType", docType)
 
-  setApiVersion: (apiVersion) ->
+  setApiVersion: ({apiVersion}={}) ->
     if apiVersion isnt undefined
       atom.config.set("#{@namespace}.apiVersion", apiVersion)
 
-  setMaxRetries: (maxRetries) ->
+  setMaxRetries: ({maxRetries}={}) ->
     if maxRetries isnt undefined
       atom.config.set("#{@namespace}.maxRetries", maxRetries)
 
-  setRequestTimeout: (requestTimeout) ->
+  setRequestTimeout: ({requestTimeout}={}) ->
     if requestTimeout isnt undefined
       atom.config.set("#{@namespace}.requestTimeout", requestTimeout)
 
-  setDeadTimeout: (deadTimeout) ->
+  setDeadTimeout: ({deadTimeout}={}) ->
     if deadTimeout isnt undefined
       atom.config.set("#{@namespace}.deadTimeout", deadTimeout)
 
-  setPingTimeout: (pingTimeout) ->
+  setPingTimeout: ({pingTimeout}={}) ->
     if pingTimeout isnt undefined
       atom.config.set("#{@namespace}.pingTimeout", pingTimeout)
 
-  setKeepAlive: (keepAlive) ->
+  setKeepAlive: ({keepAlive}={}) ->
     if keepAlive isnt undefined
       atom.config.set("#{@namespace}.keepAlive", keepAlive)
 
-  setAuthorizationHeader: (authorizationHeader) ->
+  setAuthorizationHeader: ({authorizationHeader}={}) ->
     if authorizationHeader isnt undefined
       atom.config.set("#{@namespace}.authorizationHeader", authorizationHeader)
 
-  setUserAgent: (userAgent) ->
+  setUserAgent: ({userAgent}={}) ->
     if userAgent isnt undefined
       atom.config.set("#{@namespace}.userAgent", userAgent)
 
-  setScrollSize: (scrollSize) ->
+  setScrollSize: ({scrollSize}={}) ->
     if scrollSize isnt undefined
       atom.config.set("#{@namespace}.scrollSize", scrollSize)
 
+  setTraceLog: ({traceLog}={}) ->
+    if traceLog isnt undefined
+      atom.config.set("#{@namespace}.traceLog", traceLog)
+
+  setTraceLogPath: ({traceLogPath}={}) ->
+    if traceLogPath isnt undefined
+      atom.config.set("#{@namespace}.traceLogPath", traceLogPath)
+
   setActiveServer: (settings) ->
-    @setBaseUrl(settings.baseUrl)
-    @setIndex(settings.index)
-    @setDocType(settings.docType)
-    @setApiVersion(settings.apiVersion)
-    @setMaxRetries(settings.maxRetries)
-    @setRequestTimeout(settings.requestTimeout)
-    @setDeadTimeout(settings.deadTimeout)
-    @setPingTimeout(settings.pingTimeout)
-    @setKeepAlive(settings.keepAlive)
-    @setAuthorizationHeader(settings.authorizationHeader)
-    @setUserAgent(settings.userAgent)
-    @setScrollSize(settings.scrollSize)
+    @setBaseUrl(settings)
+    @setIndex(settings)
+    @setDocType(settings)
+    @setApiVersion(settings)
+    @setMaxRetries(settings)
+    @setRequestTimeout(settings)
+    @setDeadTimeout(settings)
+    @setPingTimeout(settings)
+    @setKeepAlive(settings)
+    @setAuthorizationHeader(settings)
+    @setUserAgent(settings)
+    @setScrollSize(settings)
+    @setTraceLog(settings)
+    @setTraceLogPath(settings)
 
     @client = @initClient()
 
