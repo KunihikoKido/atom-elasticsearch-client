@@ -221,7 +221,19 @@ module.exports =
       analytics.trackCommand(commandName)
     )
 
+  catchConfigChange: ->
+    pkg = require '../package'
+    for key of atom.config.get(pkg.name)
+      if key not in ["servers", "openInPane", "splitPane", "analytics"]
+        keyPath = "#{pkg.name}.#{key}"
+        atom.config.onDidChange(keyPath, ({newValue, oldValue}) ->
+          config = require './config'
+          config.initClient()
+        )
+
   activate: ->
+    @catchConfigChange()
+
     @activateCommand("elasticsearch:cat-aliases", -> new CatAliases())
     @activateCommand("elasticsearch:cat-allocation", -> new CatAllocation())
     @activateCommand("elasticsearch:cat-count", -> new CatCount())
