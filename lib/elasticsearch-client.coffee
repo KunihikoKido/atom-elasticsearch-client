@@ -211,10 +211,6 @@ module.exports =
       Analytics](http://www.google.com/analytics/) to track what command are being
       used the most, as well as other stats. Everything is anonymized and no personal
       information, such as source code, is sent.'
-    analyticsUserId:
-      type: 'string'
-      default: ''
-      description: 'Unique identifier for this user for tracking usage analytics'
 
   activateCommand: (commandName, callback) ->
     atom.commands.add('atom-workspace', commandName, ->
