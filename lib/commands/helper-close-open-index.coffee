@@ -1,26 +1,29 @@
-dialog = require '../dialog'
+{CreateCommand} = require './base'
+{showIndicesListView} = require '../views/indices-list-view'
 notifications = require '../notifications'
-config = require '../config'
 
 
+module.exports =
+class HelperCloseOpenIndex extends CreateCommand
 
-helperCloseOpenIndex = () ->
-  client = config.getClient()
-  index = config.getIndex()
+  run: ({index}={})->
+    if not index
+      return showIndicesListView(@client, all: false, (item) ->
+        new HelperCloseOpenIndex(index: item.index)
+      )
 
-  client.indices.close(index: index).
-  then((response) ->
-    client.indices.open(index: index).
+    client = @client
+
+    client.indices.close(index: index).
+    then((response) ->
+      client.indices.open(index: index).
+      catch((error) ->
+        throw error
+      )
+    ).
+    then((response) ->
+      notifications.addSuccess("Success")
+    ).
     catch((error) ->
-      throw error
+      notifications.addError("Error: #{error}", dismissable: true)
     )
-  ).
-  then((response) ->
-    notifications.addSuccess("Success")
-  ).
-  catch((error) ->
-    notifications.addError("Error: #{error}", dismissable: true)
-  )
-
-
-module.exports = helperCloseOpenIndex

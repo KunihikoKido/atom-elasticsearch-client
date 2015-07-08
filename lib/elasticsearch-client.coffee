@@ -121,7 +121,7 @@ SwitchServer          = require './commands/switch-server'
 SelectIndex           = require './commands/select-index'
 SelectDocType         = require './commands/select-doc-type'
 
-helperCloseOpenIndex       = require './commands/helper-close-open-index'
+HelperCloseOpenIndex       = require './commands/helper-close-open-index'
 helperReindex              = require './commands/helper-reindex'
 HelperConvertCsvBulkIndex  = require './commands/helper-convert-csv-bulk-index'
 
@@ -362,6 +362,6 @@ module.exports =
     @activateCommand("elasticsearch:settings-select-index", -> new SelectIndex())
     @activateCommand("elasticsearch:settings-select-doc-type", -> new SelectDocType())
 
-    @activateCommand("elasticsearch:helper-close-open-index", -> helperCloseOpenIndex())
+    @activateCommand("elasticsearch:helper-close-open-index", -> new HelperCloseOpenIndex())
     @activateCommand("elasticsearch:helper-reindex", -> helperReindex())
     @activateCommand("elasticsearch:helper-convert-csv-to-bulk-index-format", -> new HelperConvertCsvBulkIndex())
