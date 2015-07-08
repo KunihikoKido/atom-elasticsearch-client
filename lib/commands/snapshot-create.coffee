@@ -1,5 +1,5 @@
 {CreateCommand} = require './base'
-InputView = require '../views/input-view'
+{showRepositoryListView} = require '../views/repository-list-view'
 
 
 module.exports =
@@ -18,14 +18,9 @@ class SnapshotCreate extends CreateCommand
 
   run: ({repository}={}) ->
     if not repository
-      return new InputView(
-        'Required: repository to create repository',
-        (value) -> new SnapshotCreate(repository: value))
-
-    now = new Date()
-
-    year = now.getFullYear()
-    month = now.getMonth() + 1
+      return showRepositoryListView(@client, (item) ->
+        new SnapshotCreate(repository: item.repository)
+      )
 
     options =
       repository: repository
