@@ -1,17 +1,14 @@
 {BaseCommand} = require './base'
-InputView = require '../views/input-view'
+{showRepositoryListView} = require '../views/repository-list-view'
 
 
 module.exports =
 class SnapshotGetRepository extends BaseCommand
 
   run: ({repository}={}) ->
-    if repository is undefined
-      return new InputView(
-        'Option: repository name to get information',
-        (value) -> new SnapshotGetRepository(repository: value))
+    if not repository
+      return showRepositoryListView(@client, (item) ->
+        new SnapshotGetRepository(repository: item.repository)
+      )
 
-    options = {}
-    options.repository = if repository then repository
-
-    @client.snapshot.getRepository(options, @showResult)
+    @client.snapshot.getRepository(repository: repository, @showResult)
