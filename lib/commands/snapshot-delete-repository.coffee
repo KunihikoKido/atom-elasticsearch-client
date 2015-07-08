@@ -1,6 +1,6 @@
 {DeleteCommand} = require './base'
-InputView = require '../views/input-view'
 dialog = require '../dialog'
+{showRepositoryListView} = require '../views/repository-list-view'
 
 
 module.exports =
@@ -8,12 +8,9 @@ class SnapshotDeleteRepository extends DeleteCommand
 
   run: ({repository}={}) ->
     if not repository
-      return new InputView(
-        'Required: repository name to delete',
-        (value) -> new SnapshotDeleteRepository(repository: value))
+      return showRepositoryListView(@client, (item) ->
+        new SnapshotDeleteRepository(repository: item.repository)
+      )
 
     if dialog.okCancel("Are you sure you want to delete?\nRepository : #{repository}", okTitle: "Delete")
-      options =
-        repository: repository
-
-      @client.snapshot.deleteRepository(options, @showResult)
+      @client.snapshot.deleteRepository(repository: repository, @showResult)
