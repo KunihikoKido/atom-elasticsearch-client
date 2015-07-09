@@ -1,0 +1,24 @@
+".source.json":
+  "File System Repository":
+    "prefix": "repository_fs"
+    "body": """
+      {
+        "type": "fs",
+        "settings": {
+          "location": "${1:/mount/backups/my_backup}",
+          "compress": ${2:true}
+        }
+      }
+    """
+  "S3 Repository":
+    "prefix": "repository_s3"
+    "body": """
+      {
+        "type": "s3",
+        "settings": {
+          "bucket": "${1:my_bucket_name}",
+          "region": "${2:ap-northeast-1}",
+          "compress": ${3:false}
+        }
+      }
+    """
