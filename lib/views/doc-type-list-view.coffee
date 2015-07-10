@@ -15,6 +15,7 @@ class DocTypeListView extends ListView
 showDocTypeListView = (client, {index}={}, callback) ->
   options =
     index: index
+    type: "_all"
 
   client.indices.getMapping(options).
   then((response) ->
