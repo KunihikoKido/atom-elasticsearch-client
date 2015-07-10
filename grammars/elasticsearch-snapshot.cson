@@ -1,0 +1,9 @@
+'scopeName': 'source.elasticsearch.snapshot'
+'fileTypes': [
+]
+'name': 'Elasticsearch (Snapshot)'
+'patterns': [
+  {
+    'include': 'source.json'
+  }
+]

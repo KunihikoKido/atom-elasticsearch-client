@@ -1,4 +1,4 @@
-".source.json":
+".source.json, .source.elasticsearch.query-dsl":
   "Query":
     "prefix": "query"
     "body": """

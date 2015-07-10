@@ -1,4 +1,4 @@
-".source.json":
+".source.json, .source.elasticsearch.query-dsl":
   "And Filter":
     "prefix": "and_filter"
     "body": """

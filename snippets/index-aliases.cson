@@ -1,4 +1,4 @@
-".source.json":
+".source.json, .source.elasticsearch.aliases":
   "Add Alias Template":
     "prefix": "add_alias_template"
     "body": """

@@ -1,4 +1,4 @@
-".source.json":
+".source.json, .source.elasticsearch.query-dsl":
   "Min Aggregation":
     "prefix": "min_aggs"
     "body": """

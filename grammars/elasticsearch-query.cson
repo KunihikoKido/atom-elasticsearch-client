@@ -1,0 +1,9 @@
+'scopeName': 'source.elasticsearch.query-dsl'
+'fileTypes': [
+]
+'name': 'Elasticsearch (Query DSL)'
+'patterns': [
+  {
+    'include': 'source.json'
+  }
+]

@@ -1,4 +1,4 @@
-".source.json":
+".source.json, .source.elasticsearch.snapshot":
   "Snapshot File System Repository Template":
     "prefix": "repository_fs_template"
     "body": """

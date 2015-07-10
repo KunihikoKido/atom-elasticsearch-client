@@ -1,0 +1,9 @@
+'scopeName': 'source.elasticsearch.aliases'
+'fileTypes': [
+]
+'name': 'Elasticsearch (Index Aliases)'
+'patterns': [
+  {
+    'include': 'source.json'
+  }
+]
