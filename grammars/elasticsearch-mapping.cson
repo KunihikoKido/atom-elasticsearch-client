@@ -1,0 +1,9 @@
+'scopeName': 'source.elasticsearch.mapping'
+'fileTypes': [
+]
+'name': 'Elasticsearch (Query DSL)'
+'patterns': [
+  {
+    'include': 'source.json'
+  }
+]

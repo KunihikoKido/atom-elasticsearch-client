@@ -1,0 +1,65 @@
+".source.json, .source.elasticsearch.mapping":
+  "Mapping Template":
+    "prefix": "add_alias_template"
+    "body": """
+      {
+        "${1:tweet}": {
+          "properties": {
+            "${2:message}": {
+              "type": "string",
+              "store": true
+            }
+          }
+        }
+      }$3
+    """
+  "_id Field Mapping":
+    "prefix": "_id_field_mapping"
+    "body": """
+      "_id": {
+        "path": "${1:post_id}"
+      }$2
+    """
+  "_type Field Mapping":
+    "prefix": "_type_field_mapping"
+    "body": """
+      "_type": {
+        "index": "${1:no}",
+        "store": ${2:true}
+      }$3
+    """
+  "_source Field Mapping":
+    "prefix": "_source_field_mapping"
+    "body": """
+      "_source": {
+        "enabled": ${1:false}
+      }$2
+    """
+  "_all Field Mapping":
+    "prefix": "_all_field_mapping"
+    "body": """
+      "_all": {
+        "enabled": ${1:false}
+      }$2
+    """
+  "_analyzer Field Mapping":
+    "prefix": "_analyzer_field_mapping"
+    "body": """
+      "_analyzer": {
+        "path": "${1:my_field}"
+      }$2
+    """
+  "_boost Field Mapping":
+    "prefix": "_boost_field_mapping"
+    "body": """
+      "_boost": {
+        "name": "${1:my_boost}", "null_value": ${2:1.0}
+      }$3
+    """
+  "_parent Field Mapping":
+    "prefix": "_parent_field_mapping"
+    "body": """
+      "_parent": {
+        "type": "${1:blog}"
+      }$2
+    """
