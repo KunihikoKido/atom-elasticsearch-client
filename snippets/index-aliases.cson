@@ -1,0 +1,67 @@
+".source.json":
+  "Add Alias":
+    "prefix": "add_aliases"
+    "body": """
+      {
+        "actions": [
+          {"add": {"index": "${1:test1}", "alias": "${2:alias1}"}}
+        ]
+      }$3
+    """
+  "Remove Alias":
+    "prefix": "remove_aliases"
+    "body": """
+      {
+        "actions": [
+          {"remove": {"index": "${1:test1}", "alias": "${2:alias1}"}}
+        ]
+      }$3
+    """
+  "Rename Alias":
+    "prefix": "remove_aliases"
+    "body": """
+      {
+        "actions": [
+          {"remove": {"index": "${1:test1}", "alias": "${2:alias1}"}}
+          {"add": {"index": "${1:test1}", "alias": "${3:alias2}"}}
+        ]
+      }$4
+    """
+  "Associate Alias":
+    "prefix": "associate_aliases"
+    "body": """
+      {
+        "actions": [
+          {"add": {"index": "${1:test1}", "alias": "${2:alias1}"}}
+          {"add": {"index": "${3:test2}", "alias": "${2:alias1}"}}
+        ]
+      }$4
+    """
+  "Filter Alias":
+    "prefix": "filter_aliases"
+    "body": """
+      {
+        "actions": [{
+          "add": {
+            "index": "${1:test1}",
+            "alias": "${2:alias2}",
+            "filter": {
+              ${3:"term": \{"user": "kimchy"\}}
+            }
+          }
+        }]
+      }$4
+    """
+  "Routing Alias":
+    "prefix": "routing_aliases"
+    "body": """
+      {
+        "actions": [{
+          "add": {
+            "index": "${1:test1}",
+            "alias": "${2:alias2}",
+            "routing": "${3:1}"
+          }
+        }]
+      }$4
+    """
