@@ -1,6 +1,6 @@
 ".source.json":
-  "Add Alias":
-    "prefix": "add_aliases"
+  "Add Alias Template":
+    "prefix": "add_alias_template"
     "body": """
       {
         "actions": [
@@ -8,8 +8,8 @@
         ]
       }$3
     """
-  "Remove Alias":
-    "prefix": "remove_aliases"
+  "Remove Alias Template":
+    "prefix": "remove_alias_template"
     "body": """
       {
         "actions": [
@@ -17,8 +17,8 @@
         ]
       }$3
     """
-  "Rename Alias":
-    "prefix": "remove_aliases"
+  "Rename Alias Template":
+    "prefix": "remove_alias_template"
     "body": """
       {
         "actions": [
@@ -27,8 +27,8 @@
         ]
       }$4
     """
-  "Associate Alias":
-    "prefix": "associate_aliases"
+  "Associate Alias Template":
+    "prefix": "associate_alias_template"
     "body": """
       {
         "actions": [
@@ -37,8 +37,8 @@
         ]
       }$4
     """
-  "Filter Alias":
-    "prefix": "filter_aliases"
+  "Filter Alias Template":
+    "prefix": "filter_alias_template"
     "body": """
       {
         "actions": [{
@@ -53,7 +53,7 @@
       }$4
     """
   "Routing Alias":
-    "prefix": "routing_aliases"
+    "prefix": "routing_alias_template"
     "body": """
       {
         "actions": [{

@@ -1,6 +1,6 @@
 ".source.json":
-  "File System Repository":
-    "prefix": "repository_fs"
+  "Snapshot File System Repository Template":
+    "prefix": "repository_fs_template"
     "body": """
       {
         "type": "fs",
@@ -10,8 +10,8 @@
         }
       }
     """
-  "S3 Repository":
-    "prefix": "repository_s3"
+  "Snapshot S3 Repository Template":
+    "prefix": "repository_s3_template"
     "body": """
       {
         "type": "s3",
