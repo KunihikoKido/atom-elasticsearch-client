@@ -4,6 +4,14 @@ Elasticsearch Client allows you to build an Rest API request in Atom editor and 
 
 ![overview](https://raw.githubusercontent.com/KunihikoKido/atom-elasticsearch-client/master/screenshots/search.gif)
 
+## Installation
+Atom Package: https://atom.io/packages/elasticsearch-client
+
+```bash
+apm install elasticsearch-client
+```
+
+Or Preferences ➔ Settings/Install ➔ Search for elasticsearch-client
 
 ## Using
 You can send a body.
@@ -44,11 +52,20 @@ Settings (Atom/Open Your Config). edit ``config.cson``
 You can switch the server, use ``Elasticsearch : Switch Server`` command.
 
 ## Snippets
-Currently this should work in ``.json`` file
+Currently this should work in ``.json`` file or Supported Grammars.
+
+* Query DSL Snippets
+  - Work in Grammars: JSON / Elasticsearch (Query DSL)
+* Index Aliases Snippets
+  - Work in Grammars: JSON / Elasticsearch (Index Aliases)
+* Mapping Snippets
+  - Work in Grammars: JSON / Elasticsearch (Mapping)
+* Snapshot Snippets
+  - Work in Grammars: JSON / Elasticsearch (Snapshot)
 
 ## Commands
 
-### Command for Basic APIs
+### Command for Search & Document APIs
 
 * Elasticsearch: Bulk
 * Elasticsearch: Clear Scroll
@@ -206,3 +223,10 @@ Currently this should work in ``.json`` file
 
 ## Helper Reindex Command
 ![reindex](https://raw.githubusercontent.com/KunihikoKido/atom-elasticsearch-client/master/screenshots/reindex.gif)
+
+## Recommended Atom Packages for Elasticsearch Developers
+
+* [mustache-compiler](https://atom.io/packages/mustache-compiler) (by kwkoizumi)
+  - Compile your Search Templates.
+* [atom-beautify](https://atom.io/packages/atom-beautify) (by Glavin001)
+  - Pretty your Query DSL.
