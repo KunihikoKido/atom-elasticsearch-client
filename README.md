@@ -226,7 +226,5 @@ Currently this should work in ``.json`` file or Supported Grammars.
 
 ## Recommended Atom Packages for Elasticsearch Developers
 
-* [mustache-compiler](https://atom.io/packages/mustache-compiler) (by kwkoizumi)
-  - Compile your Search Templates.
-* [atom-beautify](https://atom.io/packages/atom-beautify) (by Glavin001)
-  - Pretty your Query DSL.
+* [mustache-compiler](https://atom.io/packages/mustache-compiler) (by kwkoizumi) - Compile your Search Templates.
+* [atom-beautify](https://atom.io/packages/atom-beautify) (by Glavin001) - Pretty your Query DSL.
