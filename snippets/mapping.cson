@@ -1,6 +1,6 @@
 ".source.json, .source.elasticsearch.mapping":
   "Mapping Template":
-    "prefix": "add_alias_template"
+    "prefix": "mapping_template"
     "body": """
       {
         "${1:tweet}": {
