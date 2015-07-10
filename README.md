@@ -54,13 +54,13 @@ You can switch the server, use ``Elasticsearch : Switch Server`` command.
 ## Snippets
 Currently this should work in ``.json`` file or Supported Grammars.
 
-* Query DSL Snippets
+* **Query DSL Snippets**
   - Work in Grammars: JSON / Elasticsearch (Query DSL)
-* Index Aliases Snippets
+* **Index Aliases Snippets**
   - Work in Grammars: JSON / Elasticsearch (Index Aliases)
-* Mapping Snippets
+* **Mapping Snippets**
   - Work in Grammars: JSON / Elasticsearch (Mapping)
-* Snapshot Snippets
+* **Snapshot Snippets**
   - Work in Grammars: JSON / Elasticsearch (Snapshot)
 
 ## Commands
