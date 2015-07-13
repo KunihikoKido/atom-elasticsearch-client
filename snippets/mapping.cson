@@ -149,18 +149,206 @@
         "type": "binary"
       }
     """
-  "Index Name Mapping Option":
-    "prefix": "index_name_mapping"
+  "Array Type Mapping":
+    "prefix": "array_type_mapping"
     "body": """
-      "index_name": "${1:twitter}"$2
+      "${1:lists}": {
+        "properties": {
+          "$name": {"type": "string"},
+          "description": {"type": "string"}
+        }
+      }$2
     """
-  "Store":
-    "prefix": "store_mapping"
+  "Object Type Mapping":
+    "prefix": "object_type_mapping"
     "body": """
-      "store": ${1:true}$2
+      "${1:person}": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "object",
+            "properties": {
+              "first_name": {"type": "string"},
+              "last_name": {"type": "string"}
+            }
+          }
+        }
+      }$2
     """
-  "Not Analyzed":
-    "prefix": "not_analyzed"
+  "Nested Type Mapping":
+    "prefix": "nested_type_mapping"
     "body": """
-      "index": "${1:not_analyzed}"$2
+      "${1:users}": {
+        "type": "nested",
+        "include_in_parent": ${2:false}
+        "properties": {
+          "first_name": {"type": "string"},
+          "last_name": {"type": "string"}
+        }
+      }$3
+    """
+  "GEO Point Type Mapping":
+    "prefix": "geo_point_type_mapping"
+    "body": """
+      "${1:location}": {
+        "type": "geo_point"
+      }
+    """
+  "GEO Shape Type Mapping":
+    "prefix": "geo_shape_type_mapping"
+    "body": """
+      "${1:location}": {
+        "type": "geo_shape",
+        "tree": "quadtree",
+        "precision": "1m"
+      }$2
+    """
+  "Point Type Mapping":
+    "prefix": "point_type_mapping"
+    "body": """
+      "${1:location}": {
+        "type": "point",
+        "coordinates": [${2:-77.03653, 38.897676}]
+      }$3
+    """
+  "Line String Type Mapping":
+    "prefix": "linestring_type_mapping"
+    "body": """
+      "${1:location}": {
+        "type": "linestring",
+        "coordinates": [[${2:-77.03653, 38.897676}], [${3:-77.009051, 38.889939}]]
+      }$4
+    """
+  "Polygon Type Mapping":
+    "prefix": "polygon_type_mapping"
+    "body": """
+        "${1:location}": {
+          "type": "polygon",
+          "coordinates": [
+            [
+              [100.0, 0.0],
+              [101.0, 0.0],
+              [101.0, 1.0],
+              [100.0, 1.0],
+              [100.0, 0.0]
+            ]
+          ]
+        }$2
+    """
+  "Multi Point Type Mapping":
+    "prefix": "multipoint_type_mapping"
+    "body": """
+      "${1:location}": {
+        "type": "multipoint",
+        "coordinates": [
+          [102.0, 2.0],
+          [103.0, 2.0]
+        ]
+      }$2
+    """
+  "Multi Line Type Mapping":
+    "prefix": "multilinestring_type_mapping"
+    "body": """
+      "${1:location}": {
+        "type": "multilinestring",
+        "coordinates": [
+          [
+            [102.0, 2.0],
+            [103.0, 2.0],
+            [103.0, 3.0],
+            [102.0, 3.0]
+          ],
+          [
+            [100.0, 0.0],
+            [101.0, 0.0],
+            [101.0, 1.0],
+            [100.0, 1.0]
+          ],
+          [
+            [100.2, 0.2],
+            [100.8, 0.2],
+            [100.8, 0.8],
+            [100.2, 0.8]
+          ]
+        ]
+      }$2
+    """
+  "Multi Polygon Type Mapping":
+    "prefix": "multipolygon_type_mapping"
+    "body": """
+      "${1:location}": {
+        "type": "multipolygon",
+        "coordinates": [
+          [
+            [
+              [102.0, 2.0],
+              [103.0, 2.0],
+              [103.0, 3.0],
+              [102.0, 3.0],
+              [102.0, 2.0]
+            ]
+          ],
+
+          [
+            [
+              [100.0, 0.0],
+              [101.0, 0.0],
+              [101.0, 1.0],
+              [100.0, 1.0],
+              [100.0, 0.0]
+            ],
+            [
+              [100.2, 0.2],
+              [100.8, 0.2],
+              [100.8, 0.8],
+              [100.2, 0.8],
+              [100.2, 0.2]
+            ]
+          ]
+        ]
+      }$2
+    """
+  "Geometry Collection Type Mapping":
+    "prefix": "geometrycollection_type_mapping"
+    "body": """
+      "${1:location}": {
+        "type": "geometrycollection",
+        "geometries": [{
+          "type": "point",
+          "coordinates": [100.0, 0.0]
+        }, {
+          "type": "linestring",
+          "coordinates": [
+            [101.0, 0.0],
+            [102.0, 1.0]
+          ]
+        }]
+      }$2
+    """
+  "Envelope Type Mapping":
+    "prefix": "envelope_type_mapping"
+    "body": """
+      "${1:location}": {
+        "type": "envelope",
+        "coordinates": [
+          [-45.0, 45.0],
+          [45.0, -45.0]
+        ]
+      }$2
+    """
+  "Circle Type Mapping":
+    "prefix": "circle_type_mapping"
+    "body": """
+      "${1:location}": {
+        "type": "circle",
+        "coordinates": [-45.0, 45.0],
+        "radius": "100m"
+      }$2
+    """
+  "Attachment Type Mapping":
+    "prefix": "attachment_type_mapping"
+    "body": """
+      "${1:pdf}": {
+        "type": "attachment"
+      }$2
     """
