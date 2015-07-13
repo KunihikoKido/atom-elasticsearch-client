@@ -10,6 +10,7 @@ class SelectIndex extends BaseCommand
     if not index
       options =
         all: false
+        defaultIndex: @index
       return showIndicesListView(@client, options, (item) ->
         new SelectIndex(index: item.index)
       )

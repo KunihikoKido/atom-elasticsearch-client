@@ -8,7 +8,10 @@ class IndicesDelete extends DeleteCommand
 
   run: ({index}={})->
     if not index
-      return showIndicesListView(@client, all: true, (item) ->
+      options =
+        all: false
+        defaultIndex: @index
+      return showIndicesListView(@client, options, (item) ->
         new IndicesDelete(index: item.index)
       )
 

@@ -7,7 +7,10 @@ class IndicesOpen extends CreateCommand
 
   run: ({index}={})->
     if not index
-      return showIndicesListView(@client, all: false, (item) ->
+      options =
+        all: false
+        defaultIndex: @index
+      return showIndicesListView(@client, options, (item) ->
         new IndicesOpen(index: item.index)
       )
 

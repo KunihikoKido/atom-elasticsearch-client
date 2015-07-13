@@ -24,7 +24,10 @@ class HelperCloseOpenIndex extends CreateCommand
 
   run: ({index}={})->
     if not index
-      return showIndicesListView(@client, all: false, (item) ->
+      options =
+        all: false
+        defaultIndex: @index
+      return showIndicesListView(@client, options, (item) ->
         new HelperCloseOpenIndex(index: item.index)
       )
 

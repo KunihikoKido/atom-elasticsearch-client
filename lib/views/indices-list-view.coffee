@@ -12,7 +12,7 @@ class IndicesListView extends ListView
         @div class: 'primary-line icon icon-database', "#{item.name}"
 
 
-showIndicesListView = (client, {all}={}, callback) ->
+showIndicesListView = (client, {all, defaultIndex}={}, callback) ->
 
   client.cluster.state().
   then((response) ->
@@ -31,6 +31,8 @@ showIndicesListView = (client, {all}={}, callback) ->
     return new IndicesListView(items, callback)
   ).
   catch((error) ->
+    if error.status is 403
+      return callback(index: defaultIndex)
     notifications.addError(error)
   )
 
