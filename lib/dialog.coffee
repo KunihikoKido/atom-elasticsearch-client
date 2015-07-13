@@ -6,7 +6,7 @@ module.exports =
   defaultPath: ""
   okCancel: (message, {okTitle}={}) ->
     okTitle = if okTitle then okTitle else "OK"
-    buttons = ["Cancel", okTitle]
+    buttons = [okTitle, "Cancel"]
     OK = buttons.indexOf(okTitle)
     answer = atom.confirm(message: message, buttons: buttons)
     if answer is OK
