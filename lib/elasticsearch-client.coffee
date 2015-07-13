@@ -124,6 +124,8 @@ SelectDocType         = require './commands/select-doc-type'
 HelperCloseOpenIndex       = require './commands/helper-close-open-index'
 HelperReindex              = require './commands/helper-reindex'
 HelperConvertCsvBulkIndex  = require './commands/helper-convert-csv-bulk-index'
+HelperDumpIndexData        = require './commands/helper-dump-index-data'
+HelperLoadIndexData        = require './commands/helper-load-index-data'
 
 
 module.exports =
@@ -365,3 +367,5 @@ module.exports =
     @activateCommand("elasticsearch:helper-close-open-index", -> new HelperCloseOpenIndex())
     @activateCommand("elasticsearch:helper-reindex", -> new HelperReindex())
     @activateCommand("elasticsearch:helper-convert-csv-to-bulk-index-format", -> new HelperConvertCsvBulkIndex())
+    @activateCommand("elasticsearch:helper-dump-index-data", -> new HelperDumpIndexData())
+    @activateCommand("elasticsearch:helper-load-index-data", -> new HelperLoadIndexData())

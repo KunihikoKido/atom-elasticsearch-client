@@ -205,6 +205,8 @@ Currently this should work in ``.json`` file or Supported Grammars.
 * Elasticsearch: Helper Close Open Index
 * Elasticsearch: Helper Convert Csv To Bulk Index Format
 * Elasticsearch: Helper Reindex
+* Elasticsearch: Helper Dump Index Data
+* Elasticsearch: Helper Load Index Data
 
 ### Command for User Settings
 

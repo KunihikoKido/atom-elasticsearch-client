@@ -135,6 +135,8 @@
       "elasticsearch:helper-close-open-index",
       "elasticsearch:helper-reindex",
       "elasticsearch:helper-convert-csv-to-bulk-index-format",
+      "elasticsearch:helper-dump-index-data",
+      "elasticsearch:helper-load-index-data",
       "elasticsearch:settings-show-active-server",
       "elasticsearch:settings-select-index",
       "elasticsearch:settings-select-doc-type",
@@ -154,6 +156,7 @@
     "elasticsearch": "^5.0.0",
     "comma-separated-values": "^3.6.2",
     "node-uuid": "^1.4.3",
-    "analytics-node": "^1.2.2"
+    "analytics-node": "^1.2.2",
+    "promise": "^7.0.3"
   }
 }
