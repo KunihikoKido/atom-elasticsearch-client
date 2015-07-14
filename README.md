@@ -207,6 +207,7 @@ Currently this should work in ``.json`` file or Supported Grammars.
 * Elasticsearch: Helper Convert Csv To Bulk Index Format
 * Elasticsearch: Helper Dump Index Data
 * Elasticsearch: Helper Load Index Data
+* Elasticsearch: Helper Import Data From Csv
 * Elasticsearch: Helper Reindex
 
 ### Command for User Settings
