@@ -126,6 +126,7 @@ HelperReindex              = require './commands/helper-reindex'
 HelperConvertCsvBulkIndex  = require './commands/helper-convert-csv-bulk-index'
 HelperDumpIndexData        = require './commands/helper-dump-index-data'
 HelperLoadIndexData        = require './commands/helper-load-index-data'
+HelperChangeNumberOfReplicas = require './commands/helper-change-number-of-replicas'
 
 
 module.exports =
@@ -369,3 +370,4 @@ module.exports =
     @activateCommand("elasticsearch:helper-convert-csv-to-bulk-index-format", -> new HelperConvertCsvBulkIndex())
     @activateCommand("elasticsearch:helper-dump-index-data", -> new HelperDumpIndexData())
     @activateCommand("elasticsearch:helper-load-index-data", -> new HelperLoadIndexData())
+    @activateCommand("elasticsearch:helper-change-number-of-replicas", -> new HelperChangeNumberOfReplicas())
