@@ -6,14 +6,10 @@ Promise = require 'promise'
 notifications = require '../notifications'
 LoadingView = require '../views/loading-view'
 dialog = require "../dialog"
+chunk = require "chunk"
 
 readFile = Promise.denodeify(fs.readFile)
 
-Array::chunk = (chunkSize) ->
-  array = this
-  [].concat.apply [], array.map((elem, i) ->
-    (if i % chunkSize then [] else [array.slice(i, i + chunkSize)])
-  )
 
 expandAction = (doc) ->
   action = {index: {}}
@@ -24,6 +20,7 @@ expandAction = (doc) ->
     if key in Object.keys(doc)
       action.index[key] = doc[key]
   return action
+
 
 module.exports =
   class HelperLoadIndexData extends BaseCommand
@@ -41,8 +38,8 @@ module.exports =
 
       readFile(fileName, "utf-8").
       then((str) ->
-        data = str.split("\r\n")
-        for docs in data.chunk(chunkSize)
+        rows = str.split("\r\n")
+        for docs in chunk(rows, chunkSize)
           actions = []
           for doc in docs
             if doc
