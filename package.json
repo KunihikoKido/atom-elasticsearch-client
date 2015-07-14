@@ -41,6 +41,7 @@
       "elasticsearch:indices-clear-cache",
       "elasticsearch:indices-close",
       "elasticsearch:indices-create",
+      "elasticsearch:indices-create-doc-type",
       "elasticsearch:indices-delete",
       "elasticsearch:indices-delete-alias",
       "elasticsearch:indices-delete-mapping",

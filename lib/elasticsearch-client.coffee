@@ -27,6 +27,7 @@ IndicesAnalyze        = require './commands/indices-analyze'
 IndicesClearCache     = require './commands/indices-clear-cache'
 IndicesClose          = require './commands/indices-close'
 IndicesCreate         = require './commands/indices-create'
+IndicesCreateDocType  = require './commands/indices-create-doc-type'
 IndicesDelete         = require './commands/indices-delete'
 IndicesDeleteAlias    = require './commands/indices-delete-alias'
 IndicesDeleteMapping  = require './commands/indices-delete-mapping'
@@ -265,6 +266,7 @@ module.exports =
     @activateCommand("elasticsearch:indices-clear-cache", -> new IndicesClearCache())
     @activateCommand("elasticsearch:indices-close", -> new IndicesClose())
     @activateCommand("elasticsearch:indices-create", -> new IndicesCreate())
+    @activateCommand("elasticsearch:indices-create-doc-type", -> new IndicesCreateDocType())
     @activateCommand("elasticsearch:indices-delete", -> new IndicesDelete())
     @activateCommand("elasticsearch:indices-delete-alias", -> new IndicesDeleteAlias())
     @activateCommand("elasticsearch:indices-delete-mapping", -> new IndicesDeleteMapping())
