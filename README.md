@@ -230,3 +230,5 @@ Currently this should work in ``.json`` file or Supported Grammars.
 
 * [mustache-compiler](https://atom.io/packages/mustache-compiler) (by kwkoizumi) - Compile your Search Templates.
 * [atom-beautify](https://atom.io/packages/atom-beautify) (by Glavin001) - Pretty your Query DSL.
+* [Linter](https://atom.io/packages/linter) (by AtomLinter)
+  * [linter-jsonlint](https://atom.io/packages/linter-jsonlint) (by AtomLinter) - The JSON Validator.
