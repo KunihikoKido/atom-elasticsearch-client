@@ -233,6 +233,9 @@ Currently this should work in ``.json`` file or Supported Grammars.
 ## Helper Reindex Command
 ![reindex](https://raw.githubusercontent.com/KunihikoKido/atom-elasticsearch-client/master/screenshots/reindex.gif)
 
+## Helper Benchmark
+![reindex](https://raw.githubusercontent.com/KunihikoKido/atom-elasticsearch-client/master/screenshots/benchmark.gif)
+
 ## Recommended Atom Packages for Elasticsearch Developers
 
 * [mustache-compiler](https://atom.io/packages/mustache-compiler) (by kwkoizumi) - Compile your Search Templates.
