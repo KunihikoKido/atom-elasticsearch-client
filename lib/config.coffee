@@ -32,6 +32,25 @@ module.exports =
   getSplitPane: ->
     atom.config.get("#{@namespace}.splitPane")
 
+  getBenchmarkRunMode: ->
+    atom.config.get("#{@namespace}.benchmarkRunMode")
+
+  getBenchmarkMaxConcurrentRequests: ->
+    atom.config.get("#{@namespace}.benchmarkMaxConcurrentRequests")
+
+  getBenchmarkDelay: ->
+    atom.config.get("#{@namespace}.benchmarkDelay")
+
+  getBenchmarkMinSamples: ->
+    atom.config.get("#{@namespace}.benchmarkMinSamples")
+
+  getHeaders: ->
+    headers =
+      "Authorization": atom.config.get("#{@namespace}.authorizationHeader")
+      "User-Agent": atom.config.get("#{@namespace}.userAgent")
+    return headers
+
+
   getActivServer: ->
     activeServer =
       baseUrl: @getBaseUrl()
@@ -51,7 +70,7 @@ module.exports =
     hostOptions.headers["Authorization"] =
       atom.config.get("#{@namespace}.authorizationHeader")
     hostOptions.headers["User-Agent"] =
-      atom.config.get("#{@namespace}".userAgent)
+      atom.config.get("#{@namespace}.userAgent")
 
     options = {}
     options.host            = hostOptions

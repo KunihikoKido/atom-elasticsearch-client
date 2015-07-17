@@ -202,13 +202,18 @@ Currently this should work in ``.json`` file or Supported Grammars.
 
 ### Helper Commands
 
+* Elasticsearch: Helper Benchmark For Search Request Body
+* Elasticsearch: Helper Benchmark For Search Request Body Count
+* Elasticsearch: Helper Benchmark For Search Template
+* Elasticsearch: Helper Benchmark For Search Template Count
 * Elasticsearch: Helper Change Number Of Replicas
 * Elasticsearch: Helper Close Open Index
 * Elasticsearch: Helper Convert Csv To Bulk Index Format
 * Elasticsearch: Helper Dump Index Data
-* Elasticsearch: Helper Load Index Data
 * Elasticsearch: Helper Import Data From Csv
+* Elasticsearch: Helper Load Index Data
 * Elasticsearch: Helper Reindex
+
 
 ### Command for User Settings
 

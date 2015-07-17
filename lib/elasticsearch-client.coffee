@@ -129,6 +129,7 @@ HelperDumpIndexData        = require './commands/helper-dump-index-data'
 HelperLoadIndexData        = require './commands/helper-load-index-data'
 HelperChangeNumberOfReplicas = require './commands/helper-change-number-of-replicas'
 HelperImportDataFromCsv    = require './commands/helper-import-data-from-csv'
+HelperBenchmark            = require './commands/helper-benchmark'
 
 
 module.exports =
@@ -218,6 +219,22 @@ module.exports =
       Analytics](http://www.google.com/analytics/) to track what command are being
       used the most, as well as other stats. Everything is anonymized and no personal
       information, such as source code, is sent.'
+    benchmarkRunMode:
+      type: 'string'
+      default: 'sequence'
+      enum: ['sequence', 'parallel']
+    benchmarkMaxConcurrentRequests:
+      type: 'integer'
+      default: 100
+      description: "When in runMode='parallel' it is the maximum number of concurrent requests are made."
+    benchmarkDelay:
+      type: 'integer'
+      default: 0
+      description: "When in runMode='sequence', it is the delay between test cycles (secs)."
+    benchmarkMinSamples:
+      type: 'integer'
+      default: 20
+      description: 'The minimum sample size required to perform statistical analysis.'
 
   activateCommand: (commandName, callback) ->
     atom.commands.add('atom-workspace', commandName, ->
@@ -375,3 +392,7 @@ module.exports =
     @activateCommand("elasticsearch:helper-load-index-data", -> new HelperLoadIndexData())
     @activateCommand("elasticsearch:helper-change-number-of-replicas", -> new HelperChangeNumberOfReplicas())
     @activateCommand("elasticsearch:helper-import-data-from-csv", -> new HelperImportDataFromCsv())
+    @activateCommand("elasticsearch:helper-benchmark-for-search-request-body", -> new HelperBenchmark())
+    @activateCommand("elasticsearch:helper-benchmark-for-search-request-body-count", -> new HelperBenchmark(searchType: 'count'))
+    @activateCommand("elasticsearch:helper-benchmark-for-search-template", -> new HelperBenchmark(endpoint: '_search/template'))
+    @activateCommand("elasticsearch:helper-benchmark-for-search-template-count", -> new HelperBenchmark(endpoint: '_search/template', searchType: 'count'))

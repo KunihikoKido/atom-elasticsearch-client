@@ -9,12 +9,14 @@ CatView = require '../views/cat-view'
 resultJsonFilePath = Path.join Os.tmpDir(), "RESPONSE.json"
 
 class BaseCommand
+  baseUrl:    null
   index:      null
   docType:    null
   client:     null
-  scroll: null
+  scroll:     null
 
   constructor: (args...) ->
+    @baseUrl          = config.getBaseUrl()
     @index            = config.getIndex()
     @docType          = config.getDocType()
     @client           = config.getClient()

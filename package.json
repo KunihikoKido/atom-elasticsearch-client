@@ -140,6 +140,10 @@
       "elasticsearch:helper-load-index-data",
       "elasticsearch:helper-change-number-of-replicas",
       "elasticsearch:helper-import-data-from-csv",
+      "elasticsearch:helper-benchmark-for-search-request-body",
+      "elasticsearch:helper-benchmark-for-search-request-body-count",
+      "elasticsearch:helper-benchmark-for-search-template",
+      "elasticsearch:helper-benchmark-for-search-template-count",
       "elasticsearch:settings-show-active-server",
       "elasticsearch:settings-select-index",
       "elasticsearch:settings-select-doc-type",
@@ -161,6 +165,7 @@
     "node-uuid": "^1.4.3",
     "analytics-node": "^1.2.2",
     "promise": "^7.0.3",
-    "chunk": "*"
+    "chunk": "*",
+    "api-benchmark": "git://github.com/KunihikoKido/api-benchmark.git"
   }
 }
