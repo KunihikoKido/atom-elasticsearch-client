@@ -84,8 +84,7 @@ ClearScroll           = require './commands/clear-scroll'
 Count                 = require './commands/count'
 CountPercolate        = require './commands/count-percolate'
 CreateDocument        = require './commands/create-document'
-DeleteByQueryWithQueryDsl     = require './commands/delete-by-query-with-query-dsl'
-DeleteByQueryWithSimpleQuery  = require './commands/delete-by-query-with-simple-query'
+DeleteByQuery         = require './commands/delete-by-query'
 DeleteDocument        = require './commands/delete-document'
 DeleteScript          = require './commands/delete-script'
 DeleteSearchTemplate  = require './commands/delete-search-template'
@@ -355,8 +354,7 @@ module.exports =
     @activateCommand("elasticsearch:count", -> new Count())
     @activateCommand("elasticsearch:count-percolate", -> new CountPercolate())
     @activateCommand("elasticsearch:create-document", -> new CreateDocument())
-    @activateCommand("elasticsearch:delete-by-query-with-query-dsl", -> new DeleteByQueryWithQueryDsl())
-    @activateCommand("elasticsearch:delete-by-query-with-simple-query", -> new DeleteByQueryWithSimpleQuery())
+    @activateCommand("elasticsearch:delete-by-query", -> new DeleteByQuery())
     @activateCommand("elasticsearch:delete-document", -> new DeleteDocument())
     @activateCommand("elasticsearch:delete-script", -> new DeleteScript())
     @activateCommand("elasticsearch:delete-search-template", -> new DeleteSearchTemplate())

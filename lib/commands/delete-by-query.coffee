@@ -3,7 +3,7 @@ dialog = require '../dialog'
 
 
 module.exports =
-class DeleteByQueryWithQueryDsl extends DeleteCommand
+class DeleteByQuery extends DeleteCommand
 
   run: ->
     query = @getText()

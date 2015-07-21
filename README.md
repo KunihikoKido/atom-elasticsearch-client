@@ -72,8 +72,7 @@ Currently this should work in ``.json`` file or Supported Grammars.
 * Elasticsearch: Count
 * Elasticsearch: Count Percolate
 * Elasticsearch: Create Document
-* Elasticsearch: Delete By Query With Query Dsl
-* Elasticsearch: Delete By Query With Simple Query
+* Elasticsearch: Delete By Query
 * Elasticsearch: Delete Document
 * Elasticsearch: Delete Script
 * Elasticsearch: Delete Search Template
