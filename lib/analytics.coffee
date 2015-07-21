@@ -42,11 +42,7 @@ module.exports =
       userId: userId,
       event: 'Run Command',
       properties: {
-        category: @pkgVersion,
-        label: commandName,
-        atomVersion: @atomVersion,
-        pkgVersion: @pkgVersion,
-        devMode: @devMode,
-        apiVersion: config.getApiVersion()
+        category: 'Atom',
+        label: commandName
       }
     })
