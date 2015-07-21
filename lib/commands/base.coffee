@@ -5,6 +5,8 @@ fs = require 'fs-plus'
 notifications = require '../notifications'
 config = require '../config'
 CatView = require '../views/cat-view'
+statusBarManager = require '../status-bar-manager'
+
 
 resultJsonFilePath = Path.join Os.tmpDir(), "RESPONSE.json"
 
@@ -26,6 +28,7 @@ class BaseCommand
 
   initialize: (args...) ->
     @run(args...)
+    statusBarManager.update()
 
   getText: ->
     editor = atom.workspace.getActiveTextEditor()

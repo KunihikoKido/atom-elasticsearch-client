@@ -1,21 +1,15 @@
 {BaseCommand} = require './base'
-ListView = require '../views/switch-server-list-view'
 config = require '../config'
-
+{showSwitchServerListView} = require '../views/switch-server-list-view'
 
 module.exports =
 class SwitchServer extends BaseCommand
 
-  items: ->
-    items = []
-    for item in config.getServers()
-      item.name = "#{item.baseUrl}/#{item.index}/#{item.docType}"
-      items.push(item)
-    items
+  run: ({item}={})->
+    if item is undefined
+      return showSwitchServerListView((item) ->
+        new SwitchServer(item: item)
+      )
 
-  setActiveServer: (item) ->
     config.setActiveServer(item)
     config.showActiveServer()
-
-  run: ->
-    new ListView(@items(), @setActiveServer)

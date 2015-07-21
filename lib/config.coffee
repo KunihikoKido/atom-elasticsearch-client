@@ -4,6 +4,7 @@ elasticsearch = allowUnsafeNewFunction -> require 'elasticsearch'
 notifications = require './notifications'
 pkg = require '../package'
 
+
 module.exports =
   namespace: pkg.name
   client: null
@@ -57,6 +58,12 @@ module.exports =
       index: @getIndex()
       docType: @getDocType()
       apiVersion: @getApiVersion()
+
+  isValidBaseUrl: ->
+    host = url.parse(@getBaseUrl())
+    if not host.protocol or not host.host
+      return false
+    return true
 
   initClient: ->
     @client = null

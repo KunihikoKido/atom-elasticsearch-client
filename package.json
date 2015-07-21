@@ -166,6 +166,14 @@
     "analytics-node": "^1.2.2",
     "promise": "^7.0.3",
     "chunk": "*",
-    "api-benchmark": "git://github.com/KunihikoKido/api-benchmark.git"
+    "api-benchmark": "git://github.com/KunihikoKido/api-benchmark.git",
+    "event-kit": "*"
+  },
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    }
   }
 }

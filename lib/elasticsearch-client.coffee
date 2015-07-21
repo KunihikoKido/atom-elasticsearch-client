@@ -1,4 +1,6 @@
 path = require 'path'
+statusBarManager = require './status-bar-manager'
+{Disposable, CompositeDisposable} = require 'event-kit'
 
 CatAliases            = require './commands/cat-aliases'
 CatAllocation         = require './commands/cat-allocation'
@@ -246,14 +248,27 @@ module.exports =
   catchConfigChange: ->
     pkg = require '../package'
     for key of atom.config.get(pkg.name)
-      if key not in ["servers", "openInPane", "splitPane", "analytics"]
+      if key not in ["servers", "openInPane", "splitPane", "analytics", "benchmarkRunMode", "benchmarkMaxConcurrentRequests", "benchmarkDelay", "benchmarkMinSamples"]
         keyPath = "#{pkg.name}.#{key}"
         atom.config.onDidChange(keyPath, ({newValue, oldValue}) ->
           config = require './config'
-          config.initClient()
+          if config.isValidBaseUrl()
+            config.initClient()
         )
 
+  consumeStatusBar: (statusBar) ->
+    statusBarManager.initialize(statusBar)
+    statusBarManager.attach()
+    @disposables.add new Disposable ->
+      statusBarManager.detach()
+    statusBarManager.update()
+
+  deactivate: ->
+    @disposables.dispose()
+
   activate: ->
+    @disposables = new CompositeDisposable
+
     @catchConfigChange()
 
     @activateCommand("elasticsearch:cat-aliases", -> new CatAliases())
