@@ -17,4 +17,4 @@ class UpdateDocument extends CreateCommand
       id: id
       body: @getText()
 
-    @client.termvector(options, @showResult)
+    @client.update(options, @showResult)
