@@ -1,12 +1,20 @@
 {BaseCommand} = require './base'
+{showIndicesListView} = require '../views/indices-list-view'
+
 
 module.exports =
 class Count extends BaseCommand
 
-  run: ->
+  run: ({index}={})->
+    if not index
+      options =
+        all: false
+        defaultIndex: @index
+      return showIndicesListView(@client, options, (item) ->
+        new Count(index: item.index)
+      )
+
     options =
-      index: @index
-      type: @docType
-      body: @getText()
+      index: index
 
     @client.count(options, @showResult)
