@@ -134,7 +134,7 @@
       "elasticsearch:update-document",
       "elasticsearch:helper-close-open-index",
       "elasticsearch:helper-reindex",
-      "elasticsearch:helper-convert-csv-to-bulk-index-format",
+      "elasticsearch:helper-convert-csv-bulk-index",
       "elasticsearch:helper-dump-index-data",
       "elasticsearch:helper-load-index-data",
       "elasticsearch:helper-change-number-of-replicas",

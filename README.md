@@ -49,7 +49,7 @@ Settings (Atom/Open Your Config). edit ``config.cson``
   ]
 ```
 
-You can switch the server, use ``Elasticsearch : Switch Server`` command.
+You can switch the server, use ``Elasticsearch: Settings Switch Server`` command.
 
 ## Snippets
 Currently this should work in ``.json`` file or Supported Grammars.
@@ -207,9 +207,9 @@ Currently this should work in ``.json`` file or Supported Grammars.
 * Elasticsearch: Helper Benchmark For Search Template Count
 * Elasticsearch: Helper Change Number Of Replicas
 * Elasticsearch: Helper Close Open Index
-* Elasticsearch: Helper Convert Csv To Bulk Index Format
+* Elasticsearch: Helper Convert Csv Bulk Index
 * Elasticsearch: Helper Dump Index Data
-* Elasticsearch: Helper Import Data From Csv
+* Elasticsearch: Helper Import Csv
 * Elasticsearch: Helper Load Index Data
 * Elasticsearch: Helper Reindex
 

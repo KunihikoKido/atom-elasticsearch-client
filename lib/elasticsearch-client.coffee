@@ -400,7 +400,7 @@ module.exports =
 
     @activateCommand("elasticsearch:helper-close-open-index", -> new HelperCloseOpenIndex())
     @activateCommand("elasticsearch:helper-reindex", -> new HelperReindex())
-    @activateCommand("elasticsearch:helper-convert-csv-to-bulk-index-format", -> new HelperConvertCsvBulkIndex())
+    @activateCommand("elasticsearch:helper-convert-csv-bulk-index", -> new HelperConvertCsvBulkIndex())
     @activateCommand("elasticsearch:helper-dump-index-data", -> new HelperDumpIndexData())
     @activateCommand("elasticsearch:helper-load-index-data", -> new HelperLoadIndexData())
     @activateCommand("elasticsearch:helper-change-number-of-replicas", -> new HelperChangeNumberOfReplicas())
