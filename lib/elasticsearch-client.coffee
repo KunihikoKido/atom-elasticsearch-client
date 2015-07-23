@@ -129,7 +129,7 @@ HelperConvertCsvBulkIndex  = require './commands/helper-convert-csv-bulk-index'
 HelperDumpIndexData        = require './commands/helper-dump-index-data'
 HelperLoadIndexData        = require './commands/helper-load-index-data'
 HelperChangeNumberOfReplicas = require './commands/helper-change-number-of-replicas'
-HelperImportDataFromCsv    = require './commands/helper-import-data-from-csv'
+HelperImportCsv              = require './commands/helper-import-csv'
 HelperBenchmark            = require './commands/helper-benchmark'
 
 
@@ -404,7 +404,7 @@ module.exports =
     @activateCommand("elasticsearch:helper-dump-index-data", -> new HelperDumpIndexData())
     @activateCommand("elasticsearch:helper-load-index-data", -> new HelperLoadIndexData())
     @activateCommand("elasticsearch:helper-change-number-of-replicas", -> new HelperChangeNumberOfReplicas())
-    @activateCommand("elasticsearch:helper-import-data-from-csv", -> new HelperImportDataFromCsv())
+    @activateCommand("elasticsearch:helper-import-csv", -> new HelperImportCsv())
     @activateCommand("elasticsearch:helper-benchmark-for-search-request-body", -> new HelperBenchmark())
     @activateCommand("elasticsearch:helper-benchmark-for-search-request-body-count", -> new HelperBenchmark(searchType: 'count'))
     @activateCommand("elasticsearch:helper-benchmark-for-search-template", -> new HelperBenchmark(endpoint: '_search/template'))

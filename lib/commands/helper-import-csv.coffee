@@ -14,7 +14,7 @@ readFile = Promise.denodeify(fs.readFile)
 
 
 module.exports =
-  class HelperImportDataFromCsv extends CreateCommand
+  class HelperImportCsv extends CreateCommand
 
     import: (client, index, docType, {chunkSize}) ->
       fileName = dialog.openFile()
@@ -62,12 +62,12 @@ module.exports =
           all: false
           defaultIndex: @index
         return showIndicesListView(@client, options, (item) ->
-          new HelperImportDataFromCsv(index: item.index)
+          new HelperImportCsv(index: item.index)
         )
 
       if not docType
         return showDocTypeListView(@client, index: @index, (item) ->
-          new HelperImportDataFromCsv(index: index, docType: item.docType)
+          new HelperImportCsv(index: index, docType: item.docType)
         )
 
       @import(@client, index, docType, chunkSize: 100)

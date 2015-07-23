@@ -138,7 +138,7 @@
       "elasticsearch:helper-dump-index-data",
       "elasticsearch:helper-load-index-data",
       "elasticsearch:helper-change-number-of-replicas",
-      "elasticsearch:helper-import-data-from-csv",
+      "elasticsearch:helper-import-csv",
       "elasticsearch:helper-benchmark-for-search-request-body",
       "elasticsearch:helper-benchmark-for-search-request-body-count",
       "elasticsearch:helper-benchmark-for-search-template",
