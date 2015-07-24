@@ -21,6 +21,18 @@ module.exports =
   setUserId: (userId) ->
     localStorage.setItem("#{@namespace}.userId", userId)
 
+    analytics = @getAnalytics()
+    analytics.identify({userId: userId})
+
+    analytics.track({
+      userId: userId,
+      event: 'Activate',
+      properties: {
+        category: 'Atom',
+        label: @pkgVersion
+      }
+    })
+
   getAnalytics: ->
     @analytics ?= new Analytics(@analyticsWriteKey)
 
