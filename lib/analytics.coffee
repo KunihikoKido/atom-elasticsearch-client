@@ -1,3 +1,4 @@
+os = require 'os'
 uuid = require 'node-uuid'
 pkg = require '../package.json'
 Analytics = require 'analytics-node'
@@ -18,6 +19,15 @@ module.exports =
   getUserId: ->
     return localStorage.getItem("#{@namespace}.userId")
 
+  platform: ->
+    platform = {
+      "linux": "linux",
+      "win32": "windows",
+      "win64": "windows",
+      "darwin": "osx"
+    }
+    return platform[os.platform()]
+
   setUserId: (userId) ->
     localStorage.setItem("#{@namespace}.userId", userId)
 
@@ -29,7 +39,7 @@ module.exports =
       event: 'Activate',
       properties: {
         category: 'Atom',
-        label: @pkgVersion
+        label: @platform()
       }
     })
 
