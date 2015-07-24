@@ -14,15 +14,14 @@ class IndicesListView extends ListView
 
 showIndicesListView = (client, {all, defaultIndex}={}, callback) ->
 
-  client.cluster.state().
+  client.cluster.state(ignore: [403]).
   then((response) ->
-
     items = []
-    for name, info of response.metadata.indices
-      items.push({name: "#{name} (#{info.state})", index: name})
-
-    if items.length is 0
-      return new IndicesListView([])
+    items.push({name: "#{defaultIndex}", index: defaultIndex})
+    if response.metadata
+      for name, info of response.metadata.indices
+        if name isnt defaultIndex
+          items.push({name: "#{name}", index: name})
 
     items.sort()
 
@@ -31,8 +30,6 @@ showIndicesListView = (client, {all, defaultIndex}={}, callback) ->
     return new IndicesListView(items, callback)
   ).
   catch((error) ->
-    if error.status is 403
-      return callback(index: defaultIndex)
     notifications.addError(error)
   )
 
