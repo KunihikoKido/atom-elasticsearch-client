@@ -11,6 +11,16 @@ config = require '../config'
 module.exports =
   class HelperConvertCsvBulk extends CreateCommand
     fileName: "BULKINDEX.data"
+    syntaxErrorMessage: "Syntax Error: invalid csv"
+
+    isEnabled: ->
+      text = @getText()
+      try
+        csv = new CSV(text, header:true)
+      catch error
+        return false
+      return true
+
 
     run: ({uniqueField}={})->
       if uniqueField is undefined

@@ -6,6 +6,9 @@ dialog = require '../dialog'
 module.exports =
 class DeleteDocument extends DeleteCommand
 
+  isEnabled: ->
+    return true
+
   run: ({id}={}) ->
     if not id
       return new InputView(

@@ -5,6 +5,9 @@ InputView = require '../views/input-view'
 module.exports =
 class SearchPercolatorQuery extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({query}={}) ->
 
     if query is undefined

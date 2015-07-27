@@ -6,6 +6,9 @@ dialog = require '../dialog'
 module.exports =
 class IndicesExistsTemplate extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({name}={}) ->
     if not name
       return new InputView(

@@ -6,6 +6,9 @@ dialog = require '../dialog'
 module.exports =
 class SnapshotDeleteRepository extends DeleteCommand
 
+  isEnabled: ->
+    return true
+
   run: ({repository}={}) ->
     if not repository
       return showRepositoryListView(@client, (item) ->

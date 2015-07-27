@@ -5,6 +5,9 @@ InputView = require '../views/input-view'
 module.exports =
 class Scroll extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({scrollId}={}) ->
 
     if not scrollId

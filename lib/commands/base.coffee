@@ -16,6 +16,7 @@ class BaseCommand
   docType:    null
   client:     null
   scroll:     null
+  syntaxErrorMessage: "Syntax error: request body content is invalid json"
 
   constructor: (args...) ->
     @baseUrl          = config.getBaseUrl()
@@ -27,8 +28,20 @@ class BaseCommand
     @initialize?(args...)
 
   initialize: (args...) ->
-    @run(args...)
-    statusBarManager.update()
+    if @isEnabled()
+      @run(args...)
+      statusBarManager.update()
+    else
+      notifications.addError(@syntaxErrorMessage)
+
+  isEnabled: ->
+    text = @getText()
+    try
+      text = JSON.parse(text)
+    catch error
+      return false
+    return true
+
 
   getText: ->
     editor = atom.workspace.getActiveTextEditor()
@@ -53,6 +66,9 @@ class BaseCommand
 
 
 class CatBaseCommand extends BaseCommand
+
+  isEnabled: ->
+    return true
 
   getResponseView: ({title}={}) ->
     return new CatView(title: title)

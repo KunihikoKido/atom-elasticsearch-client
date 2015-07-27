@@ -6,6 +6,9 @@ dialog = require '../dialog'
 module.exports =
 class IndicesDeleteTemplate extends DeleteCommand
 
+  isEnabled: ->
+    return true
+
   run: ({template}={}) ->
     if not template
       return showIndicesTemplateListView(@client, (item) ->

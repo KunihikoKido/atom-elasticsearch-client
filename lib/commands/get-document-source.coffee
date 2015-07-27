@@ -5,6 +5,9 @@ InputView = require '../views/input-view'
 module.exports =
 class GetDocumentSource extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({id}={}) ->
     if not id
       return new InputView(

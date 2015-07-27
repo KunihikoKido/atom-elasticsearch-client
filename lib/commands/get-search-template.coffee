@@ -5,6 +5,9 @@
 module.exports =
 class GetSearchTemplate extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({id}={}) ->
     if not id
       return showSearchTemplateListView(@client, (item) ->

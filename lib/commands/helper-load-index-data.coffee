@@ -26,6 +26,9 @@ module.exports =
   class HelperLoadIndexData extends BaseCommand
     chunkSize: 1000
 
+    isEnabled: ->
+      return true
+
     load: (client, index, {chunkSize}={}) ->
       fileName = dialog.openFile()
       if fileName is undefined

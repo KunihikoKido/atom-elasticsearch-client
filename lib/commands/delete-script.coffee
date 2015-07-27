@@ -6,6 +6,9 @@ dialog = require '../dialog'
 module.exports =
 class DeleteScript extends DeleteCommand
 
+  isEnabled: ->
+    return true
+
   run: ({lang, id}={}) ->
     if not lang or not id
       return showScriptsListView(@client, (item) ->

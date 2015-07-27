@@ -5,6 +5,9 @@
 module.exports =
 class IndicesGetMapping extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({docType}={}) ->
     if not docType
       return showDocTypeListView(@client, index: @index, (item) ->

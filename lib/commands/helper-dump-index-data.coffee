@@ -10,6 +10,9 @@ dialog = require "../dialog"
 module.exports =
   class HelperDumpIndexData extends BaseCommand
 
+    isEnabled: ->
+      return true
+
     dump: (client, index, {scroll}={}) ->
       fileName = dialog.saveDialog()
       if fileName is undefined

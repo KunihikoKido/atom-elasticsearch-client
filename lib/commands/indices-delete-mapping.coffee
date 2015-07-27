@@ -5,6 +5,9 @@ dialog = require '../dialog'
 module.exports =
 class IndicesDeleteMapping extends DeleteCommand
 
+  isEnabled: ->
+    return true
+
   run: ({docType}={}) ->
     if not docType
       return showDocTypeListView(@client, index: @index, (item) ->

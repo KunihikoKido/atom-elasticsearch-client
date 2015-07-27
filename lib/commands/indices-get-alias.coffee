@@ -6,6 +6,9 @@ dialog = require '../dialog'
 module.exports =
 class IndicesGetAlias extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({index, name}={}) ->
     if not index or not name
       return showAliasListView(@client, index: @index, (item) ->

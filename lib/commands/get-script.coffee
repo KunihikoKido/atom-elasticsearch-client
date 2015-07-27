@@ -5,6 +5,9 @@
 module.exports =
 class GetScript extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({lang, id}={}) ->
     if not lang or not id
       return showScriptsListView(@client, (item) ->

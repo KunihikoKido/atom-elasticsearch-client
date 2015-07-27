@@ -3,6 +3,13 @@
 
 module.exports =
 class IndicesAnalyze extends BaseCommand
+  syntaxErrorMessage: "Syntax Error: content length is 0 byte"
+
+  isEnabled: ->
+    text = @getText()
+    if text.length is 0
+      return false
+    return true
 
   run: ({analyzer}={})->
     if not analyzer

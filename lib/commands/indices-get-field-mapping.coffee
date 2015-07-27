@@ -5,6 +5,9 @@
 module.exports =
 class IndicesGetFieldMapping extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({field}={}) ->
     if not field
       options =

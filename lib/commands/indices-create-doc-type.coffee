@@ -4,6 +4,9 @@ InputView = require '../views/input-view'
 module.exports =
 class IndicesCreateDocType extends CreateCommand
 
+  isEnabled: ->
+    return true
+
   run: ({docType}={})->
     if not docType
       return new InputView(
@@ -14,7 +17,7 @@ class IndicesCreateDocType extends CreateCommand
       index: @index
       type: docType
       body: {}
-      
+
     options.body[docType] = {}
 
     @client.indices.putMapping(options, @showResult)

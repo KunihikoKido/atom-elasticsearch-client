@@ -5,6 +5,9 @@ InputView = require '../views/input-view'
 module.exports =
 class FieldStats extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({fields}={}) ->
     if fields is undefined
       return new InputView(

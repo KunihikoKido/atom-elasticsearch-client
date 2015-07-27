@@ -5,6 +5,9 @@
 module.exports =
 class Count extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({index}={})->
     if not index
       options =

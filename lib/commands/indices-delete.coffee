@@ -6,6 +6,9 @@ dialog = require '../dialog'
 module.exports =
 class IndicesDelete extends DeleteCommand
 
+  isEnabled: ->
+    return true
+
   run: ({index}={})->
     if not index
       options =

@@ -16,6 +16,9 @@ readFile = Promise.denodeify(fs.readFile)
 module.exports =
   class HelperImportCsv extends CreateCommand
 
+    isEnabled: ->
+      return true
+
     import: (client, index, docType, {chunkSize}) ->
       fileName = dialog.openFile()
       if fileName is undefined

@@ -5,6 +5,9 @@
 module.exports =
 class SnapshotCreate extends CreateCommand
 
+  isEnabled: ->
+    return true
+
   getSnapshotName: ()->
     now   = new Date()
     year  = now.getFullYear()

@@ -6,6 +6,9 @@ showActiveServer = require './show-active-server'
 module.exports =
 class SelectDocType extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({docType}={}) ->
     if not docType
       return showDocTypeListView(@client, index: @index, (item) ->

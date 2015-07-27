@@ -6,6 +6,9 @@
 module.exports =
 class SnapshotGet extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({repository, snapshot}={}) ->
     if not repository
       return showRepositoryListView(@client, (item) ->

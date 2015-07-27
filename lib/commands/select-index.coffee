@@ -6,6 +6,9 @@ SelectDocType = require './select-doc-type'
 module.exports =
 class SelectIndex extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({index, docType}={}) ->
     if not index
       options =

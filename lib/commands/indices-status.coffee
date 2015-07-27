@@ -5,6 +5,9 @@
 module.exports =
 class IndicesStatus extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({index}={})->
     if not index
       options =

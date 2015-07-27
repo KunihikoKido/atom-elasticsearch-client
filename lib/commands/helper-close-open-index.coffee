@@ -6,6 +6,9 @@ notifications = require '../notifications'
 module.exports =
 class HelperCloseOpenIndex extends CreateCommand
 
+  isEnabled: ->
+    return true
+
   closeOpenIndex: (client, index) ->
     client.indices.close(index: index).
     then((response) ->

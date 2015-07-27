@@ -6,6 +6,9 @@ InputView = require '../views/input-view'
 module.exports =
   class HelperChangeNumberOfReplicas extends CreateCommand
 
+    isEnabled: ->
+      return true
+
     run: ({index, replicas}={}) ->
       if not index
         options =

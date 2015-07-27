@@ -3,6 +3,9 @@
 module.exports =
 class SearchShards extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ->
     options =
       index: @index

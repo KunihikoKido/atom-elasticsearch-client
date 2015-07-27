@@ -4,6 +4,9 @@ InputView = require '../views/input-view'
 module.exports =
 class ClearScroll extends CreateCommand
 
+  isEnabled: ->
+    return true
+
   run: ({scrollId}={}) ->
     if not scrollId
       return new InputView(

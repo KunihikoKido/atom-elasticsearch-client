@@ -5,6 +5,9 @@ dialog = require '../dialog.coffee'
 module.exports =
 class SnapshotRestore extends DeleteCommand
 
+  isEnabled: ->
+    return true
+
   run: ({repository, snapshot}={}) ->
     if not repository or not snapshot
       return new SnapshotInputView((items) ->

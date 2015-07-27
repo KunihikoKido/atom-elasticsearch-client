@@ -8,6 +8,9 @@ LoadingView = require '../views/loading-view'
 module.exports =
 class SnapshotRestore extends CreateCommand
 
+  isEnabled: ->
+    return true
+
   restore: (client, {repository, snapshot, indices}={}) ->
 
     for index in indices

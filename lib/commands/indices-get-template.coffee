@@ -5,6 +5,9 @@
 module.exports =
 class IndicesGetTemplate extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({template}={}) ->
     if not template
       return showIndicesTemplateListView(@client, (item) ->

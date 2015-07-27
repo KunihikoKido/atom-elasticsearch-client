@@ -19,6 +19,9 @@ expandAction = (doc) ->
 module.exports =
 class HelperReindex extends CreateCommand
 
+  isEnabled: ->
+    return true
+
   reindex: (client, index, {scroll}={}) ->
     lodingView = new LoadingView()
     success = 0

@@ -5,6 +5,9 @@ config = require '../config'
 module.exports =
 class SwitchServer extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({item}={})->
     if item is undefined
       return showSwitchServerListView((item) ->

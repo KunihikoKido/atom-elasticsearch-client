@@ -6,6 +6,9 @@ dialog = require '../dialog'
 module.exports =
 class DeleteSearchTemplate extends DeleteCommand
 
+  isEnabled: ->
+    return true
+
   run: ({id}={}) ->
     if not id
       return showSearchTemplateListView(@client, (item) ->

@@ -5,6 +5,9 @@
 module.exports =
 class IndicesRefresh extends CreateCommand
 
+  isEnabled: ->
+    return true
+
   run: ({index}={})->
     if not index
       options =

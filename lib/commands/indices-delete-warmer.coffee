@@ -6,6 +6,9 @@ dialog = require '../dialog'
 module.exports =
 class IndicesDeleteWarmer extends DeleteCommand
 
+  isEnabled: ->
+    return true
+
   run: ({name}={}) ->
     if not name
       return showWarmersListView(@client, index: @index, (item) ->

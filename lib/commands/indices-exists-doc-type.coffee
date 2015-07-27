@@ -6,6 +6,9 @@ dialog = require '../dialog'
 module.exports =
 class IndicesExistsDocType extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({docType}={}) ->
     if not docType
       return new InputView(

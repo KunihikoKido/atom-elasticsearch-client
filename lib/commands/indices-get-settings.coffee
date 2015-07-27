@@ -5,6 +5,9 @@
 module.exports =
 class IndicesGetSettings extends BaseCommand
 
+  isEnabled: ->
+    return true
+
   run: ({index}={})->
     if not index
       options =
@@ -14,7 +17,6 @@ class IndicesGetSettings extends BaseCommand
         new IndicesGetSettings(index: item.index)
       )
 
-    console.log(index)
     options =
       index: index
 
