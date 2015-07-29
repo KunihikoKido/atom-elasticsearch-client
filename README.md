@@ -238,6 +238,7 @@ Currently this should work in ``.json`` file or Supported Grammars.
 ## Recommended Atom Packages for Elasticsearch Developers
 
 * [atom-beautify](https://atom.io/packages/atom-beautify) (by Glavin001) - Pretty your Query DSL.
+* [drop-base64-encoding](https://atom.io/packages/drop-base64-encoding) (by KunihikoKido) - Convert to base64 encoded string for Elasticsearch Attachment Type
 * [find-json](https://atom.io/packages/find-json) (by KunihikoKido) - JSON Path finder
 * [flatten-json](https://atom.io/packages/flatten-json) (by KunihikoKido) - Flatten (Unflatten) JSON Converter
 * [linter-jsonlint](https://atom.io/packages/linter-jsonlint) (by AtomLinter) - The JSON Validator.
