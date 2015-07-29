@@ -237,7 +237,8 @@ Currently this should work in ``.json`` file or Supported Grammars.
 
 ## Recommended Atom Packages for Elasticsearch Developers
 
-* [mustache-compiler](https://atom.io/packages/mustache-compiler) (by kwkoizumi) - Compile your Search Templates.
 * [atom-beautify](https://atom.io/packages/atom-beautify) (by Glavin001) - Pretty your Query DSL.
-* [Linter](https://atom.io/packages/linter) (by AtomLinter)
-  * [linter-jsonlint](https://atom.io/packages/linter-jsonlint) (by AtomLinter) - The JSON Validator.
+* [find-json](https://atom.io/packages/find-json) (by KunihikoKido) - JSON Path finder
+* [flatten-json](https://atom.io/packages/flatten-json) (by KunihikoKido) - Flatten (Unflatten) JSON Converter
+* [linter-jsonlint](https://atom.io/packages/linter-jsonlint) (by AtomLinter) - The JSON Validator.
+* [mustache-compiler](https://atom.io/packages/mustache-compiler) (by kwkoizumi) - Compile your Search Templates.
