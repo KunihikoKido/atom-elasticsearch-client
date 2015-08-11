@@ -51,6 +51,11 @@ Settings (Atom/Open Your Config). edit ``config.cson``
 
 You can switch the server, use ``Elasticsearch: Settings Switch Server`` command.
 
+### Supported Elasticsearch Versions
+![Supporting Elasticsearch Version 0.90 to 1.7](http://img.shields.io/badge/elasticsearch-0.90--1.7-green.svg?style=flat-square)
+
+Set the apiVersion option. To tell the client which version of Elastisearch you are using. Default to 1.7
+
 ## Snippets
 Currently this should work in ``.json`` file or Supported Grammars.
 

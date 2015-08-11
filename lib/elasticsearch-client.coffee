@@ -149,7 +149,7 @@ module.exports =
       description: 'Elasticsearch document type for items'
     apiVersion:
       type: 'string'
-      default: '1.6'
+      default: '1.7'
       description: 'Change the API that they client provides,
       specify the major version of the Elasticsearch nodes
       you will be connecting to.'
