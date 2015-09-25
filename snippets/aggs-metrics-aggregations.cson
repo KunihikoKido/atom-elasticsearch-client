@@ -1,0 +1,166 @@
+'.source.json':
+  'Avg Aggregation':
+    'prefix': 'aggs:avg'
+    'body': """
+      "aggs": {
+        "${1:avg_grade}": {
+          "avg": {
+            "field": "${2:grade}"
+          }
+        }
+      }$3
+    """
+  'Cardinality Aggregation':
+    'prefix': 'aggs:cardinality'
+    'body': """
+      "aggs": {
+        "${1:author_count}": {
+          "cardinality": {
+            "field": "${2:author}"
+          }
+        }
+      }$3
+    """
+  'Extended Stats Aggregation':
+    'prefix': 'aggs:extended_stats'
+    'body': """
+      "aggs": {
+        "${1:grades_stats}": {
+          "extended_stats": {
+            "field": "${2:grade}"
+          }
+        }
+      }$3
+    """
+  'Geo Bounds Aggregation':
+    'prefix': 'aggs:geo_bounds'
+    'body': """
+      "aggs": {
+        "${1:viewport}": {
+          "geo_bounds": {
+            "field": "${2:location}",
+            "wrap_longitude": ${3:true}
+          }
+        }
+      }$4
+    """
+  'Max Aggregation':
+    'prefix': 'aggs:max'
+    'body': """
+      "aggs": {
+        "${1:max_price}": {
+          "max": {
+            "field": "${2:price}"
+          }
+        }
+      }$3
+    """
+  'Min Aggregation':
+    'prefix': 'aggs:min'
+    'body': """
+      "aggs": {
+        "${1:min_price}": {
+          "min": {
+            "field": "${2:price}"
+          }
+        }
+      }$3
+    """
+  'Percentiles Aggregation':
+    'prefix': 'aggs:percentiles'
+    'body': """
+      "aggs": {
+        "${1:load_time_outlier}": {
+          "percentiles": {
+            "field": "${2:load_time}"
+          }
+        }
+      }$3
+    """
+  'Percentile Ranks Aggregation':
+    'prefix': 'aggs:percentile_ranks'
+    'body': """
+      "aggs": {
+        "${1:load_time_outlier}": {
+          "percentile_ranks": {
+            "field": "${2:load_time}",
+            "values" : [${3:15, 30}]
+          }
+        }
+      }$4
+    """
+  'Scripted Metric Aggregation':
+    'prefix': 'aggs:scripted_metric'
+    'body': """
+      "aggs": {
+        "${1:profit}": {
+          "scripted_metric": {
+            "init_script": {
+              ${2:"file": "my_init_script"}
+            },
+            "map_script": {
+              ${3:"file": "my_map_script"}
+            },
+            "combine_script": {
+              ${4:"file": "my_combine_script"}
+            },
+            "params": {
+              ${5:"field": "amount"}
+            },
+            "reduce_script": {
+              ${6:"file": "my_reduce_script"}
+            }
+          }
+        }
+      }$7
+    """
+  'Stats Aggregation':
+    'prefix': 'aggs:stats'
+    'body': """
+      "aggs": {
+        "${1:stats_grade}": {
+          "stats": {
+            "field": "${2:grade}"
+          }
+        }
+      }$3
+    """
+  'Sum Aggregation':
+    'prefix': 'aggs:sum'
+    'body': """
+      "aggs": {
+        "${1:intraday_return}": {
+          "sum": {
+            "field": "${2:change}"
+          }
+        }
+      }$3
+    """
+  'Top hits Aggregation':
+    'prefix': 'aggs:top_hits'
+    'body': """
+      "aggs": {
+        "${1:top_tag_hits}": {
+          "top_hits": {
+            "sort": [
+              ${2:\\{"last_activity_date": \\{"order": "desc"\\}\\}}
+            ],
+            "_source": {
+              "include": [${3:"title"}]
+            },
+            "size": ${4:1}
+          }
+        }
+      }$5
+    """
+  'Value Count Aggregation':
+    'prefix': 'aggs:value_count'
+    'body': """
+      "aggs": {
+        "${1:grades_count}": {
+          "value_count": {
+            "field": "${2:grade}"
+          }
+        }
+      }$3
+    """
