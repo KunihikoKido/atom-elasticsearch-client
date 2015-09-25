@@ -1,0 +1,79 @@
+'.source.json':
+  'GeoShape Query':
+    'prefix': 'match_all'
+    'body': """
+      "geo_shape": {
+        "${1:location}": {
+          "shape": {
+            "type": "envelope",
+            "coordinates": [
+              ${2:[13.0, 53.0], [14.0, 52.0]}
+            ]
+          }
+        }
+      }$3
+    """
+  'Geo Bounding Box Query':
+    'prefix': 'geo_bounding_box'
+    'body': """
+      "geo_bounding_box": {
+        "${1:pin.location}": {
+          "top_left": {
+            "lat": ${2:40.73},
+            "lon": ${3:-74.1}
+          },
+          "bottom_right": {
+            "lat": ${4:40.01},
+            "lon": ${5:-71.12}
+          }
+        }
+      }$6
+    """
+  'Geo Distance Query':
+    'prefix': 'geo_distance'
+    'body': """
+      "geo_distance": {
+        "distance": "${1:200km}",
+        "${2:pin.location}": {
+          "lat": ${3:40},
+          "lon": ${4:-70}
+        }
+      }$5
+    """
+  'Geo Distance Range Query':
+    'prefix': 'geo_distance_range'
+    'body': """
+      "geo_distance_range": {
+        "from": "${1:200km}",
+        "to": "${2:400km}",
+        "${3:pin.location}": {
+          "lat": ${4:40},
+          "lon": ${5:-70}
+        }
+      }
+    """
+  'Geo Polygon Query':
+    'prefix': 'geo_polygon'
+    'body': """
+      "geo_polygon": {
+        "${1:person.location}": {
+          "points": [
+            ${2:\\{"lat": 40, "lon": -70\\}},
+            ${3:\\{"lat": 30, "lon": -80\\}},
+            ${4:\\{"lat": 20, "lon": -90\\}}
+          ]
+        }
+      }$5
+    """
+  'Geohash Cell Query':
+    'prefix': 'geohash_cell'
+    'body': """
+      "geohash_cell": {
+        "${1:pin}": {
+          "lat": ${2:13.4080},
+          "lon": ${3:52.5186}
+        },
+        "precision": ${4:3},
+        "neighbors": ${5:true}
+      }$6
+    """

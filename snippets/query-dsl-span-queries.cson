@@ -1,0 +1,109 @@
+'.source.json':
+  'Span Term Query':
+    'prefix': 'span_term'
+    'body': """
+      "span_term": {
+        {"${1:user}": "${2:kimchy}"}
+      }$3
+    """
+  'Span Multi Term Query':
+    'prefix': 'span_multi'
+    'body': """
+      "span_multi": {
+        "match":{
+          ${1:"prefix": \\{"user": \\{"value": "ki"\\}\\}}
+        }
+      }$2
+    """
+  'Span First Query':
+    'prefix': 'span_first'
+    'body': """
+      "span_first": {
+        "match": {
+          ${1:"span_term": \\{"user": "kimchy"\\}}
+        },
+        "end": ${2:3}
+      }$3
+    """
+  'Span Near Query':
+    'prefix': 'span_near'
+    'body': """
+      "span_near": {
+        "clauses": [
+          ${1:\\{"span_term": \\{"field": "value1"\\}\\}},
+          ${2:\\{"span_term": \\{"field": "value2"\\}\\}},
+          ${3:\\{"span_term": \\{"field": "value3"\\}\\}}
+        ],
+        "slop": ${4:12},
+        "in_order": ${5:false},
+        "collect_payloads": ${6:false}
+      }$7
+    """
+  'Span Or Query':
+    'prefix': 'span_or'
+    'body': """
+      "span_or": {
+        "clauses": [
+          ${1:\\{"span_term": \\{"field": "value1"\\}\\}},
+          ${2:\\{"span_term": \\{"field": "value2"\\}\\}},
+          ${3:\\{"span_term": \\{"field": "value3"\\}\\}}
+        ]
+      }$4
+    """
+  'Span Not Query':
+    'prefix': 'span_not'
+    'body': """
+      "span_not": {
+        "include": {
+          ${1:"span_term": \\{"field1": "hoya"\\}}
+        },
+        "exclude": {
+          "span_near": {
+            "clauses": [
+              ${2:\\{"span_term": \\{"field1": "la"\\}\\}},
+              ${3:\\{"span_term": \\{"field1": "hoya"\\}\\}}
+            ],
+            "slop": ${4:0},
+            "in_order": ${5:true}
+          }
+        }
+      }$6
+    """
+  'Span Containing Query':
+    'prefix': 'span_containing'
+    'body': """
+      "span_containing": {
+        "little": {
+          ${1:"span_term": \\{"field1": "foo"\\}}
+        },
+        "big": {
+          "span_near": {
+            "clauses": [
+              ${2:\\{"span_term": \\{"field1": "bar"\\}\\}},
+              ${3:\\{"span_term": \\{"field1": "baz"\\}\\}}
+            ],
+            "slop": ${4:5},
+            "in_order": ${5:true}
+          }
+        }
+      }$6
+    """
+  'Span Within Query':
+    'prefix': 'span_within'
+    'body': """
+      "span_within": {
+        "little": {
+          ${1:"span_term": \\{"field1": "foo"\\}}
+        },
+        "big": {
+          "span_near": {
+            "clauses": [
+              ${2:\\{"span_term": \\{"field1": "bar"\\}\\}},
+              ${3:\\{"span_term": \\{"field1": "baz"\\}\\}}
+            ],
+            "slop": ${4:5},
+            "in_order": ${5:true}
+          }
+        }
+      }$6
+    """

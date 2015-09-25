@@ -1,0 +1,81 @@
+'.source.json':
+  'Term Query':
+    'prefix': 'term'
+    'body': """
+      "term": {
+        "${1:user}": "${2:Kimchy}"
+      }$3
+    """
+  'Terms Query':
+    'prefix': 'terms'
+    'body': """
+      "terms": {
+        "${1:user}": [${2:"kimchy", "elasticsearch"}]$3
+      }$4
+    """
+  'Range Query':
+    'prefix': 'range'
+    'body': """
+      "range": {
+        "${1:age}": {
+          "gte": ${2:10}, "lte": ${3:20}
+        }
+      }$4
+    """
+  'Exists Query':
+    'prefix': 'exists'
+    'body': """
+      "exists": {
+        "field": "${1:user}"
+      }$2
+    """
+  'Missing Query':
+    'prefix': 'missing'
+    'body': """
+      "missing": {
+        "field": "${1:user}"
+      }$2
+    """
+  'Prefix Query':
+    'prefix': 'prefix'
+    'body': """
+      "prefix": {
+        "${1:user}": "${2:ki}"
+      }$3
+    """
+  'Wildcard Query':
+    'prefix': 'wildcard'
+    'body': """
+      "wildcard": {
+        "${1:user}": "${2:ki*y}"
+      }$3
+    """
+  'Regexp Query':
+    'prefix': 'regexp'
+    'body': """
+      "regexp": {
+        "${1:name.first}": "${2:s.*y}"
+      }$3
+    """
+  'Fuzzy Query':
+    'prefix': 'fuzzy'
+    'body': """
+      "regexp": {
+        "${1:user}": "${2:ki}"
+      }$3
+    """
+  'Type Query':
+    'prefix': 'type'
+    'body': """
+      "type": {
+        "value": "${1:my_type}"
+      }$2
+    """
+  'Ids Query':
+    'prefix': 'ids'
+    'body': """
+      "ids": {
+        "type": "${1:my_type}",
+        "values": [${2:"1", "4", "100"}]
+      }$3
+    """

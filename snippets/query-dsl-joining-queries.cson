@@ -1,0 +1,37 @@
+'.source.json':
+  'Nested Query':
+    'prefix': 'nested'
+    'body': """
+      "nested": {
+        "path": "${1:obj1}",
+        "score_mode": "${2:avg}",
+        "query": {
+          "bool": {
+            "must": [
+              ${2:\\{"match": \\{"obj1.name": "blue"\\}\\}},
+              ${3:\\{"range": \\{"obj1.count": \\{"gt": 5\\}\\}\\}}
+            ]
+          }
+        }
+      }
+    """
+  'Has Child Query':
+    'prefix': 'has_child'
+    'body': """
+      "has_child": {
+        "type": "${1:blog_tag}",
+        "query": {
+          ${2:"term": \\{"tag": "something"\\}}
+        }
+      }
+    """
+  'Has Parent Query':
+    'prefix': 'has_parent'
+    'body': """
+      "has_parent": {
+        "parent_type": "${1:blog}",
+        "query": {
+          ${2:"term": \\{"tag": "something"\\}}
+        }
+      }
+    """

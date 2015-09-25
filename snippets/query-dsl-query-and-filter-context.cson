@@ -1,0 +1,7 @@
+'.source.json':
+  'Query context':
+    'prefix': 'query'
+    'body': '"query": {$1}$2'
+  'Filter context':
+    'prefix': 'filter'
+    'body': '"filter": {$1}$2'

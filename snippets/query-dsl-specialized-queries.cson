@@ -1,0 +1,35 @@
+'.source.json':
+  'More Like This Query':
+    'prefix': 'more_like_this'
+    'body': """
+      "more_like_this": {
+        /*
+          WARNING! Deprecated in 2.0.0-beta1.
+          like_text, docs and ids parameters are Replaced by like.
+        */
+        "fields": [${1:"title", "description"}],
+        "like": "${2:Once upon a time}",
+        "min_term_freq": ${3:1},
+        "max_query_terms": ${4:12}
+      }$5
+    """
+  'Template Query':
+    'prefix': 'template'
+    'body': """
+      "template": {
+        "inline": {
+          ${1:"match": \\{"text": "\\{\\{query_string\\}\\}"\\}}
+        },
+        "params": {
+          ${2:"query_string": "all about search"}
+        }
+      }$3
+    """
+  'Script Query':
+    'prefix': 'script'
+    'body': """
+      "script": {
+        "lang": "${1:groovy}",
+        "script": "${2:doc['num1'].value > 1}"
+      }
+    """

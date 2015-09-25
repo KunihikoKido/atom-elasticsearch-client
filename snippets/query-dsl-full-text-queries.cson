@@ -1,0 +1,58 @@
+'.source.json':
+  'Match Query':
+    'prefix': 'match'
+    'body': """
+      "match": {
+        "${1:message}": "${2:this is a test}"
+      }$3
+    """
+  'Match Phrase Query':
+    'prefix': 'match_phrase'
+    'body': """
+      "match_phrase": {
+        "${1:message}": "${2:this is a test}"
+      }$3
+    """
+  'Match Phrase Prefix Query':
+    'prefix': 'match_phrase_prefix'
+    'body': """
+      "match_phrase_prefix": {
+        "${1:message}": "${2:this is a test}"
+      }$3
+    """
+  'Multi Match Query':
+    'prefix': 'match'
+    'body': """
+      "multi_match": {
+        "query": "${1:this is a test}",
+        "fields": [${2:"subject", "message"}]
+      }$3
+    """
+  'Common Terms Query':
+    'prefix': 'common'
+    'body': """
+      "common": {
+        "${1:body}": {
+          "query": "${2:this is bonsai cool}",
+          "cutoff_frequency": ${3:0.001}
+        }
+      }$4
+    """
+  'Query String Query':
+    'prefix': 'query_string'
+    'body': """
+      "query_string": {
+        "fields": [${1:"content", "name"}],
+        "query": "${2:this AND that}"
+      }$3
+    """
+  'Simple Query String Query':
+    'prefix': 'simple_query_string'
+    'body': """
+      "simple_query_string": {
+        "query": "${1:fried eggs +(eggplant | potato) -frittata}",
+        "analyzer": "${2:snowball}",
+        "fields": [${3:"body^5", "_all"}],
+        "default_operator": "${4:and}"
+      }$5
+    """

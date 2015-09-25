@@ -1,0 +1,101 @@
+'.source.json':
+  'From / Size':
+    'prefix': 'fromsize'
+    'body': '"from": ${1:0}, "size": ${2:10}$3'
+  'Sort':
+    'prefix': 'sort'
+    'body': """
+      "sort": [
+        ${1:"_score", \\{"age": "desc"\\}}
+      ]$2
+    """
+  'Source filtering':
+    'prefix': '_source'
+    'body': """
+      "_source": [
+        ${1:"obj1.*", "obj2.*"}
+      ]$2
+    """
+  'Fields':
+    'prefix': 'fields'
+    'body': """
+      "fields": [
+        ${1:"user", "postDate"}
+      ]$2
+    """
+  'Script Fields':
+    'prefix': 'script_fields'
+    'body': """
+      "script_fields": {
+        "${1:my_field}": {
+          "lang": "${2:groovy}",
+          "file": "${3:my_script}"
+        }$4
+      }$5
+    """
+  'Field Data Fields':
+    'prefix': 'fielddata_fields'
+    'body': """
+      "fielddata_fields": [
+        ${1:"user", "postDate"}
+      ]$2
+    """
+  'Post Filter':
+    'prefix': 'post_filter'
+    'body': """
+      "post_filter": {
+        ${1:"term": \\{"color": "red"\\}}
+      }$2
+    """
+  'Highlighting':
+    'prefix': 'highlight'
+    'body': """
+      "highlight": {
+        "pre_tags": [${1:"<em>"}],
+        "post_tags": [${2:"</em>"}],
+        "fields": {
+          "${3:content}": {
+            "fragment_size": ${4:100},
+            "number_of_fragments": ${5:5},
+            "no_match_size": ${6:0}
+          }
+        }
+      }$7
+    """
+  'Rescoring':
+    'prefix': 'rescore'
+    'body': """
+      "rescore": {
+        "window_size": ${1:50},
+        "query": {
+          "rescore_query": {
+            ${2:"match": \\{"message": "this is a test"\\}}
+          },
+          "query_weight": ${3:0.7},
+          "rescore_query_weight": ${4:1.2}
+        }
+      }$5
+    """
+  'Explain':
+    'prefix': 'explain'
+    'body': '"explain": ${1:true}$2'
+  'Version':
+    'prefix': 'version'
+    'body': '"version": ${1:true}$2'
+  'Index Boost':
+    'prefix': 'indices_boost'
+    'body': """
+      "indices_boost": {
+        "${1:index1}": ${2:1.4},
+        "${3:index2}": ${4:1.3}
+      }$5
+    """
+  'Min Score':
+    'prefix': 'min_score'
+    'body': '"min_score": ${1:0.5}$2'
+  'Named Query':
+    'prefix': '_name'
+    'body': '"_name": "${1:test}"$2'
+  'Inner hits':
+    'prefix': 'inner_hits'
+    'body': '"inner_hits": {$1}$2'
