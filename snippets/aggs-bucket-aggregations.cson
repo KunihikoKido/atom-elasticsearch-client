@@ -1,0 +1,217 @@
+'.source.json':
+  'Children Aggregation':
+    'prefix': 'aggs:children'
+    'body': """
+      "aggs": {
+        "${1:top_answers}": {
+          "children": {
+            "type": "${2:answer}"
+          }$3
+        }
+      }$4
+    """
+  'Date Histogram Aggregation':
+    'prefix': 'aggs:date_histogram'
+    'body': """
+      "aggs": {
+        "${1:articles_over_time}": {
+          "date_histogram": {
+            "field": "${2:date}",
+            "interval": "${3:month}"
+          }
+        }
+      }$4
+    """
+  'Date Range Aggregation':
+    'prefix': 'aggs:date_range'
+    'body': """
+      "aggs": {
+        "${1:range}": {
+          "date_range": {
+            "field": "${2:date}",
+            "format": "${3:MM-yyy}",
+            "ranges": [
+              ${4:\\{"to": "now-10M/M"\\}},
+              ${5:\\{"from": "now-10M/M"\\}}
+            ]
+          }
+        }
+      }$6
+    """
+  'Filter Aggregation':
+    'prefix': 'aggs:filter'
+    'body': """
+      "aggs": {
+        "${1:red_products}": {
+          "filter": {
+            ${2:"term": {"color": "red"}}
+          },
+          ${3:"aggs": \\{"avg_price": \\{"avg": \\{"field": "price"\\}\\}\\}}
+        }
+      }$4
+    """
+  'Filters Aggregation':
+    'prefix': 'aggs:filters'
+    'body': """
+      "aggs": {
+        "${1:messages}": {
+          "filters": {
+            "filters": {
+              ${2:"errors": \\{"term": \\{"body": "error"\\}\\}},
+              ${3:"warnings": \\{ "term": \\{"body": "warning"\\}\\}}
+            }
+          },
+          ${4:"aggs": \\{"monthly": \\{"histogram": \\{"field": "timestamp", "interval": "1M"\\}\\}\\}}
+        }
+      }$5
+    """
+  'Geo Distance Aggregation':
+    'prefix': 'aggs:geo_distance'
+    'body': """
+      "aggs": {
+        "${1:rings_around_amsterdam}": {
+          "geo_distance": {
+            "field": "${2:location}",
+            "origin": "${3:52.3760, 4.894}",
+            "ranges": [
+              ${4:\\{"to": 100\\}},
+              ${5:\\{"from": 100, "to": 300\\}},
+              ${6:\\{"from": 300\\}}
+            ]
+          }$7
+        }
+      }$8
+    """
+  'GeoHash grid Aggregation':
+    'prefix': 'aggs:geohash_grid'
+    'body': """
+      "aggs": {
+        "${1:myLarge-GrainGeoHashGrid}": {
+          "geohash_grid": {
+            "field": "${2:location}",
+            "precision": ${3:3}
+          }
+        }
+      }$4
+    """
+  'Global Aggregation':
+    'prefix': 'aggs:global'
+    'body': """
+      "aggs": {
+        "${1:all_products}": {
+          "global": {},
+          ${2:"aggs": \\{"avg_price": \\{"avg": \\{"field": "price"\\}\\}\\}}
+        }
+      }$3
+    """
+  'Histogram Aggregation':
+    'prefix': 'aggs:histogram'
+    'body': """
+      "aggs": {
+        "${1:prices}": {
+          "histogram": {
+            "field": "${2:price}",
+            "interval": ${3:50}
+          }
+        }
+      }$4
+    """
+  'IPv4 Range Aggregation':
+    'prefix': 'aggs:ip_range'
+    'body': """
+      "aggs": {
+        "${1:ip_ranges}": {
+          "ip_range": {
+            "field": "${2:ip}",
+            "ranges": [
+              ${3:{"to": "10.0.0.5"}},
+              ${4:{"from": "10.0.0.5"}}
+            ]
+          }
+        }
+      }$5
+    """
+  'Missing Aggregation':
+    'prefix': 'aggs:missing'
+    'body': """
+      "aggs": {
+        "${1:products_without_a_price}": {
+          "missing": {
+            "field": "${2:price}"
+          }
+        }
+      }$3
+    """
+  'Nested Aggregation':
+    'prefix': 'aggs:nested'
+    'body': """
+      "aggs": {
+        "${1:resellers}": {
+          "nested": {
+            "path": "${2:resellers}"
+          },
+          ${3:"aggs": \\{"min_price": \\{"min": \\{"field": "resellers.price"\\}\\}\\}}
+        }
+      }$4
+    """
+  'Range Aggregation':
+    'prefix': 'aggs:range'
+    'body': """
+      "aggs": {
+        "${1:price_ranges}": {
+          "range": {
+            "field": "${2:price}",
+            "ranges": [
+              ${3:\\{"to": 50\\}},
+              ${4:\\{"from": 50, "to": 100\\}},
+              ${5:\\{"from": 100\\}}
+            ]
+          }
+        }
+      }$6
+    """
+  'Reverse nested Aggregation':
+    'prefix': 'aggs:reverse_nested'
+    'body': """
+      "aggs": {
+        "${1:comment_to_issue}": {
+          "reverse_nested": {},
+          ${2:"aggs": \\{"top_tags_per_comment": \\{"terms": \\{"field": "tags"\\}\\}\\}}
+        }
+      }$3
+    """
+  'Sampler Aggregation':
+    'prefix': 'aggs:sampler'
+    'body': """
+      "aggs": {
+        "${1:sample}": {
+          "sampler": {
+            "shard_size": ${2:200},
+            "field" : "${3:user.id}"
+          },
+          ${4:"aggs": \\{"keywords": \\{"significant_terms": \\{"field": "text"\\}\\}\\}}
+        }
+      }$5
+    """
+  'Significant Terms Aggregation':
+    'prefix': 'aggs:significant_terms'
+    'body': """
+      "aggs": {
+        "${1:significantCrimeTypes}": {
+          "significant_terms": {
+            "field": "${2:crime_type}"
+          }
+        }
+      }$3
+    """
+  'Terms Aggregation':
+    'prefix': 'aggs:terms'
+    'body': """
+      "aggs": {
+        "${1:genders}": {
+          "terms": {
+            "field": "${2:gender}"
+          }
+        }
+      }$3
+    """
