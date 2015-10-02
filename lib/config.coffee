@@ -46,9 +46,11 @@ module.exports =
     atom.config.get("#{@namespace}.benchmarkMinSamples")
 
   getHeaders: ->
-    headers =
-      "Authorization": atom.config.get("#{@namespace}.authorizationHeader")
-      "User-Agent": atom.config.get("#{@namespace}.userAgent")
+    headers = {}
+    if atom.config.get("#{@namespace}.authorizationHeader")
+      headers['Authorization'] = atom.config.get("#{@namespace}.authorizationHeader")
+    if atom.config.get("#{@namespace}.userAgent")
+      headers['User-Agent'] = atom.config.get("#{@namespace}.userAgent")
     return headers
 
 
@@ -70,14 +72,19 @@ module.exports =
 
     hostOptions = {}
     host = url.parse(@getBaseUrl())
+    host.protocol = host.protocol.replace(':', '')
+
+    if host.port is null
+      if host.protocol is 'http'
+        host.port = '80'
+      else
+        host.port = '443'
+
+    hostOptions.protocol = host.protocol
     hostOptions.host    = host.hostname
-    hostOptions.port    = host.port ?= "80"
+    hostOptions.port    = host.port
     hostOptions.path    = host.path
-    hostOptions.headers = {}
-    hostOptions.headers["Authorization"] =
-      atom.config.get("#{@namespace}.authorizationHeader")
-    hostOptions.headers["User-Agent"] =
-      atom.config.get("#{@namespace}.userAgent")
+    hostOptions.headers = @getHeaders()
 
     options = {}
     options.host            = hostOptions
