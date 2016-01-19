@@ -1,5 +1,6 @@
+{allowUnsafeNewFunction} = require 'loophole'
 fs = require 'fs-plus'
-Promise = require 'promise'
+Promise =  require 'promise'
 
 {BaseCommand} = require './base'
 {showIndicesListView} = require '../views/indices-list-view'
@@ -8,7 +9,7 @@ LoadingView = require '../views/loading-view'
 dialog = require "../dialog"
 chunk = require "chunk"
 
-readFile = Promise.denodeify(fs.readFile)
+readFile = allowUnsafeNewFunction -> Promise.denodeify(fs.readFile)
 
 
 expandAction = (doc) ->

@@ -1,6 +1,6 @@
 fs = require 'fs-plus'
-Promise = require 'promise'
 {allowUnsafeNewFunction} = require 'loophole'
+Promise = require 'promise'
 CSV = require 'comma-separated-values'
 {CreateCommand} = require './base'
 {showIndicesListView} = require '../views/indices-list-view'
@@ -10,7 +10,7 @@ LoadingView = require '../views/loading-view'
 dialog = require "../dialog"
 chunk = require "chunk"
 
-readFile = Promise.denodeify(fs.readFile)
+readFile = allowUnsafeNewFunction -> Promise.denodeify(fs.readFile)
 
 
 module.exports =
