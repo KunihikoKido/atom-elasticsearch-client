@@ -79,7 +79,7 @@
           ${1:"match": \{"tweet": "full text search"\}}
         },
         "filter": {
-          ${2:"range": \{"created": \{"gte": "now -1d / d"\}\}}
+          ${2:"range": \{"created": \{"gte": "now-1d/d"\}\}}
         }
       }$3
     """
@@ -226,7 +226,7 @@
     "prefix": "simple_query_string_query"
     "body": """
       "simple_query_string": {
-        "query": "${1:\"fried eggs\" +(eggplant | potato) -frittata}",
+        "query": "${1:\\\\"fried eggs\\\\" +(eggplant | potato) -frittata}",
         "fields": [${2:"body^5","_all"}],
         "default_operator": "${3:and}"
       }$4
