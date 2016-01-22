@@ -1,6 +1,5 @@
 Os = require 'os'
 Path = require 'path'
-fs = require 'fs-plus'
 
 notifications = require '../notifications'
 config = require '../config'
@@ -56,10 +55,15 @@ class BaseCommand
     if typeof response is 'object'
       response = JSON.stringify(response, null, '\t')
 
-    fs.writeFileSync(resultJsonFilePath, response, flag: 'w+')
+    options =
+      split: if config.getOpenInPane() then config.getSplitPane()
+      activatePane: false
 
-    split = if config.getOpenInPane() then config.getSplitPane()
-    atom.workspace.open(resultJsonFilePath, split: split, activatePane: true)
+    atom.workspace.open(resultJsonFilePath, options).then((editor) ->
+      editor.setText(response)
+      editor.setCursorScreenPosition([0, 0])
+      editor.save()
+    )
 
   run: (args...) ->
     throw new Error("Subclass must implement a run(args...) method")
