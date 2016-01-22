@@ -50,6 +50,9 @@ class BaseCommand
     text = editor.getSelectedText() or editor.getText()
 
   showResult: (error, response) ->
+    if error and response is undefined
+      return notifications.addError("#{error}", stack: error.stack, dismissable: true)
+
     if typeof response is 'object'
       response = JSON.stringify(response, null, '\t')
 
