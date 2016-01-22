@@ -136,18 +136,22 @@ HelperBenchmark            = require './commands/helper-benchmark'
 module.exports =
   config:
     baseUrl:
+      title: 'Elasticsearch Server'
       type: 'string'
       default: 'http://localhost:9200'
-      description: 'Elasticsearch server endpoint url'
+      description: 'The URL of the server for your elasticsearch.'
     index:
+      title: 'Elasticsearch Index'
       type: 'string'
       default: 'blog'
-      description: 'Elasticsearch index for items'
+      description: 'The name of the index for your elasticsearch.'
     docType:
+      title: 'Elasticsearch Type'
       type: 'string'
       default: 'posts'
-      description: 'Elasticsearch document type for items'
+      description: 'The type of the document for your elasticsearch.'
     apiVersion:
+      title: 'Elasticsearch API Version'
       type: 'string'
       default: '1.7'
       description: 'Change the API that they client provides,
