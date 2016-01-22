@@ -50,9 +50,6 @@ class BaseCommand
     text = editor.getSelectedText() or editor.getText()
 
   showResult: (error, response) ->
-    if error
-      return notifications.addError("#{error}", stack: error.stack, dismissable: true)
-
     if typeof response is 'object'
       response = JSON.stringify(response, null, '\t')
 
@@ -76,14 +73,6 @@ class CatBaseCommand extends BaseCommand
 
 class CreateCommand extends BaseCommand
 
-  showResult: (error, response) ->
-    if error
-      return notifications.addError("#{error}", dismissable: true)
-
-    if typeof response is 'object'
-      response = JSON.stringify(response, null, '  ')
-
-    notifications.addInfo(response, dismissable: false)
 
 class DeleteCommand extends CreateCommand
   confirm: true
