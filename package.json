@@ -156,16 +156,16 @@
   },
   "dependencies": {
     "space-pen": "^5.1.2",
-    "atom-space-pen-views": "^2.1.1",
-    "fs-plus": "^2.8.1",
+    "atom-space-pen-views": "^2.2.0",
+    "fs-plus": "^2.8.2",
     "loophole": "^1.1.0",
-    "elasticsearch": "^10.1.2",
+    "elasticsearch": "^11.0.1",
     "comma-separated-values": "^3.6.4",
     "node-uuid": "^1.4.7",
-    "analytics-node": "^2.0.1",
+    "analytics-node": "^2.1.0",
     "promise": "^7.1.1",
     "chunk": "^0.0.2",
-    "api-benchmark": "^0.2.5",
+    "api-benchmark": "^0.4.0",
     "event-kit": "^2.0.0"
   },
   "consumedServices": {
