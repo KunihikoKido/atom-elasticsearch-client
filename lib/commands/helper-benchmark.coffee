@@ -3,7 +3,8 @@ Path = require 'path'
 fs = require 'fs-plus'
 
 remote = require "remote"
-BrowserWindow = remote.require "browser-window"
+# BrowserWindow = remote.require "browser-window"
+BrowserWindow = remote.BrowserWindow
 apiBenchmark = require 'api-benchmark'
 
 {BaseCommand} = require './base'

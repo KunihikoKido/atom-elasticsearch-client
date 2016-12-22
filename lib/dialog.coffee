@@ -1,5 +1,5 @@
 remote = require "remote"
-dialog = remote.require "dialog"
+dialog = remote.Dialog
 
 
 module.exports =
